@@ -1,0 +1,143 @@
+<div class="sidebar">
+    <div class="top_head">
+        <span class="title_text">Vikash enterprizes</span>
+    </div>
+    <div class="menu">
+        <div [ngClass]="'menu_item'">
+
+            <button mat-button class="menu-button" [routerLink]="['dashboard']">
+                <mat-icon>dashboard</mat-icon>
+                <span>Dashboard</span>
+            </button>
+
+            <div>
+                <button mat-button class="menu-button" (click)="report_dropdown()" [routerLink]="['/#']">
+                    <mat-icon>list_alt</mat-icon>
+                    <span>Master Entry</span>
+                    <mat-icon [hidden]="action_icon1">chevron_right</mat-icon>
+                    <mat-icon [hidden]="action_icon2">expand_more</mat-icon>
+                </button>
+
+
+                <div id="dropdown_report">
+                    <button mat-button class="menu-button" [routerLink]="['instbook']">
+                        <mat-icon>list_alt</mat-icon>
+                        <span>Party</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['instnotes']">
+                        <mat-icon>notes</mat-icon>
+                        <span>Unit</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['instsyllabus']">
+                        <mat-icon>style</mat-icon>
+                        <span>GST</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['instquestionbank']">
+                        <mat-icon>question_answer</mat-icon>
+                        <span>Weight</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['instquestionbank']">
+                        <mat-icon>question_answer</mat-icon>
+                        <span>category</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['instquestionbank']">
+                        <mat-icon>question_answer</mat-icon>
+                        <span>Item</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['instquestionbank']">
+                        <mat-icon>question_answer</mat-icon>
+                        <span>Employee</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['instquestionbank']">
+                        <mat-icon>question_answer</mat-icon>
+                        <span>Customber</span>
+                    </button>
+
+
+                </div>
+
+            <div>
+
+            <button mat-button class="menu-button" [routerLink]="['course']">
+                <mat-icon>list_alt</mat-icon>
+                <span>Purchase</span>
+            </button>
+
+            <button mat-button class="menu-button" [routerLink]="['batch']">
+             
+                <mat-icon>list_alt</mat-icon>
+                <span>Sale</span>
+            </button>
+
+            
+            <button mat-button class="menu-button" [routerLink]="['dues']">
+                <mat-icon>redeem</mat-icon>
+                <span>Dues</span>
+            </button>
+
+            <button mat-button class="menu-button" [routerLink]="['take-addmission']">
+                <mat-icon>list_alt</mat-icon>
+                <span> Reciept</span>
+            </button>
+
+            <button mat-button class="menu-button" [routerLink]="['paymentreceived']">
+                <mat-icon>payment</mat-icon>
+                <span>Account</span>
+            </button>
+
+
+            <button mat-button class="menu-button" [routerLink]="['query']">
+                <mat-icon>accessible</mat-icon>
+                <span>Expense</span>
+            </button>
+
+                <div>
+                    <button mat-button class="menu-button" (click)="setting_dropdown()" [routerLink]="['/#']">
+                     
+                        <span>Report</span>
+                        <mat-icon [hidden]="action_icon3">chevron_right</mat-icon>
+                        <mat-icon [hidden]="action_icon4">expand_more</mat-icon>
+                    </button>
+
+                    <div id="dropdown_Report">
+                        
+                    <button mat-button class="menu-button" [routerLink]="['query']">
+                        <mat-icon>accessible</mat-icon>
+                        <span>Purchase</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['query']">
+                        <mat-icon>accessible</mat-icon>
+                        <span>Sele Report</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['query']">
+                        <mat-icon>accessible</mat-icon>
+                        <span>Stock Report</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['query']">
+                        <mat-icon>accessible</mat-icon>
+                        <span>Purchase Cancel</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['query']">
+                        <mat-icon>accessible</mat-icon>
+                        <span>Sale Cancel</span>
+                    </button>
+
+                       
+
+                    </div>
+                </div>
+            </div></div>
+
+           
+               

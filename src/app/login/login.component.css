@@ -179,5 +179,5 @@ span {
 }
 .cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
     animation: cdk-text-field-autofill-end 0s 1ms;
-    margin-left: 20px;
+    margin-left: 26px;
 }

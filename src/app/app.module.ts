@@ -20,13 +20,23 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './login/dashboard/dashboard.component';
+import { HomeComponent } from './login/home/home.component';
+import { SidebarComponent } from './login/sidebar/sidebar.component';
+import { PartyComponent } from './admin/party/party.component';
+import { AddEditPartyComponent } from './admin/add-edit-party/add-edit-party.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    HomeComponent,
+    SidebarComponent,
+    PartyComponent,
+    AddEditPartyComponent,
   ],
   imports: [
     BrowserModule,
