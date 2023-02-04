@@ -1,1 +1,59 @@
-<p>party works!</p>
+<div class="head">
+    <span>party </span>
+    <mat-icon id="add_course" >add_circle</mat-icon>
+  </div>
+  <div class="count_area">
+    <span class="notice_text">Total : 10</span>
+    <div class="search">
+      <input type="text" placeholder="Search" class="search_box" matInput (keyup)="applyFilter($event)" #input>
+    </div>
+  </div>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> S.N. </th>
+        <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nane</th>
+        <td mat-cell *matCellDef="let row"> {{row.name}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Mobile_Number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile Number</th>
+        <td mat-cell *matCellDef="let row"> {{row.Mobile_Number}} </td>
+      </ng-container>
+  
+     <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+        <td mat-cell *matCellDef="let row"> {{row.Address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Contact_person">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact person</th>
+        <td mat-cell *matCellDef="let row"> {{row.Contact_person}}</td>
+      </ng-container>
+  
+    
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon style="cursor: pointer;" (click)="course_edit(row)">edit</mat-icon>
+        </td>
+      </ng-container>
+  
+  
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" id="tbl_hight"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" id="tbl_hight"></tr>
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="9" style="color:silver;">No record found"{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator #paginatorRef [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
