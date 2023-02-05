@@ -16,9 +16,9 @@ export interface UserData {
 }
 
 const UserData: UserData[] = [
-  { id: 1, name: 'Gs Learning', Mobile_Number:9153634848,Address:'rohit@gmail.com',Contact_person:'bhb', },
-  { id: 1, name: 'Gs Learning', Mobile_Number:9153634848,Address:'rohit@gmail.com',Contact_person:'bhb', },
-  { id: 1, name: 'Gs Learning', Mobile_Number:9153634848,Address:'rohit@gmail.com',Contact_person:'bhb', },
+  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
+  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
+  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
 ];
 
 
@@ -49,6 +49,11 @@ export class PartyComponent implements OnInit {
     });
   }
 
+  add_party() {
+    this.dailog.open(AddEditPartyComponent, {
+      disableClose: true
+    });
+  }
   
 
   applyFilter(event: Event) {

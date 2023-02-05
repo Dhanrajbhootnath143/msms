@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
-import { AddUnitComponent } from '../add-unit/add-unit.component';
+import { AddWeightComponent } from '../add-weight/add-weight.component';
 
 export interface UserData {
   id: number;
@@ -21,13 +20,12 @@ const UserData: UserData[] = [
   { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
 ];
 
-
 @Component({
-  selector: 'app-unit',
-  templateUrl: './unit.component.html',
-  styleUrls: ['./unit.component.css']
+  selector: 'app-weight',
+  templateUrl: './weight.component.html',
+  styleUrls: ['./weight.component.css']
 })
-export class UnitComponent implements OnInit {
+export class WeightComponent implements OnInit {
   displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
   dataSource!: MatTableDataSource<UserData>;
 
@@ -44,13 +42,13 @@ export class UnitComponent implements OnInit {
   }
 
   course_edit(row: any) {
-    this.dailog.open(AddUnitComponent, {
+    this.dailog.open(AddWeightComponent, {
       data: row,
     });
   }
 
-  add_party() {
-    this.dailog.open(AddUnitComponent, {
+  add_weight() {
+    this.dailog.open(AddWeightComponent, {
       disableClose: true
     });
   }

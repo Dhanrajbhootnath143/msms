@@ -28,6 +28,11 @@ import { AddEditPartyComponent } from './admin/add-edit-party/add-edit-party.com
 import { UnitComponent } from './admin/unit/unit.component';
 import { AddUnitComponent } from './admin/add-unit/add-unit.component';
 import { GstComponent } from './admin/gst/gst.component';
+import { AddGstComponent } from './admin/add-gst/add-gst.component';
+import { WeightComponent } from './admin/weight/weight.component';
+import { AddWeightComponent } from './admin/add-weight/add-weight.component';
+import { CategoryComponent } from './admin/category/category.component';
+import { AddCategoryComponent } from './admin/add-category/add-category.component';
 
 
 
@@ -43,6 +48,11 @@ import { GstComponent } from './admin/gst/gst.component';
     UnitComponent,
     AddUnitComponent,
     GstComponent,
+    AddGstComponent,
+    WeightComponent,
+    AddWeightComponent,
+    CategoryComponent,
+    AddCategoryComponent,
   ],
   imports: [
     BrowserModule,

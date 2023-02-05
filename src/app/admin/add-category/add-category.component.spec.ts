@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GstComponent } from './gst.component';
+import { AddCategoryComponent } from './add-category.component';
 
-describe('GstComponent', () => {
-  let component: GstComponent;
-  let fixture: ComponentFixture<GstComponent>;
+describe('AddCategoryComponent', () => {
+  let component: AddCategoryComponent;
+  let fixture: ComponentFixture<AddCategoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GstComponent ]
+      declarations: [ AddCategoryComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GstComponent);
+    fixture = TestBed.createComponent(AddCategoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
