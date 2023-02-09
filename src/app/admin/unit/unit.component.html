@@ -1,5 +1,5 @@
 <div class="head">
-  <span>Gst </span>
+  <span>Unit </span>
   <mat-icon id="add_course" (click)="add_party()">add_circle</mat-icon>
 </div>
 <div class="count_area">
@@ -17,26 +17,16 @@
       <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nane</th>
-      <td mat-cell *matCellDef="let row"> {{row.name}}</td>
+    <ng-container matColumnDef="Unit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Unit</th>
+      <td mat-cell *matCellDef="let row"> {{row.Unit}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Mobile_Number">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile Number</th>
-      <td mat-cell *matCellDef="let row"> {{row.Mobile_Number}} </td>
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+      <td mat-cell *matCellDef="let row"> {{row.Description}} </td>
     </ng-container>
-
-    <ng-container matColumnDef="Address">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
-      <td mat-cell *matCellDef="let row"> {{row.Address}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="Contact_person">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact person</th>
-      <td mat-cell *matCellDef="let row"> {{row.Contact_person}}</td>
-    </ng-container>
-
+    
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td mat-cell *matCellDef="let row">

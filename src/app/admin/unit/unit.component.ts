@@ -8,17 +8,16 @@ import { AddUnitComponent } from '../add-unit/add-unit.component';
 
 export interface UserData {
   id: number;
-  name: string;
-  Mobile_Number: number;
-  Address: string;
-  Contact_person:string;
+  Unit: string;
+  Description: string;
+
   
 }
 
 const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
+  { id: 1, Unit: 'kg', Description:'kg', },
+  { id: 1, Unit: 'liter',Description:'liter', },
+  { id: 1, Unit: 'mili garam',Description:'mili garam',},
 ];
 
 
@@ -28,7 +27,7 @@ const UserData: UserData[] = [
   styleUrls: ['./unit.component.css']
 })
 export class UnitComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
+  displayedColumns: string[] = ['id','Unit','Description','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
