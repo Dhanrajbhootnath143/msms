@@ -1,24 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 import { AddWeightComponent } from '../add-weight/add-weight.component';
+
 
 export interface UserData {
   id: number;
-  name: string;
-  Mobile_Number: number;
-  Address: string;
-  Contact_person:string;
-  
+  weight: string;
+  Description: string;
 }
-
 const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
+  { id: 1, weight: 'kg', Description:'kg', },
+  { id: 1, weight: 'liter',Description:'liter', },
+  { id: 1, weight: 'mili garam',Description:'mili garam',},
 ];
+
 
 @Component({
   selector: 'app-weight',
@@ -26,7 +25,7 @@ const UserData: UserData[] = [
   styleUrls: ['./weight.component.css']
 })
 export class WeightComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
+  displayedColumns: string[] = ['id','weight','Description','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -47,7 +46,7 @@ export class WeightComponent implements OnInit {
     });
   }
 
-  add_weight() {
+  add_party() {
     this.dailog.open(AddWeightComponent, {
       disableClose: true
     });

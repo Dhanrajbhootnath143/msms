@@ -8,17 +8,17 @@ import { AddGstComponent } from '../add-gst/add-gst.component';
 
 export interface UserData {
   id: number;
-  name: string;
-  Mobile_Number: number;
-  Address: string;
-  Contact_person:string;
+  gst:number;
+  cgst: number;
+  sgst: number;
+  Description:string;
   
 }
 
 const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
+  { id: 1, gst: 234, cgst:9153634848, sgst: 234,Description:'Gst', },
+  { id: 1, gst: 56757, cgst:9153634848, sgst: 234,Description:'14For more then', },
+  { id: 1, gst: 657, cgst:9153634848, sgst: 234,Description:'Raja', },
 ];
 
 @Component({
@@ -27,7 +27,7 @@ const UserData: UserData[] = [
   styleUrls: ['./gst.component.css']
 })
 export class GstComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
+  displayedColumns: string[] = ['id','gst','cgst','sgst','Description','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

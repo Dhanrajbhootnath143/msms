@@ -4,7 +4,10 @@ import { AddEditPartyComponent } from './admin/add-edit-party/add-edit-party.com
 import { AddGstComponent } from './admin/add-gst/add-gst.component';
 import { AddUnitComponent } from './admin/add-unit/add-unit.component';
 import { CategoryComponent } from './admin/category/category.component';
+import { CustomerComponent } from './admin/customer/customer.component';
+import { EmployeeComponent } from './admin/employee/employee.component';
 import { GstComponent } from './admin/gst/gst.component';
+import { ItemComponent } from './admin/item/item.component';
 import { PartyComponent } from './admin/party/party.component';
 import { UnitComponent } from './admin/unit/unit.component';
 import { WeightComponent } from './admin/weight/weight.component';
@@ -20,17 +23,14 @@ const routes: Routes = [
     children:[
       {path:'',component:DashboardComponent},
       {path:'dashboard',component:DashboardComponent},
-      {path:'',component:AddUnitComponent},
-      {path:'', component:AddEditPartyComponent},
       {path:'party', component:PartyComponent},
       {path:'unit',component:UnitComponent},
       {path:'gst',component:GstComponent},
       {path: 'weight',component:WeightComponent},
-      {path:'category',component:CategoryComponent}
-
-
-      
-
+      {path:'category',component:CategoryComponent},
+      {path:'item',component:ItemComponent},
+      {path:'employee',component:EmployeeComponent},
+      {path:'customer',component:CustomerComponent},
     ]
   }
 ];

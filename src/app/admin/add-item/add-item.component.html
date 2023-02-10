@@ -1,0 +1,19 @@
+<mat-toolbar>
+    <span class="example-spacer">Add Party</span>
+    <mat-icon mat-dialog-close>cancel</mat-icon>
+</mat-toolbar>
+
+<form >
+    <div id="main_area">
+        <div class="box">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Name">
+            </mat-form-field>
+</div></div>
+</form>
+
+<div class="submit">
+    <button mat-raised-button color="warn">Reset</button>
+    <button mat-raised-button color="primary" [disabled]="!item_form.valid">{{actionBtn}}</button>
+</div>

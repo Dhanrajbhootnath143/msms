@@ -1,1 +1,39 @@
-<p>add-gst works!</p>
+<mat-toolbar>
+    <span class="example-spacer">Add GST</span>
+    <mat-icon mat-dialog-close>cancel</mat-icon>
+</mat-toolbar>
+
+<form [formGroup]="gst_form">
+    <div id="main_area">
+        <div class="box">
+            <mat-form-field class="example-full-width" appearance="fill" class="adr">
+                <mat-label>GST</mat-label>
+                <input matInput formControlName="gst">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill" class="adr">
+                <mat-label>CGST</mat-label>
+                <input matInput formControlName="cgst">
+            </mat-form-field><br>
+
+            <mat-form-field class="example-full-width" appearance="fill" class="adr">
+                <mat-label>SGST</mat-label>
+                <input matInput formControlName="sgst">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill" class="adr">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="Description">
+            </mat-form-field>
+        </div>
+        </div>
+
+
+    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
+    <input type="number" formControlName="id" readonly hidden>
+</form>
+
+<div class="submit">
+    <button mat-raised-button color="warn">Reset</button>
+    <button mat-raised-button color="primary" [disabled]="!gst_form.valid">{{actionBtn}}</button>
+</div>
