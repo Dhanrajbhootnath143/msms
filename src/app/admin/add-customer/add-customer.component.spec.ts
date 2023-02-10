@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddWeightComponent } from './add-weight.component';
+import { AddCustomerComponent } from './add-customer.component';
 
-describe('AddWeightComponent', () => {
-  let component: AddWeightComponent;
-  let fixture: ComponentFixture<AddWeightComponent>;
+describe('AddCustomerComponent', () => {
+  let component: AddCustomerComponent;
+  let fixture: ComponentFixture<AddCustomerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddWeightComponent ]
+      declarations: [ AddCustomerComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddWeightComponent);
+    fixture = TestBed.createComponent(AddCustomerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

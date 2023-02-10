@@ -33,6 +33,12 @@ import { WeightComponent } from './admin/weight/weight.component';
 import { AddWeightComponent } from './admin/add-weight/add-weight.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { AddCategoryComponent } from './admin/add-category/add-category.component';
+import { AddItemComponent } from './admin/add-item/add-item.component';
+import { ItemComponent } from './admin/item/item.component';
+import { EmployeeComponent } from './admin/employee/employee.component';
+import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
+import { CustomerComponent } from './admin/customer/customer.component';
+import { AddCustomerComponent } from './admin/add-customer/add-customer.component';
 
 
 
@@ -53,6 +59,12 @@ import { AddCategoryComponent } from './admin/add-category/add-category.componen
     AddWeightComponent,
     CategoryComponent,
     AddCategoryComponent,
+    AddItemComponent,
+    ItemComponent,
+    EmployeeComponent,
+    AddEmployeeComponent,
+    CustomerComponent,
+    AddCustomerComponent,
   ],
   imports: [
     BrowserModule,

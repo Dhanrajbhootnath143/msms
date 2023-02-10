@@ -10,8 +10,6 @@ export interface UserData {
   id: number;
   Unit: string;
   Description: string;
-
-  
 }
 
 const UserData: UserData[] = [
