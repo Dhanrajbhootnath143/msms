@@ -3,14 +3,84 @@
     <mat-icon mat-dialog-close>cancel</mat-icon>
 </mat-toolbar>
 
-<form >
+<form [formGroup]="item_form">
     <div id="main_area">
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Name</mat-label>
                 <input matInput formControlName="name" placeholder="Name">
             </mat-form-field>
-</div></div>
+
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Weight</mat-label>
+                <mat-select formControlName="weight" placeholder="Weight">
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="100">100</mat-option>
+                    <mat-option value="24">24</mat-option>
+                    <mat-option value="35">35</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Purchase amount</mat-label>
+                <input matInput formControlName="Purchase_amount" placeholder="Purchase amount">
+            </mat-form-field>
+
+
+          
+        </div>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Company</mat-label>
+            <input matInput formControlName="Company" placeholder="Company Name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Pack</mat-label>
+            <input matInput formControlName="Pack" placeholder="Pack">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Sale amount</mat-label>
+            <input matInput formControlName="Sale_amount" placeholder="Sale_amount">
+        </mat-form-field>
+
+        <div class="box">
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category" placeholder="Category">
+                    <mat-option value="Drup">drup</mat-option>
+                    <mat-option value="Liquid">Liquid</mat-option>
+                    <mat-option value="Tablet">Tablet</mat-option>
+                    <mat-option value="ML">ML</mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>HSN No</mat-label>
+                <input matInput formControlName="hsn_no" placeholder="HSN No">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+
+                <mat-label>Unit</mat-label>
+                <mat-select formControlName="Unit" placeholder="Unit">
+                    <mat-option value="KG">KG</mat-option>
+                    <mat-option value="Liquid">Li</mat-option>
+                    <mat-option value="Tablet">Ta</mat-option>
+                    <mat-option value="ML">ML</mat-option>
+                </mat-select>
+            </mat-form-field><br>
+            
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>MRP</mat-label>
+                <input matInput formControlName="mrp" placeholder="MRP">
+            </mat-form-field>
+
+        </div>
+    </div>
+
+    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
+    <input type="number" formControlName="id" readonly hidden>
 </form>
 
 <div class="submit">

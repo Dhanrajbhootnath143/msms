@@ -34,7 +34,7 @@ export class SidebarComponent implements OnInit {
       this.action_icon2 = true
     }
   }
-  setting_dropdown() {
+  Master_dropdown() {
     this.setting = document.getElementById("dropdown_setting")
     if (this.setting.style.display != "block") {
       this.setting.style.display = "block";
