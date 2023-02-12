@@ -11,7 +11,7 @@
             </button>
 
             <div>
-                <button mat-button class="menu-button" (click)="report_dropdown()" [routerLink]="['/#']">
+                <button mat-button class="menu-button" (click)="Master_dropdown()" [routerLink]="['/#']">
                     <mat-icon>list_alt</mat-icon>
                     <span>Master Entry</span>
                     <mat-icon [hidden]="action_icon1">chevron_right</mat-icon>
@@ -65,7 +65,7 @@
 
             <div>
 
-            <button mat-button class="menu-button" [routerLink]="['course']">
+            <button mat-button class="menu-button" [routerLink]="['purchase']">
                 <mat-icon>list_alt</mat-icon>
                 <span>Purchase</span>
             </button>
@@ -108,10 +108,10 @@
                         <mat-icon [hidden]="action_icon2">expand_more</mat-icon>
                     </button>
 
-                    <div id="dropdown_report">
-                        <button mat-button class="menu-button" [routerLink]="['party']">
+                    <div id="report_dropdown">
+                        <button mat-button class="menu-button" [routerLink]="['Purchase_Report']">
                             <mat-icon>list_alt</mat-icon>
-                            <span>Party</span>
+                            <span>Purchase Report</span>
                         </button>
 
                     <button mat-button class="menu-button" [routerLink]="['query']">
@@ -126,6 +126,11 @@
 
                     <button mat-button class="menu-button" [routerLink]="['query']">
                         <mat-icon>accessible</mat-icon>
+                        <span>Expiry Report</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['query']">
+                        <mat-icon>accessible</mat-icon>
                         <span>Purchase Cancel</span>
                     </button>
 
@@ -133,8 +138,6 @@
                         <mat-icon>accessible</mat-icon>
                         <span>Sale Cancel</span>
                     </button>
-
-                       
 
                     </div>
                 </div>
