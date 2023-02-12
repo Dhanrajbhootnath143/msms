@@ -39,6 +39,12 @@ import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
 import { CustomerComponent } from './admin/customer/customer.component';
 import { AddCustomerComponent } from './admin/add-customer/add-customer.component';
+import { PurchaseComponent } from './admin/purchase/purchase.component';
+import { AddPurchaseComponent } from './admin/add-purchase/add-purchase.component';
+import { DuesComponent } from './admin/dues/dues.component';
+import { AddDuesComponent } from './admin/add-dues/add-dues.component';
+import { ViewportComponent } from './viewport/viewport.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -65,6 +71,11 @@ import { AddCustomerComponent } from './admin/add-customer/add-customer.componen
     AddEmployeeComponent,
     CustomerComponent,
     AddCustomerComponent,
+    PurchaseComponent,
+    AddPurchaseComponent,
+    DuesComponent,
+    AddDuesComponent,
+    ViewportComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +99,8 @@ import { AddCustomerComponent } from './admin/add-customer/add-customer.componen
     MatSelectModule,
     MatSelectModule,
     MatSelectModule,
-    HttpClientModule, 
+    HttpClientModule,
+    NgbModule, 
     
   ],
   providers: [],

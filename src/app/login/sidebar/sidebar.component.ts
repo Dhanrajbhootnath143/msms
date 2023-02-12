@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  report_dropdown() {
+  Master_dropdown() {
     this.setting = document.getElementById("dropdown_report")
     if (this.setting.style.display != "block") {
       this.setting.style.display = "block";
@@ -34,8 +34,8 @@ export class SidebarComponent implements OnInit {
       this.action_icon2 = true
     }
   }
-  setting_dropdown() {
-    this.setting = document.getElementById("dropdown_setting")
+  report_dropdown() {
+    this.setting = document.getElementById("report_dropdown")
     if (this.setting.style.display != "block") {
       this.setting.style.display = "block";
       this.action_icon3 = true

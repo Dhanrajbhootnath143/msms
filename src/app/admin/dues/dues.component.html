@@ -1,5 +1,5 @@
 <div class="head">
-    <span>Employee Details</span>
+    <span>Dues Details</span>
     <mat-icon id="add_course" (click)="add_party()">add_circle</mat-icon>
   </div>
   <div class="count_area">
@@ -17,27 +17,35 @@
         <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
       </ng-container>
   
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nane</th>
-        <td mat-cell *matCellDef="let row"> {{row.name}}</td>
+      <ng-container matColumnDef="Customer">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer</th>
+        <td mat-cell *matCellDef="let row"> {{row.Customer}}</td>
       </ng-container>
   
-      <ng-container matColumnDef="Mobile_Number">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile Number</th>
-        <td mat-cell *matCellDef="let row"> {{row.Mobile_Number}} </td>
+      <ng-container matColumnDef="Bill_Number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Bill Number</th>
+        <td mat-cell *matCellDef="let row"> {{row.Bill_Number}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="Aadhar_number">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Aadhar number</th>
-        <td mat-cell *matCellDef="let row"> {{row.Aadhar_number}}</td>
+      <ng-container matColumnDef="Amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount</th>
+        <td mat-cell *matCellDef="let row"> {{row.Amount}}</td>
       </ng-container>
-  
-      <ng-container matColumnDef="Address">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
-        <td mat-cell *matCellDef="let row"> {{row.Address}} </td>
+      
+      <ng-container matColumnDef="Paid">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Paid</th>
+        <td mat-cell *matCellDef="let row"> {{row.Paid}}</td>
       </ng-container>
-  
-     
+
+      <ng-container matColumnDef="Dues">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Dues</th>
+        <td mat-cell *matCellDef="let row"> {{row.Dues}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+        <td mat-cell *matCellDef="let row"> {{row.Date}}</td>
+      </ng-container>
   
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>

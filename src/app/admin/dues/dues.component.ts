@@ -4,29 +4,30 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
+import { AddDuesComponent } from '../add-dues/add-dues.component';
 
 
 
 export interface UserData {
   id: number;
-  Shop_name: string;
-  Owner_name: string;
-  Contact_number:number;
+  Customer: string;
+  Bill_Number: number;
+  Amount:number;
+  Paid:number;
+  Dues:number;
 }
 const UserData: UserData[] = [
-  { id: 1, Shop_name: 'Raja',Owner_name:'dipu',Contact_number:3455565423, },
-  { id: 1, Shop_name: 'Roushan',Owner_name:'dipu',Contact_number:7768878732, },
-  { id: 1, Shop_name: 'Dipu',Owner_name:'dipu', Contact_number:34555654454, },
+  { id: 1, Customer: 'Raja',Bill_Number:3,Amount:500,Paid:743,Dues:332, },
+ 
 ];
 
-
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
+  selector: 'app-dues',
+  templateUrl: './dues.component.html',
+  styleUrls: ['./dues.component.css']
 })
-export class CustomerComponent implements OnInit {
-  displayedColumns: string[] = ['id','Shop_name','Owner_name','Contact_number','action'];
+export class DuesComponent implements OnInit {
+  displayedColumns: string[] = ['id','Customer','Bill_Number','Amount','Paid','Dues','Date','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -42,13 +43,13 @@ export class CustomerComponent implements OnInit {
   }
 
   course_edit(row: any) {
-    this.dailog.open(AddCustomerComponent, {
+    this.dailog.open(AddDuesComponent, {
       data: row,
     });
   }
 
   add_party() {
-    this.dailog.open(AddCustomerComponent, {
+    this.dailog.open(AddDuesComponent, {
       disableClose: true
     });
   }

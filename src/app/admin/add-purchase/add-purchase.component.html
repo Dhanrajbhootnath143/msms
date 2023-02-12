@@ -1,0 +1,70 @@
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+	<li [ngbNavItem]="1">
+		<a ngbNavLink>Party</a>
+		<ng-template ngbNavContent>
+
+				<form [formGroup]="item_form">
+                    <div id="main_area">
+                        <div class="box">
+
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Party Id</mat-label>
+                                <input matInput formControlName="Party_Id" placeholder="Party Id">
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Name</mat-label>
+                                <input matInput formControlName="name" placeholder="Name">
+                            </mat-form-field>
+                
+                
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Email</mat-label>
+                                <input matInput formControlName="Email" placeholder="Email ">
+                            </mat-form-field>
+   
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Address</mat-label>
+                                <input matInput formControlName="Address" placeholder="Address">
+                            </mat-form-field>
+                
+                        </div>
+                    </div>
+                
+                    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
+                    <input type="number" formControlName="id" readonly hidden>
+                </form>
+                
+                <div class="submit">
+                    <button mat-raised-button color="warn">Reset</button>
+                    <button mat-raised-button color="primary" [disabled]="!item_form.valid">{{actionBtn}}</button>
+                </div>
+
+		</ng-template>
+	</li>
+	<li [ngbNavItem]="2">
+		<a ngbNavLink>Two</a>
+		<ng-template ngbNavContent>
+			<p>
+				Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+				farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+				ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+				helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+				8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+				stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+			</p>
+		</ng-template>
+	</li>
+	<li [ngbNavItem]="3">
+		<a ngbNavLink>Three</a>
+		<ng-template ngbNavContent>
+			<p>
+
+			</p>
+		</ng-template>
+	</li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<pre>Active: {{ active }}</pre>

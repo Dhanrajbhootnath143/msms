@@ -11,7 +11,7 @@
             </button>
 
             <div>
-                <button mat-button class="menu-button" (click)="report_dropdown()" [routerLink]="['/#']">
+                <button mat-button class="menu-button" (click)="Master_dropdown()" [routerLink]="['/#']">
                     <mat-icon>list_alt</mat-icon>
                     <span>Master Entry</span>
                     <mat-icon [hidden]="action_icon1">chevron_right</mat-icon>
@@ -65,7 +65,7 @@
 
             <div>
 
-            <button mat-button class="menu-button" [routerLink]="['course']">
+            <button mat-button class="menu-button" [routerLink]="['purchase']">
                 <mat-icon>list_alt</mat-icon>
                 <span>Purchase</span>
             </button>
@@ -101,19 +101,18 @@
 
             
                 <div>
-                    <button mat-button class="menu-button" (click)="setting_dropdown()" [routerLink]="['/#']">
-                     
+                    <button mat-button class="menu-button" (click)="report_dropdown()" [routerLink]="['/#']">
+                        <mat-icon>list_alt</mat-icon>
                         <span>Report</span>
-                        <mat-icon [hidden]="action_icon3">chevron_right</mat-icon>
-                        <mat-icon [hidden]="action_icon4">expand_more</mat-icon>
+                        <mat-icon [hidden]="action_icon1">chevron_right</mat-icon>
+                        <mat-icon [hidden]="action_icon2">expand_more</mat-icon>
                     </button>
 
-                    <div id="dropdown_Report">
-                        
-                    <button mat-button class="menu-button" [routerLink]="['query']">
-                        <mat-icon>accessible</mat-icon>
-                        <span>Purchase</span>
-                    </button>
+                    <div id="report_dropdown">
+                        <button mat-button class="menu-button" [routerLink]="['Purchase_Report']">
+                            <mat-icon>list_alt</mat-icon>
+                            <span>Purchase Report</span>
+                        </button>
 
                     <button mat-button class="menu-button" [routerLink]="['query']">
                         <mat-icon>accessible</mat-icon>
@@ -127,6 +126,11 @@
 
                     <button mat-button class="menu-button" [routerLink]="['query']">
                         <mat-icon>accessible</mat-icon>
+                        <span>Expiry Report</span>
+                    </button>
+
+                    <button mat-button class="menu-button" [routerLink]="['query']">
+                        <mat-icon>accessible</mat-icon>
                         <span>Purchase Cancel</span>
                     </button>
 
@@ -135,11 +139,10 @@
                         <span>Sale Cancel</span>
                     </button>
 
-                       
-
                     </div>
                 </div>
-            </div></div>
+            </div>
+        </div>
 
            
                
