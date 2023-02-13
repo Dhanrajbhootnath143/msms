@@ -1,9 +1,9 @@
 <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
 	<li [ngbNavItem]="1">
-		<a ngbNavLink>Party</a>
+		<a ngbNavLink class="butto">Party</a>
 		 <ng-template ngbNavContent>
 
-				<form [formGroup]="item_form">
+				<form [formGroup]="party_form" class="center">
                     <div id="main_area">
                         <div class="box">
 
@@ -16,14 +16,19 @@
                                 <mat-label>Name</mat-label>
                                 <input matInput formControlName="name" placeholder="Name">
                             </mat-form-field>
-                
+
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Mobile number</mat-label>
+                                <input formControlName="Mobile_number"  matInput type="Mobile_number" onkeypress=" return this.value.length < 10"
+                                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="Mobile number">
+                            </mat-form-field>
                 
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <mat-label>Email</mat-label>
                                 <input matInput formControlName="Email" placeholder="Email ">
                             </mat-form-field>
    
-                            <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-form-field class="example-full-width" appearance="fill" class="adr1">
                                 <mat-label>Address</mat-label>
                                 <input matInput formControlName="Address" placeholder="Address">
                             </mat-form-field>
@@ -37,32 +42,135 @@
                 
                 <div class="submit">
                     <button mat-raised-button color="warn">Reset</button>
-                    <button mat-raised-button color="primary" [disabled]="!item_form.valid">{{actionBtn}}</button>
+                    <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
                 </div>
 
 		</ng-template>
 	</li>
+
+
 	<li [ngbNavItem]="2">
-		<a ngbNavLink>Two</a>
+		<a ngbNavLink class="butto">Item</a>
 		<ng-template ngbNavContent>
-			<p>
-				Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-				farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-				ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-				helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-				8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-				stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-			</p>
+			
+         <form [formGroup]="item_form">
+            <div id="main_area1">
+              <div class="box">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Party</mat-label>
+                <input matInput formControlName="Party" placeholder="Name">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category" placeholder="Category">
+                    <mat-option value="Drup">drup</mat-option>
+                    <mat-option value="Liquid">Liquid</mat-option>
+                    <mat-option value="Tablet">Tablet</mat-option>
+                    <mat-option value="ML">ML</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Iten</mat-label>
+                <input matInput formControlName="Iten" placeholder="Iten">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Company</mat-label>
+                <input matInput formControlName="Company" placeholder="Company Name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Batch No</mat-label>
+                <input matInput formControlName="Batch_no" placeholder="HSN No">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Unit</mat-label>
+                <input matInput formControlName="Unit" placeholder="Unit">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>MRP</mat-label>
+                <input matInput formControlName="mrp" placeholder="HSN No">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Pack</mat-label>
+                <input matInput formControlName="Pack" placeholder="Pack">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Rate</mat-label>
+                <input matInput formControlName="Rate" placeholder="Rate">
+            </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Expiry Date</mat-label>
+            <input matInput formControlName="Expiry_Dat" placeholder="Expiry Dat">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Quantity</mat-label>
+            <input matInput formControlName="Quantity" placeholder="Quantity">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Total</mat-label>
+            <input matInput formControlName="Total" placeholder="Total">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Fee</mat-label>
+            <input matInput formControlName="Fee"placeholder="Fee">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>GST</mat-label>
+            <mat-select formControlName="gst" placeholder="GST">
+                <mat-option value="2%">drup</mat-option>
+                <mat-option value="3%">Liquid</mat-option>
+                <mat-option value="5%">Tablet</mat-option>
+                <mat-option value="10%">ML</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Net Rate</mat-label>
+                <input matInput formControlName="Net_Rate" placeholder="Net_Rate">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Amount</mat-label>
+                <input matInput formControlName="Amount" placeholder="Amount">
+            </mat-form-field>
+
+        </div>
+    </div>
+
+    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
+    <input type="number" formControlName="id" readonly hidden>
+</form>
+    <div class="submit">
+    <button mat-raised-button color="warn">Reset</button>
+    <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
+   </div>
 		</ng-template>
-	</li>
+
 	<li [ngbNavItem]="3">
-		<a ngbNavLink>Three</a>
+		<a ngbNavLink class="butto">Three</a>
 		<ng-template ngbNavContent>
 			<p>
 
 			</p>
 		</ng-template>
 	</li>
+    <li id="bill">
+        <button mat-raised-button class="butt">Bill Ref. No.:</button>
+    </li>
+   
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
