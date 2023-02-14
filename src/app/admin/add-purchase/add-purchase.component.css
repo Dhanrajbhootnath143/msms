@@ -19,7 +19,9 @@
     float: right;
   }
   #bill{
-    margin: -37px 3px -7px 87.3%;
+   position: absolute;
+   right: 20px;
+   top: 62px;
   }
   .butt:hover{
     background: rgb(72, 88, 104);
@@ -47,7 +49,10 @@
     margin-left: 10px;
   }
   .submit {
-    margin-left: 9.6em;
+    margin-left: 24.6em;
+  }
+  .submit2 {
+    margin-left: 24.6em;
   }
   
   
@@ -62,6 +67,9 @@
   
     #main_area {
       width: 440px;
+      width: auto;
+      display: table;
+      margin: 45px auto;
     }
     .adr{
       width: 412px;
@@ -70,59 +78,76 @@
     .submit {
       margin-left: 9.6em;
     }
-    #bill{
-      margin: -34px 3px -7px 77%;
-    }
+   
   }
   
-  @media(min-width:866px)and (max-width:2000px) {
+  @media(min-width:866px) {
     #main_area{
-      width: 100%;
+      margin-top: 57px;
+      width: 870px;
+  
     }
     #main_area1{
       width: 906px;
+      width: auto;
+      display: table;
+      margin: 45px auto;
     }
-    #bill{
+    /* #bill{
       margin: 0px 3px -7px 65.3%;
-    }
+    } */
     .mt-2 {
      
       margin-left: 3.5rem;
       display: flex;
     }
       .adr1{
-        width: calc(100% - 10%);
+        width: 834px;
         margin-left: 10px;
       }
   }
-    
-  @media(min-width:520px)and (max-width:719px) {
-    /* #main_area {
-      width: 355px;
-    }
-    .adr{
-      width: 342px;
-      margin-left: 10px;
-    }
-    mat-form-field {
-      width: 160px;
-    }
+  @media (min-width: 866px){
+
+}
+  @media(min-width:720px)and (max-width:920px) {
+ 
     .submit {
-      margin-left: 6.9em;
-    } */
+      margin-left: 10.5em;
+    }
+    .submit2 {
+      margin-left: 9.5em;
+    }
+    .mt-2 {
+      margin-left: 2.1rem;
+      display: flex;
+  }
+   #main_area {
+        width: 455px;
+      }
+     .adr1{
+        width: 413px;
+        margin-left: 10px;
+      }
+  }
+  @media(min-width:630px) {
+  
   }
 
-  @media(max-width:519px) {
+  @media(max-width:540px) {
     #main_area {
-      width: 224px;
+      width: 274px;
+      margin-top: 10px;
     }
     #main_area1 {
       width: 224px;
     
     }
-    #bill{
-      margin: -34px 3px -7px 65.3%;
-    }
+  
+    .example-full-width {
+      width: 292px;
+      margin-left: 40px;
+  }
+    
 
     .mt-2 {
      
@@ -134,8 +159,8 @@
       width: 145px;
     }
     .adr1{
-      width: 200px;
-      margin-left: 10px;
+      width: 292px;
+      margin-left: 40px;
    
     }
   
@@ -144,8 +169,40 @@
     }
   
     .submit {
-      margin-left: 100px;
+      margin-left: 171px;
     }
+    .submit2{
+      margin-left: 13.6em;
+  }
+  }
+  @media(max-width:440px) {
+    #main_area1 {
+      width: 224px;
+      margin-top: 10px;
+      margin-left: -39px;
+    }
+    #main_area {
+      width: 224px;
+      margin-top: 10px;
+      margin-left: -39px;
+    }
+    .example-full-width {
+      width: 220px;
+      margin-left: 40px;
+  }
+  .adr1{
+    width: 220px;
+    margin-left: 40px;
+ 
+  }
+  .submit {
+    margin-left: 100px;
+  }
+  .submit2{
+    margin-left: 100px;
+}
+
+
   }
   
   
