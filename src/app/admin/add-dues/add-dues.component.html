@@ -1,1 +1,77 @@
-<p>add-dues works!</p>
+<mat-toolbar>
+    <span class="example-spacer">Dues</span>
+    <mat-icon mat-dialog-close>cancel</mat-icon>
+</mat-toolbar>
+
+<form [formGroup]="party_form">
+    <div id="main_area">
+        <div class="box">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email Id</mat-label>
+                <input matInput formControlName="Email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Mobile</mat-label>
+                <input formControlName="Mobile" matInput type="mobile_number" onkeypress=" return this.value.length < 10"
+                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}">
+            </mat-form-field>
+
+          
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>WhatsApp No</mat-label>
+            <input formControlName="WhatsApp_number" matInput type="WhatsApp_number" onkeypress=" return this.value.length < 10"
+                oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Contact Person</mat-label>
+            <input matInput formControlName="Contact_Person">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>GST Number</mat-label>
+            <input formControlName="GST_Number" matInput type="GST_Number" onkeypress=" return this.value.length < 10"
+                oninput="if(this.value.length>=20) {this.value = this.value.sclice (0,20);}">
+        </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>A/C Number</mat-label>
+                <input formControlName="Account_Number" matInput type="Account_Number" onkeypress=" return this.value.length < 14"
+                    oninput="if(this.value.length>=14) {this.value = this.value.sclice (0,14);}">
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>IFSC</mat-label>
+                <input matInput formControlName="IFSC" matInput type="IFSC" onkeypress=" return this.value.length < 7"
+                oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>A/C Holder Name</mat-label>
+                <input matInput formControlName="Account_Name">
+            </mat-form-field>
+
+        </div>
+    </div>
+    <mat-form-field appearance="fill" class="adr">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address"></textarea>
+    </mat-form-field>
+
+    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
+    <input type="number" formControlName="id" readonly hidden>
+</form>
+
+<div class="submit">
+    <button mat-raised-button color="warn">Reset</button>
+    <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
+</div>

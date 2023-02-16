@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddEditPartyComponent } from './admin/add-edit-party/add-edit-party.component';
 import { AddGstComponent } from './admin/add-gst/add-gst.component';
 import { AddPurchaseComponent } from './admin/add-purchase/add-purchase.component';
+import { AddSaleComponent } from './admin/add-sale/add-sale.component';
 import { AddUnitComponent } from './admin/add-unit/add-unit.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { CustomerComponent } from './admin/customer/customer.component';
@@ -12,6 +13,7 @@ import { GstComponent } from './admin/gst/gst.component';
 import { ItemComponent } from './admin/item/item.component';
 import { PartyComponent } from './admin/party/party.component';
 import { PurchaseComponent } from './admin/purchase/purchase.component';
+import { SaleComponent } from './admin/sale/sale.component';
 import { UnitComponent } from './admin/unit/unit.component';
 import { WeightComponent } from './admin/weight/weight.component';
 import { DashboardComponent } from './login/dashboard/dashboard.component';
@@ -42,6 +44,13 @@ const routes: Routes = [
         {path: 'addpurch', component: AddPurchaseComponent}
       ]
     },
+    {
+      path:'sale',component:ViewportComponent,
+      children:[
+            {path:'',component:SaleComponent},
+            {path:'addsale',component:AddSaleComponent}
+      ]
+    }
     ]
   }
 ];

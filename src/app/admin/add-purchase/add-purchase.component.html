@@ -1,6 +1,6 @@
 <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
 	<li [ngbNavItem]="1">
-		<a ngbNavLink class="butto">Party</a>
+		<a ngbNavLink class="three_btn">Party</a>
 		 <ng-template ngbNavContent>
 
 				<form [formGroup]="party_form" class="center">
@@ -50,7 +50,7 @@
 
 
 	<li [ngbNavItem]="2">
-		<a ngbNavLink class="butto">Item</a>
+		<a ngbNavLink class="three_btn">Item</a>
 		<ng-template ngbNavContent>
 			
          <form [formGroup]="item_form">
@@ -80,6 +80,11 @@
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Company</mat-label>
                 <input matInput formControlName="Company" placeholder="Company Name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>HSN no</mat-label>
+                <input matInput formControlName="Company" placeholder="hsn_no">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -127,6 +132,11 @@
             <input matInput formControlName="Fee"placeholder="Fee">
         </mat-form-field>
 
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Discount</mat-label>
+            <input matInput formControlName="Discount"placeholder="Discount">
+        </mat-form-field>
+
         <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>GST</mat-label>
             <mat-select formControlName="gst" placeholder="GST">
@@ -153,19 +163,76 @@
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
     <input type="number" formControlName="id" readonly hidden>
 </form>
-    <div class="submit2">
+    <div class="submit1">
     <button mat-raised-button color="warn">Reset</button>
     <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
    </div>
 		</ng-template>
 
 	<li [ngbNavItem]="3">
-		<a ngbNavLink class="butto">Three</a>
-		<ng-template ngbNavContent>
-			<p>
+		<a ngbNavLink class="three_btn">Final Bill</a>
+        <ng-template ngbNavContent>
+			
+            <form [formGroup]="final_form">
+               <div id="main_area2">
+                 <div class="box">
+   
+               <mat-form-field class="example-full-width" appearance="fill">
+                   <mat-label>Basic Amount</mat-label>
+                   <input matInput formControlName="Basic_Amount" placeholder="Basic Amount">
+               </mat-form-field>
+   
+               <mat-form-field class="example-full-width"  appearance="fill" >
+                   <mat-label>Discount</mat-label>
+                   <input matInput formControlName="Discount" placeholder="Discount ">
+               </mat-form-field>
+   
+               <mat-form-field class="example-full-width" appearance="fill">
+                   <mat-label>GST</mat-label>
+                   <input matInput formControlName="gst" placeholder="GST">
+               </mat-form-field>
+   
+               <mat-form-field class="example-full-width" appearance="fill">
+                   <mat-label>SGST</mat-label>
+                   <input matInput formControlName="sgst" placeholder="SGST">
+               </mat-form-field>
+   
+               <mat-form-field class="example-full-width" appearance="fill">
+                   <mat-label>CGST</mat-label>
+                   <input matInput formControlName="cgst" placeholder="CGST">
+               </mat-form-field>
+   
+               <mat-form-field class="example-full-width" appearance="fill">
+                   <mat-label>R/O</mat-label>
+                   <input matInput formControlName="ro" placeholder="R/o">
+               </mat-form-field>
+   
+               <mat-form-field class="example-full-width" appearance="fill">
+                   <mat-label>Net Amount</mat-label>
+                   <input matInput formControlName="Net_amount" placeholder="Net amount">
+               </mat-form-field>
 
-			</p>
-		</ng-template>
+               <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Bill Number</mat-label>
+                <input matInput formControlName="Bill_Number" placeholder="Bill Number">
+            </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Date</mat-label>
+                    <input type="Date" matInput formControlName="Date">
+                </mat-form-field>
+
+           </div>
+       </div>
+   
+       <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
+       <input type="number" formControlName="id" readonly hidden>
+   </form>
+       <div class="submit2">
+       <button mat-raised-button color="warn">Reset</button>
+       <button mat-raised-button color="primary" [disabled]="!final_form.valid">{{actionBtn}}</button>
+      </div>
+           </ng-template>
 	</li>
     <li id="bill">
         <button mat-raised-button class="butt">Bill Ref. No.:</button>

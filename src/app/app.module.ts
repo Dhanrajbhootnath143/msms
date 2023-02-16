@@ -45,6 +45,8 @@ import { DuesComponent } from './admin/dues/dues.component';
 import { AddDuesComponent } from './admin/add-dues/add-dues.component';
 import { ViewportComponent } from './viewport/viewport.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SaleComponent } from './admin/sale/sale.component';
+import { AddSaleComponent } from './admin/add-sale/add-sale.component';
 
 
 
@@ -76,6 +78,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DuesComponent,
     AddDuesComponent,
     ViewportComponent,
+    SaleComponent,
+    AddSaleComponent,
   ],
   imports: [
     BrowserModule,
