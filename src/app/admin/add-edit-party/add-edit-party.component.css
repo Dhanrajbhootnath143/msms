@@ -21,14 +21,86 @@
     margin-left: 10px;
   }
   .submit {
-    margin-left: 17.6em;
+    margin-left: 24.6em;
   }
   
   button {
     margin-left: 10px;
   }
   .adr{
-    width: 98.4%;
+    width: 840.4px;
     margin-left: 10px;
+    
+  }
+  @media (max-width:1115px) {
+
+    .adr{
+      width: 620.4px;
+      margin-left: 10px;
+      
+    }
+    
+  }
+  @media (max-width:1005px) {
+
+    .adr{
+      width: 625.4px;
+      margin-left: 10px;
+      
+    }
+    .submit {
+      margin-left: 17.6em;
+    }
+    
+  }
+  @media (max-width:832px) {
+
+    .adr{
+      width: 412.4px;
+      margin-left: 10px;
+      
+    }
+    
+  }
+
+  
+  @media (max-width:587px) {
+    .adr{
+      width: 298px
+    }
+    #main_area{
+      width: 330px;
+    }
+    .box{
+      width: 230px;
+      
+    }
+    .submit {
+      margin-left: 4.8em;
+    }
+    .example-full-width{
+      width: 290px;
+    }
+  }
+  @media (max-width:420px) {
+    .adr{
+      width: 240px;
+      margin-left: 3px;
+    }
+    #main_area{
+      width: 245px;
+    }
+    .box{
+      width: 260px;
+      
+    }
+    .example-full-width{
+      width: 240px;
+      margin-left: 3px;
+    }
+    .submit {
+      margin-left: 2.8em;
+    }
+    
   }
   
