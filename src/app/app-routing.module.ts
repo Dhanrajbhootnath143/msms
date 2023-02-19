@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountComponent } from './admin/account/account.component';
 import { AddEditPartyComponent } from './admin/add-edit-party/add-edit-party.component';
 import { AddGstComponent } from './admin/add-gst/add-gst.component';
 import { AddPurchaseComponent } from './admin/add-purchase/add-purchase.component';
@@ -13,6 +14,7 @@ import { GstComponent } from './admin/gst/gst.component';
 import { ItemComponent } from './admin/item/item.component';
 import { PartyComponent } from './admin/party/party.component';
 import { PurchaseComponent } from './admin/purchase/purchase.component';
+import { RecieptComponent } from './admin/reciept/reciept.component';
 import { SaleComponent } from './admin/sale/sale.component';
 import { UnitComponent } from './admin/unit/unit.component';
 import { WeightComponent } from './admin/weight/weight.component';
@@ -38,6 +40,8 @@ const routes: Routes = [
       {path:'employee',component:EmployeeComponent},
       {path:'customer',component:CustomerComponent},
       {path:'dues',component:DuesComponent},
+      {path:'reciept',component:RecieptComponent},
+      {path:'account',component:AccountComponent},
       { path:'purchase',component:ViewportComponent,
       children:[
         {path: '', component: PurchaseComponent},

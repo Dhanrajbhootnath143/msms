@@ -7,7 +7,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./add-purchase.component.css']
 })
 export class AddPurchaseComponent implements OnInit {
-	active = 1;
+
   disableSelect = new FormControl(false);
   party_form!: FormGroup;
   item_form!:FormGroup;

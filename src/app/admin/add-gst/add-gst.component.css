@@ -27,14 +27,9 @@
   button {
     margin-left: 10px;
   }
-  .adr{
-   
-    margin-left: 10px;
-  }
+  
   @media (max-width:587px) {
-    .adr{
-      width: 298px
-    }
+  
     #main_area{
       width: 330px;
     }
@@ -50,10 +45,7 @@
     }
   }
   @media (max-width:420px) {
-    .adr{
-      width: 240px;
-      margin-left: 3px;
-    }
+
     #main_area{
       width: 245px;
     }

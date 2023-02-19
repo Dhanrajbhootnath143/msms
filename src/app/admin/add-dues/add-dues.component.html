@@ -3,69 +3,42 @@
     <mat-icon mat-dialog-close>cancel</mat-icon>
 </mat-toolbar>
 
-<form [formGroup]="party_form">
+<form [formGroup]="dues_form">
     <div id="main_area">
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
+                <mat-label>Customer Name</mat-label>
+                <input matInput formControlName="Customer_Name" placeholder="Customer Name">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Email Id</mat-label>
-                <input matInput formControlName="Email">
+                <mat-label>Pey</mat-label>
+                <input matInput formControlName="Pey" placeholder="Pey">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Mobile</mat-label>
-                <input formControlName="Mobile" matInput type="mobile_number" onkeypress=" return this.value.length < 10"
-                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}">
+                <mat-label>Bill number</mat-label>
+                <input matInput formControlName="Bil_lnumber" placeholder="Bill number">
             </mat-form-field>
 
-          
-
-
         <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>WhatsApp No</mat-label>
-            <input formControlName="WhatsApp_number" matInput type="WhatsApp_number" onkeypress=" return this.value.length < 10"
-                oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}">
+            <mat-label> Current dues</mat-label>
+            <input matInput formControlName=" Current_dues" placeholder=" Current dues">
         </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Contact Person</mat-label>
-            <input matInput formControlName="Contact_Person">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>GST Number</mat-label>
-            <input formControlName="GST_Number" matInput type="GST_Number" onkeypress=" return this.value.length < 10"
-                oninput="if(this.value.length>=20) {this.value = this.value.sclice (0,20);}">
-        </mat-form-field>
-
 
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>A/C Number</mat-label>
-                <input formControlName="Account_Number" matInput type="Account_Number" onkeypress=" return this.value.length < 14"
-                    oninput="if(this.value.length>=14) {this.value = this.value.sclice (0,14);}">
+                <mat-label>Back dues</mat-label>
+                <input formControlName="Back_dues" matInput type="Account_Number"placeholder="Back dues" >
             </mat-form-field>
             
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>IFSC</mat-label>
-                <input matInput formControlName="IFSC" matInput type="IFSC" onkeypress=" return this.value.length < 7"
-                oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}">
-            </mat-form-field>
+        
 
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>A/C Holder Name</mat-label>
-                <input matInput formControlName="Account_Name">
+                <mat-label> Date</mat-label>
+                <input type="Date" matInput formControlName="Date" placeholder="Date">
             </mat-form-field>
-
         </div>
     </div>
-    <mat-form-field appearance="fill" class="adr">
-        <mat-label>Address</mat-label>
-        <textarea matInput formControlName="address"></textarea>
-    </mat-form-field>
 
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
     <input type="number" formControlName="id" readonly hidden>
@@ -73,5 +46,5 @@
 
 <div class="submit">
     <button mat-raised-button color="warn">Reset</button>
-    <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
+    <button mat-raised-button color="primary" [disabled]="!dues_form.valid">{{actionBtn}}</button>
 </div>

@@ -47,6 +47,9 @@ import { ViewportComponent } from './viewport/viewport.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SaleComponent } from './admin/sale/sale.component';
 import { AddSaleComponent } from './admin/add-sale/add-sale.component';
+import { RecieptComponent } from './admin/reciept/reciept.component';
+import { AccountComponent } from './admin/account/account.component';
+import { AddAccountComponent } from './admin/add-account/add-account.component';
 
 
 
@@ -80,6 +83,9 @@ import { AddSaleComponent } from './admin/add-sale/add-sale.component';
     ViewportComponent,
     SaleComponent,
     AddSaleComponent,
+    RecieptComponent,
+    AccountComponent,
+    AddAccountComponent,
   ],
   imports: [
     BrowserModule,

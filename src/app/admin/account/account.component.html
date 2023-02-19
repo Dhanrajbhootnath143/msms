@@ -1,0 +1,71 @@
+<div class="head">
+    <span>Account </span>
+    <mat-icon id="add_Account" (click)="add_Account()">add_circle</mat-icon>
+  </div>
+  <div class="count_area">
+    <span class="notice_text">Total : 10</span>
+    <div class="search">
+      <input type="text" placeholder="Search" class="search_box" matInput (keyup)="applyFilter($event)" #input>
+    </div>
+  </div>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> S.N. </th>
+        <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Today_Sale">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Today Sale</th>
+        <td mat-cell *matCellDef="let row"> {{row.Today_Sale}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Today_Expense">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Today Expense</th>
+        <td mat-cell *matCellDef="let row"> {{row.Today_Expense}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cash">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cash in Hand</th>
+        <td mat-cell *matCellDef="let row"> {{row.cash}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Deposit">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Deposit into Bank</th>
+        <td mat-cell *matCellDef="let row"> {{row.Deposit}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Closing_Amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Closing Amount</th>
+        <td mat-cell *matCellDef="let row"> {{row.Closing_Amount}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+        <td mat-cell *matCellDef="let row"> {{row.Date}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Remaraks">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Remaraks</th>
+        <td mat-cell *matCellDef="let row"> {{row.Remaraks}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon style="cursor: pointer;" (click)="course_edit(row)">edit</mat-icon>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" id="tbl_hight"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" id="tbl_hight"></tr>
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="9" style="color:silver;">No record found"{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator #paginatorRef [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
