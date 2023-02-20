@@ -40,7 +40,7 @@ export class UnitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  course_edit(row: any) {
+  unit_edit(row: any) {
     this.dailog.open(AddUnitComponent, {
       data: row,
     });
