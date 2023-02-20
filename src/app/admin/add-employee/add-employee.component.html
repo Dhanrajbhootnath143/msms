@@ -22,9 +22,6 @@
                     oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}">
             </mat-form-field>
 
-          
-        </div>
-
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>WhatsApp No</mat-label>
             <input formControlName="WhatsApp_number" matInput type="WhatsApp_number" onkeypress=" return this.value.length < 10"
@@ -42,7 +39,7 @@
                 oninput="if(this.value.length>=20) {this.value = this.value.sclice (0,20);}">
         </mat-form-field>
 
-        <div class="box">
+
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Number</mat-label>
                 <input formControlName="Account_Number" matInput type="Account_Number" onkeypress=" return this.value.length < 14"
@@ -60,18 +57,23 @@
                 <input matInput formControlName="Account_Name">
             </mat-form-field>
 
-        </div>
+            <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Address</mat-label>
+                <textarea matInput formControlName="address"></textarea>
+            </mat-form-field>
+
+            <table  class="photo" cellspacing="0">
+                <mat-label class="photo">Employee photo</mat-label>
+                <input type="file" name="photo" class="upload" (change)="OnUpload($event)"
+                    formControlName="photo">
+            </table>
+
+
     </div>
     
-    <table class="photo" cellspacing="0">
-        <mat-label class="photo">Employee photo</mat-label>
-        <input type="file" name="photo" class="upload" (change)="OnUpload($event)"
-            formControlName="photo">
-    </table>
-    <mat-form-field appearance="fill" class="adr">
-        <mat-label>Address</mat-label>
-        <textarea matInput formControlName="address"></textarea>
-    </mat-form-field>
+   
+  
+    </div>
 
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
     <input type="number" formControlName="id" readonly hidden>

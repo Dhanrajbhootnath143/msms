@@ -56,12 +56,14 @@ mat-toolbar {
 .submit2 {
   display: flex;
   justify-content: center;
-  margin-left: -145px;
+  margin-right: 71px;
+
 }
 .submit1 {
   display: flex;
   justify-content: center;
-  margin-left: -120px;
+  margin-right: 79px;
+  
  }
  
 
@@ -97,10 +99,9 @@ button {
 
   }
   #main_area1{
-    width: 906px;
     width: auto;
-    display: table;
-    margin-left: -56px;
+    display: flex;
+    justify-content: center;
   }
   /* #bill{
     margin: 0px 3px -7px 65.3%;
@@ -115,9 +116,7 @@ button {
       margin-left: 10px;
     }
 }
-@media (min-width: 866px){
 
-}
 @media(min-width:720px)and (max-width:920px) {
 
  
@@ -148,7 +147,10 @@ button {
   
   }
   .submit{
-    margin-left: 174px;
+    display: flex;
+    margin-left: 178px;
+  
+    
   }
 
 

@@ -10,6 +10,7 @@ import { CategoryComponent } from './admin/category/category.component';
 import { CustomerComponent } from './admin/customer/customer.component';
 import { DuesComponent } from './admin/dues/dues.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
+import { ExpenseComponent } from './admin/expense/expense.component';
 import { GstComponent } from './admin/gst/gst.component';
 import { ItemComponent } from './admin/item/item.component';
 import { PartyComponent } from './admin/party/party.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
       {path:'dues',component:DuesComponent},
       {path:'reciept',component:RecieptComponent},
       {path:'account',component:AccountComponent},
+      {path:'expense',component:ExpenseComponent},
       { path:'purchase',component:ViewportComponent,
       children:[
         {path: '', component: PurchaseComponent},

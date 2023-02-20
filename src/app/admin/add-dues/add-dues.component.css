@@ -10,7 +10,8 @@
     margin-bottom: 20px;
   }
   #main_area{
-width: 450px;
+      width: 450px;
+      margin-left: 10px;
   }
   mat-toolbar {
     height: 30px;
@@ -23,7 +24,7 @@ width: 450px;
     margin-left: 10px;
   }
   .submit {
-    margin-left: 9.6em;
+    margin-left: 10.6em;
   }
   
   button {
@@ -34,13 +35,14 @@ width: 450px;
    
     #main_area{
       width: 330px;
+      margin-left: 14px;
     }
     .box{
       width: 230px;
       
     }
     .submit {
-      margin-left: 4.8em;
+      margin-left: 5.8em;
     }
     .example-full-width{
       width: 290px;

@@ -4,7 +4,7 @@
   }
   
   #thumbnail {
-    width: calc(25% - 25px);
+    width: calc(25.6% - 25px);
     height: 110px;
     border-left: 5px solid#1d1f23;
     border-radius: 5px;

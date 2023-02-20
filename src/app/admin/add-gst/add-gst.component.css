@@ -31,14 +31,17 @@
   @media (max-width:587px) {
   
     #main_area{
-      width: 330px;
+      width: 230px;
+      margin-left: 20px;
     }
     .box{
       width: 230px;
       
     }
+  
     .submit {
-      margin-left: 4.8em;
+  margin-left: 2.6em;
+     justify-content: center;
     }
     .example-full-width{
       width: 290px;

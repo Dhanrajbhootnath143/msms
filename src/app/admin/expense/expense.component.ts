@@ -2,30 +2,34 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
-import { AddCategoryComponent } from '../add-category/add-category.component';
-
-
+import { AddExpenseComponent } from '../add-expense/add-expense.component';
 
 export interface UserData {
   id: number;
-  weight: string;
-  Description: string;
+  Expense_Type: string;
+  Amount: number;
+  name: string;
+  contact:number;
+ 
+  Description:string;
+  
 }
+
 const UserData: UserData[] = [
-  { id: 1, weight: 'kg', Description:'kg', },
-  { id: 1, weight: 'liter',Description:'liter', },
-  { id: 1, weight: 'mili garam',Description:'mili garam',},
+  { id: 1, Expense_Type: 'Others', Amount:9153,name:'Kajal',contact:5562882098,Description:'Soppping',},
+  { id: 1, Expense_Type: 'Others', Amount:9189,name:'Karishma',contact:5562882098,Description:'Soppping', },
+  { id: 1, Expense_Type: 'Shlary', Amount:9638,name:'Kishan',contact:5563442098,Description:'Soppping', },
 ];
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  selector: 'app-expense',
+  templateUrl: './expense.component.html',
+  styleUrls: ['./expense.component.css']
 })
-export class CategoryComponent implements OnInit {
-  displayedColumns: string[] = ['id','weight','Description','action'];
+export class ExpenseComponent implements OnInit {
+
+  displayedColumns: string[] = ['id','Expense_Type','Amount','name','contact','date','Description',];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -40,14 +44,14 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  catogory_edit(row: any) {
-    this.dailog.open(AddCategoryComponent, {
+  course_edit(row: any) {
+    this.dailog.open(AddExpenseComponent, {
       data: row,
     });
   }
 
   add_party() {
-    this.dailog.open(AddCategoryComponent, {
+    this.dailog.open(AddExpenseComponent, {
       disableClose: true
     });
   }
@@ -63,5 +67,4 @@ export class CategoryComponent implements OnInit {
   }
  
 }
-
 
