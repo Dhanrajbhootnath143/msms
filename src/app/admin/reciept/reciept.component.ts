@@ -1,31 +1,33 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
-import { AddUnitComponent } from '../add-unit/add-unit.component';
+import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.component';
+
 
 export interface UserData {
   id: number;
-  Unit: string;
-  Description: string;
+  Customer: string;
+  bill_number: number;
+  Back_dues: number;
+  paid:number;
+  Current_dues:number;
+  
 }
 
 const UserData: UserData[] = [
-  { id: 1, Unit: 'kg', Description:'kg', },
-  { id: 1, Unit: 'liter',Description:'liter', },
-  { id: 1, Unit: 'mili garam',Description:'mili garam',},
+  { id: 1, Customer: 'Raja', bill_number:9153634848,Back_dues:5678,paid:3456,Current_dues:243,},
+  { id: 1, Customer: 'Roushan', bill_number:9153634848,Back_dues:5678,paid:456,Current_dues:243, },
+  { id: 1, Customer: 'Dipu', bill_number:9153634848,Back_dues:5678,paid:4567,Current_dues:243, },
 ];
-
-
 @Component({
-  selector: 'app-unit',
-  templateUrl: './unit.component.html',
-  styleUrls: ['./unit.component.css']
+  selector: 'app-reciept',
+  templateUrl: './reciept.component.html',
+  styleUrls: ['./reciept.component.css']
 })
-export class UnitComponent implements OnInit {
-  displayedColumns: string[] = ['id','Unit','Description','action'];
+export class RecieptComponent implements OnInit {
+  displayedColumns: string[] = ['id','Customer','bill_number','Back_dues','paid','Current_dues',];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -40,14 +42,14 @@ export class UnitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  unit_edit(row: any) {
-    this.dailog.open(AddUnitComponent, {
+  course_edit(row: any) {
+    this.dailog.open(AddEditPartyComponent, {
       data: row,
     });
   }
 
   add_party() {
-    this.dailog.open(AddUnitComponent, {
+    this.dailog.open(AddEditPartyComponent, {
       disableClose: true
     });
   }
@@ -63,5 +65,4 @@ export class UnitComponent implements OnInit {
   }
  
 }
-
 

@@ -8,7 +8,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class AddSaleComponent implements OnInit {
 
-  active = 1;
+  
   disableSelect = new FormControl(false);
   party_form!: FormGroup;
   item_form!:FormGroup;

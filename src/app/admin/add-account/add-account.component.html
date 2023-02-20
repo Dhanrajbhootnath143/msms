@@ -1,0 +1,53 @@
+<mat-toolbar>
+    <span class="example-spacer">Add account</span>
+    <mat-icon mat-dialog-close>cancel</mat-icon>
+</mat-toolbar>
+
+<form [formGroup]="account_form">
+    <div id="main_area">
+        <div class="box">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Cash in Hand</mat-label>
+                <input matInput formControlName="cash" placeholder="Cash in Hand">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Deposit into Bank</mat-label>
+                <input matInput formControlName="Deposit" placeholder="Deposit">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Today Sale</mat-label>
+                <input matInput formControlName="Today_Sale" placeholder="Today Sale">
+            </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Closeing Amount</mat-label>
+            <input formControlName="Closeing_Amount" matInput type="Enter Closing Amount">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Expense</mat-label>
+            <input matInput formControlName="Expense" placeholder="Expense">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Date</mat-label>
+            <input type="date" formControlName="Date" matInput type="Date" >
+        </mat-form-field>
+
+        </div>
+    </div>
+    <mat-form-field appearance="fill" class="adr">
+        <mat-label>Remarks</mat-label>
+        <textarea matInput formControlName="Remarks" placeholder="Remarks"></textarea>
+    </mat-form-field>
+
+    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
+    <input type="number" formControlName="id" readonly hidden>
+</form>
+
+<div class="submit">
+    <button mat-raised-button color="warn">Reset</button>
+    <button mat-raised-button color="primary" [disabled]="!account_form.valid">{{actionBtn}}</button>
+</div>

@@ -49,14 +49,21 @@
     margin-left: 10px;
   }
   .submit {
-    margin-left: 24.6em;
+    display: flex;
+    justify-content: center;
+    margin-left: -145px;
   }
   .submit2 {
-    margin-left: 24.6em;
+    display: flex;
+    justify-content: center;
+    margin-left: 175px;
   }
   .submit1 {
-    margin-left: 24.6em;
-  }
+    display: flex;
+    justify-content: center;
+    margin-left: 184px;
+   }
+   
   
   
   button {
@@ -78,9 +85,8 @@
       width: 412px;
       margin-left: 10px;
     }
-    .submit {
-      margin-left: 9.6em;
-    }
+  
+     
    
   }
   
@@ -114,12 +120,8 @@
 }
   @media(min-width:720px)and (max-width:920px) {
  
-    .submit {
-      margin-left: 10.5em;
-    }
-    .submit2 {
-      margin-left: 9.5em;
-    }
+   
+    
     .mt-2 {
       margin-left: 2.1rem;
       display: flex;
@@ -145,6 +147,10 @@
       width: 224px;
     
     }
+    .submit{
+      margin-left: 174px;
+    }
+
   
     .example-full-width {
       width: 292px;
@@ -171,12 +177,7 @@
       font-size: 8px;
     }
   
-    .submit {
-      margin-left: 171px;
-    }
-    .submit2{
-      margin-left: 13.6em;
-  }
+ 
   }
   @media(max-width:440px) {
     #main_area1 {
@@ -193,6 +194,15 @@
       margin-left: 62px;
       width: 145px;
   }
+  .submit{
+    margin-left: 94px;
+  }
+  .submit1{
+    margin-left: 94px;
+  }
+  .submit2{
+    margin-left: 132px;
+  }
     .example-full-width {
       width: 220px;
       margin-left: 40px;
@@ -202,12 +212,6 @@
     margin-left: 40px;
  
   }
-  .submit {
-    margin-left: 100px;
-  }
-  .submit2{
-    margin-left: 100px;
-}
 
 
   }

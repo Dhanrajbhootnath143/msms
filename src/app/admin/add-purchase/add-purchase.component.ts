@@ -7,7 +7,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./add-purchase.component.css']
 })
 export class AddPurchaseComponent implements OnInit {
-	active = 1;
+
   disableSelect = new FormControl(false);
   party_form!: FormGroup;
   item_form!:FormGroup;
@@ -45,7 +45,6 @@ export class AddPurchaseComponent implements OnInit {
         mrp:['', Validators.required],
         Rate: ['', Validators.required],
         Pack:[''],
-        Expiry_Dat: ['', Validators.required],
         Quantity: ['', Validators.required],
         Total: ['', Validators.required],
         Fee: ['', Validators.required],
@@ -65,7 +64,7 @@ export class AddPurchaseComponent implements OnInit {
       ro:['',],
       Net_amount:['',],
       Bill_Number:['',],
-      Date:['',],
+    
       admin_id_fk: ['', Validators.required],
     })
     this.party_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
@@ -93,7 +92,6 @@ export class AddPurchaseComponent implements OnInit {
         this.item_form.controls[ 'Rate'].setValue(this.add_item.Rate)
         this.item_form.controls[ 'Pack'].setValue(this.add_item.Pack)
         this.item_form.controls[ 'Discount'].setValue(this.add_item.Discount)
-        this.item_form.controls[ 'Expiry_Dat'].setValue(this.add_item.Expiry_Dat)
         this.item_form.controls[ 'Quantity'].setValue(this.add_item.Quantity)
         this.item_form.controls[ 'Total'].setValue(this.add_item.Total)
         this.item_form.controls[ 'Fee'].setValue(this.add_item.Fee)
@@ -109,11 +107,10 @@ export class AddPurchaseComponent implements OnInit {
         this.final_form.controls[ 'Discount'].setValue(this.final_party.Discount)
         this.final_form.controls[ 'gst'].setValue(this.final_party.gst)
         this.final_form.controls[ 'sgst'].setValue(this.final_party.sgst)
-        this.final_form.controls[ 'cgst'].setValue(this.final_party.Address)
-        this.final_form.controls[ 'ro'].setValue(this.final_party.Address)
+        this.final_form.controls[ 'cgst'].setValue(this.final_party.cgst)
+        this.final_form.controls[ 'ro'].setValue(this.final_party.ro)
         this.final_form.controls[ 'Net_amount'].setValue(this.final_party.Net_amount)
         this.final_form.controls[ 'Bill_Number'].setValue(this.final_party.Bill_Number)
-        this.final_form.controls[ 'Date'].setValue(this.final_party.Date)
         this.final_form.controls[ 'admin_id_fk'].setValue(this.final_party.admin_id_fk)
       }
     }

@@ -9,7 +9,10 @@
     color: #1d1f23;
     margin-bottom: 20px;
   }
-  
+  #main_area{
+      width: 450px;
+      margin-left: 10px;
+  }
   mat-toolbar {
     height: 30px;
     padding: 0px;
@@ -21,62 +24,25 @@
     margin-left: 10px;
   }
   .submit {
-    margin-left: 24.6em;
+    margin-left: 10.6em;
   }
   
   button {
     margin-left: 10px;
   }
-  .adr{
-    width: 840.4px;
-    margin-left: 10px;
-    
-  }
-  @media (max-width:1115px) {
 
-    .adr{
-      width: 620.4px;
-      margin-left: 10px;
-      
-    }
-    
-  }
-  @media (max-width:1005px) {
-
-    .adr{
-      width: 625.4px;
-      margin-left: 10px;
-      
-    }
-    .submit {
-      margin-left: 17.6em;
-    }
-    
-  }
-  @media (max-width:832px) {
-
-    .adr{
-      width: 412.4px;
-      margin-left: 10px;
-      
-    }
-    
-  }
-
-  
   @media (max-width:587px) {
-    .adr{
-      width: 298px
-    }
+   
     #main_area{
       width: 330px;
+      margin-left: 14px;
     }
     .box{
       width: 230px;
       
     }
     .submit {
-      margin-left: 4.8em;
+      margin-left: 5.8em;
     }
     .example-full-width{
       width: 290px;
@@ -104,3 +70,4 @@
     
   }
   
+ 

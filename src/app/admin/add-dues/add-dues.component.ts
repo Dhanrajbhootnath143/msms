@@ -10,12 +10,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddDuesComponent implements OnInit {
 
   disableSelect = new FormControl(false);
-  party_form!: FormGroup;
+  dues_form!: FormGroup;
   admin = 1;
   upload: any;
   actionBtn: string = 'Add';
   course_data:any;
-  add_edit_party: any;
+  add_dues: any;
 
   constructor(
     private fb: FormBuilder,
@@ -24,35 +24,28 @@ export class AddDuesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.party_form = this.fb.group({
+    this.dues_form = this.fb.group({
       id: [''],
-      name: ['', Validators.required],
-      Email: ['',],
-      mobile_number: ['', Validators.required],
-      WhatsApp_number:['', Validators.required],
-      Contact_Person: ['', Validators.required],
-      GST_Number: ['', Validators.required],
-      Account_Name:['', Validators.required],
-      Account_Number: ['', Validators.required],
-      IFSC:[''],
-      address: ['', Validators.required],
+      Customer_Name: ['', Validators.required],
+      Pey: ['',],
+      Bil_lnumber: ['', Validators.required],
+      Current_dues:['', Validators.required],
+      Back_dues: ['', Validators.required],
+      Date: ['', Validators.required],
+
       admin_id_fk: ['', Validators.required],
     })
-    this.party_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
-    if(this.add_edit_party){
+    this.dues_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
+    if(this.add_dues){
       this.actionBtn='update'
-      this.party_form.controls[ 'id'].setValue(this.add_edit_party.id)
-      this.party_form.controls[ 'name'].setValue(this.add_edit_party.name)
-      this.party_form.controls[ 'Email'].setValue(this.add_edit_party.Email)
-      this.party_form.controls[ 'mobile_number'].setValue(this.add_edit_party.mobile_number)
-      this.party_form.controls[ 'WhatsApp_number'].setValue(this.add_edit_party.WhatsApp_number)
-      this.party_form.controls[ 'Contact_Person'].setValue(this.add_edit_party.Contact_Person)
-      this.party_form.controls[ 'GST_Number'].setValue(this.add_edit_party.GST_Number)
-      this.party_form.controls[ 'Account_Name'].setValue(this.add_edit_party.Account_Name)
-      this.party_form.controls[ 'Account_Number'].setValue(this.add_edit_party.Account_Number)
-      this.party_form.controls[ 'IFSC'].setValue(this.add_edit_party.IFSC)
-      this.party_form.controls[ 'address'].setValue(this.add_edit_party.enq_address)
-      this.party_form.controls[ 'admin_id_fk'].setValue(this.add_edit_party.admin_id_fk)
+      this.dues_form.controls[ 'id'].setValue(this.add_dues.id)
+      this.dues_form.controls[ 'Customer_Name'].setValue(this.add_dues.Customer_Name)
+      this.dues_form.controls[ 'Pey'].setValue(this.add_dues.Pey)
+      this.dues_form.controls[ 'Bil_lnumber'].setValue(this.add_dues.Bil_lnumber)
+      this.dues_form.controls[ 'Current_dues'].setValue(this.add_dues.Current_dues)
+      this.dues_form.controls[ 'Back_dues'].setValue(this.add_dues.Back_dues)
+      this.dues_form.controls[ 'Date'].setValue(this.add_dues.Date)
+      this.dues_form.controls[ 'admin_id_fk'].setValue(this.add_dues.admin_id_fk)
     }
   }
 }

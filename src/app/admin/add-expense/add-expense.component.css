@@ -15,7 +15,7 @@
     padding: 0px;
     background: none;
     position: relative;
-    color: whitesmoke;
+   
   }
   .example-full-width{
     margin-left: 10px;
@@ -29,67 +29,79 @@
     margin-left: 10px;
   }
   .adr{
-   
-    width: 624.4px;
-    margin-left: 35px; 
-  }
-  .main_area{
-    width: auto;
-  }
- 
-  @media (max-width:2000px) {
-  #main_area{
-    width: 700px;
-    display: flex;
-  }
-  .box{
-    width: 700px;
-    margin-left: 26px;
-  }
-}
-  @media (max-width:943px) {
-    #main_area{
-      width: 500px;
-      display: flex;
-    }
-    .box{
-      width: 500px;
-      margin-left: 26px;
-    }
-    .adr{
-      width: 419.4px;
-      margin-left: 35px; 
-    }
+    width: 840.4px;
+    margin-left: 10px;
     
   }
+  @media (max-width:1115px) {
 
-  @media (max-width:656px) {
     .adr{
-      width: 298px;
-      margin-left: 9px;
+      width: 412.4px;
+      margin-left: 60px;
+      
+    }
+  }
+  @media (max-width:2000px) {
+
+    .adr{
+      width: 412.4px;  
+      margin-left: 35px;
       
     }
     #main_area{
-      width: 330px;
-      margin-left: -14px;
+      width: 459px;
+      margin-left: 24px;
+    }
+    .box{
+      width: 530px;
+      
+    }
+  
+    
+  }
+
+ 
+  @media (max-width:657px) {
+    #main_area{
+      width: 425px;
+   
+    }
+    .box{
+      width: 425px;
+      margin-left: -20px;
+    }
+    .adr{
+    width: 415.4px;
+    margin-left: 13px;
+
+    }
+
+  }
+  
+  @media (max-width:587px) {
+    .adr{
+      width: 298px
+    }
+    #main_area{
+      width: 300px;
     }
     .box{
       width: 230px;
-      margin-left: 17px;
+      
     }
    
     .example-full-width{
       width: 290px;
     }
   }
-  @media (max-width:467px) {
+  @media (max-width:461px) {
     .adr{
       width: 240px;
-      margin-left: 3px;
+     margin-left: 7px;
     }
     #main_area{
-      width: 245px;
-      margin-left: -19px;
+      width: 235px;
+      margin-left: 25px;
     }
     .box{
       width: 260px;
@@ -99,7 +111,7 @@
       width: 240px;
       margin-left: 3px;
     }
-  
+   
     
   }
   

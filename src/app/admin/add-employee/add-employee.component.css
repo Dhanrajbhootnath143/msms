@@ -1,54 +1,136 @@
 .example-spacer {
-    flex: 1 1 auto;
-    margin-bottom: 20px;
-    color: #1d1f23;
-    font-size: 18px;
-  }
-  
-  .material-icons {
-    color: #1d1f23;
-    margin-bottom: 20px;
-  }
-  
-  mat-toolbar {
-    height: 30px;
-    padding: 0px;
-    background: none;
-    position: relative;
-    color: whitesmoke;
-  }
-  .example-full-width{
-    margin-left: 10px;
+  flex: 1 1 auto;
+  margin-bottom: 20px;
+  color: #1d1f23;
+  font-size: 18px;
+}
+
+.material-icons {
+  color: #1d1f23;
+  margin-bottom: 20px;
+}
+
+mat-toolbar {
+  height: 30px;
+  padding: 0px;
+  background: none;
+  position: relative;
+  color: whitesmoke;
+}
+.example-full-width{
+  margin-left: 10px;
+}
+.submit {
+ display: flex;
+ justify-content: center;
+}
+
+button {
+  margin-left: 10px;
+}
+.upload {
+  font-size: 9.5px;
+  margin-left: 10px;
+}
+.photo {
+ width: 201px;
+  height: 51px;
+  border-bottom: 1px solid #757272;
+  background-color: whitesmoke;
+  margin-left: 10px;
+  margin-top: 1px;
+}
+.photo mat-label{
+  width: 95%;
+  line-height: 50px;
+}
+
+ @media(min-width:720px)and (max-width:850px) {
+
+  #main_area {
+    width: 440px;
+    margin-left: 12px;
   }
   .submit {
-    margin-left: 17.2em;
-    margin-top: 27px;
+    display: flex;
+    justify-content: center;
+    margin-left: -11px;     }
+
+}
+
+@media(min-width:866px)and (max-width:2000px) {
+  #main_area{
+    width: 655px;
   }
   
-  button {
+}
+@media(min-width:520px)and (max-width:719px) {
+  #main_area {
+    width: 355px;
+  }
+ 
+  mat-form-field {
+    width: 160px;
+  }
+  .submit {
+   
+    margin-left: -13px;     
+
+}
+.photo{
+
+}
+}
+
+/* @media(max-width:519px) {
+  #main_area {
+    width: 224px;
+    margin-left: 20px;
+  }
+  mat-form-field {
     margin-left: 10px;
   }
+  .box {
+    width: 145px;
+  }
+ 
+  .gender {
+    font-size: 8px;
+  }
+
+ 
+} */
+@media (max-width:587px) {
+ 
+  #main_area{
+    width: 330px;
+  }
+  .box{
+    width: 230px;
+    
+  }
+
+  .example-full-width{
+    width: 290px;
+  }
+}
+@media (max-width:420px) {
   .adr{
-    width: 32%;
-    height: 51px;
-    margin-left: 10px;
-    float: left;
+    width: 240px;
+    margin-left: 3px;
   }
-  .upload {
-    font-size: 9.5px;
-    margin-left: 10px;
+  #main_area{
+    width: 245px;
   }
-  .photo {
-    width: 32%;
-    height: 51px;
-    border-bottom: 1px solid #757272;
-    background-color: whitesmoke;
-    margin-left: 10px;
-    float: right;
+  .box{
+    width: 260px;
+    
   }
-  .photo mat-label{
-    float: left;
-    width: 95%;
-    line-height: 50px;
+  .example-full-width{
+    width: 240px;
+    margin-left: 3px;
   }
   
+}
+
+

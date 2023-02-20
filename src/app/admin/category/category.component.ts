@@ -40,7 +40,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  course_edit(row: any) {
+  catogory_edit(row: any) {
     this.dailog.open(AddCategoryComponent, {
       data: row,
     });

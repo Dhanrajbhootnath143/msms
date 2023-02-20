@@ -21,7 +21,8 @@
     margin-left: 10px;
   }
   .submit {
-    margin-left: 16.8em;
+    display: flex;
+    justify-content: center;
   }
   
   button {
@@ -40,9 +41,7 @@
       width: 412px;
       margin-left: 10px;
     }
-    .submit {
-      margin-left: 9.6em;
-    }
+  
   }
   
   @media(min-width:866px)and (max-width:2000px) {
@@ -62,9 +61,7 @@
     mat-form-field {
       width: 160px;
     }
-    .submit {
-      margin-left: 6.9em;
-    }
+
   }
 
   @media(max-width:519px) {
@@ -86,9 +83,7 @@
       font-size: 8px;
     }
   
-    .submit {
-      margin-left: 20%;
-    }
+  
   }
   
   
