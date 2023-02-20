@@ -36,18 +36,22 @@
             <input type="date" formControlName="Date" matInput type="Date" >
         </mat-form-field>
 
-        </div>
-    </div>
-    <mat-form-field appearance="fill" class="adr">
+          <mat-form-field appearance="fill" class="adr">
         <mat-label>Remarks</mat-label>
         <textarea matInput formControlName="Remarks" placeholder="Remarks"></textarea>
     </mat-form-field>
+
+    <div class="submit">
+        <button mat-raised-button color="warn">Reset</button>
+        <button mat-raised-button color="primary" [disabled]="!account_form.valid">{{actionBtn}}</button>
+    </div>
+
+        </div>
+
+    </div>
+  
 
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
     <input type="number" formControlName="id" readonly hidden>
 </form>
 
-<div class="submit">
-    <button mat-raised-button color="warn">Reset</button>
-    <button mat-raised-button color="primary" [disabled]="!account_form.valid">{{actionBtn}}</button>
-</div>
