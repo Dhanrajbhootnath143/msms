@@ -52,27 +52,26 @@
                 oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}">
             </mat-form-field>
 
+
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Holder Name</mat-label>
                 <input matInput formControlName="Account_Name">
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill" >
+            <mat-form-field class="example-full-width" appearance="fill" class="adr" >
                 <mat-label>Address</mat-label>
                 <textarea matInput formControlName="address"></textarea>
             </mat-form-field>
 
-            <table  class="photo" cellspacing="0">
-                <mat-label class="photo">Employee photo</mat-label>
+            <table class="pic" cellspacing="0">
+                <mat-label class="photo">Employee photo</mat-label><br>
                 <input type="file" name="photo" class="upload" (change)="OnUpload($event)"
                     formControlName="photo">
             </table>
 
 
     </div>
-    
-   
-  
+
     </div>
 
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>

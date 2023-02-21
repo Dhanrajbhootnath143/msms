@@ -10,13 +10,13 @@ import { AddCategoryComponent } from '../add-category/add-category.component';
 
 export interface UserData {
   id: number;
-  weight: string;
+  Category: string;
   Description: string;
 }
 const UserData: UserData[] = [
-  { id: 1, weight: 'kg', Description:'kg', },
-  { id: 1, weight: 'liter',Description:'liter', },
-  { id: 1, weight: 'mili garam',Description:'mili garam',},
+  { id: 1, Category: 'Drup', Description:'Drup', },
+  { id: 1, Category: 'Injection',Description:'Injection', },
+  { id: 1, Category: 'Luquit',Description:' Luquit',},
 ];
 
 @Component({
@@ -25,7 +25,7 @@ const UserData: UserData[] = [
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  displayedColumns: string[] = ['id','weight','Description','action'];
+  displayedColumns: string[] = ['id','Category','Description','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
