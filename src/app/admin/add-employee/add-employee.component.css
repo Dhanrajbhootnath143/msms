@@ -23,6 +23,7 @@ mat-toolbar {
 .submit {
  display: flex;
  justify-content: center;
+ margin-top: 20px;
 }
 
 button {
@@ -33,34 +34,52 @@ button {
   margin-left: 10px;
 }
 .photo {
- width: 201px;
-  height: 51px;
-  border-bottom: 1px solid #757272;
-  background-color: whitesmoke;
   margin-left: 10px;
   margin-top: 1px;
+}
+.pic{
+  width: 197px;
+  height: 66px;
+  margin-top: -86px;
+  margin-left: 222px;
+  border-bottom: 1px solid #757272;
+  background-color: whitesmoke;
 }
 .photo mat-label{
   width: 95%;
   line-height: 50px;
+
 }
 
  @media(min-width:720px)and (max-width:850px) {
 
   #main_area {
-    width: 440px;
-    margin-left: 12px;
+    width: 425px;
+    margin-left: -8px;
   }
   .submit {
     display: flex;
     justify-content: center;
-    margin-left: -11px;     }
-
+    margin-left: -11px;     
+  }
+  
+  .pic{
+    margin-top: 7px;
+    width: 414px;
+    margin-left: 8px;
+  }
+   .adr{
+    margin-left: 11px;
+   }
 }
 
 @media(min-width:866px)and (max-width:2000px) {
   #main_area{
-    width: 655px;
+    width: 633px;
+    margin-left: -12px;
+  }
+  .adr{
+    margin-left: 10px;
   }
   
 }
@@ -68,42 +87,36 @@ button {
   #main_area {
     width: 355px;
   }
- 
+  
+  .adr{
+    margin-left: 10px;
+  }
   mat-form-field {
     width: 160px;
   }
   .submit {
-   
-    margin-left: -13px;     
+   display: flex;
+   justify-content: center;   
 
 }
-.photo{
+.adr{
+  margin-left: 11px;
+}
+.pic{
+  margin-top: 7px;
+  width: 334px;
+  margin-left: 8px;
+}
 
 }
-}
 
-/* @media(max-width:519px) {
-  #main_area {
-    width: 224px;
-    margin-left: 20px;
-  }
-  mat-form-field {
-    margin-left: 10px;
-  }
-  .box {
-    width: 145px;
-  }
- 
-  .gender {
-    font-size: 8px;
-  }
 
- 
-} */
-@media (max-width:587px) {
+@media (max-width:519px) {
  
   #main_area{
-    width: 330px;
+    width: 300px;
+    height: 500px;
+    margin-left: -10px;
   }
   .box{
     width: 230px;
@@ -113,19 +126,41 @@ button {
   .example-full-width{
     width: 290px;
   }
+  .pic{
+    margin-left: 5px;
+    width: 290px;
+    margin-top: -3px;
+  }
+  .adr{
+    width: 290px;
+    margin-left: 10px;
+  }
+  .submit{
+  margin-left: 67px;
+  border-bottom: 15px solid white;
+  }
 }
 @media (max-width:420px) {
   .adr{
-    width: 240px;
+    width: 0px;
     margin-left: 3px;
+  }
+  .pic{
+    margin-left: 2px;
+    width: 240px;
+    margin-top: -3px;
   }
   #main_area{
     width: 245px;
+    margin-left: 2px;
   }
   .box{
     width: 260px;
     
   }
+  .submit{
+    margin-left:-12px;
+    }
   .example-full-width{
     width: 240px;
     margin-left: 3px;

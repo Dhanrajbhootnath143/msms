@@ -23,19 +23,24 @@
       </ng-container>
   
       <ng-container matColumnDef="Owner_name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Owner name</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Owner Name</th>
         <td mat-cell *matCellDef="let row"> {{row.Owner_name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Contact_number">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact number</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact Number</th>
         <td mat-cell *matCellDef="let row"> {{row.Contact_number}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+        <td mat-cell *matCellDef="let row"> {{row.Address}}</td>
       </ng-container>
   
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
-          <mat-icon style="cursor: pointer;" (click)="course_edit(row)">edit</mat-icon>
+          <mat-icon style="cursor: pointer;" (click)="customer_edit(row)">edit</mat-icon>
         </td>
       </ng-container>
   

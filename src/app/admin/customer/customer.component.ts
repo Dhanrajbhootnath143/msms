@@ -12,11 +12,12 @@ export interface UserData {
   Shop_name: string;
   Owner_name: string;
   Contact_number:number;
+  Address:string;
 }
 const UserData: UserData[] = [
-  { id: 1, Shop_name: 'Raja',Owner_name:'dipu',Contact_number:3455565423, },
-  { id: 1, Shop_name: 'Roushan',Owner_name:'dipu',Contact_number:7768878732, },
-  { id: 1, Shop_name: 'Dipu',Owner_name:'dipu', Contact_number:34555654454, },
+  { id: 1, Shop_name: 'Raja',Owner_name:'dipu',Contact_number:3455565423,Address:'hajipur', },
+  { id: 1, Shop_name: 'Roushan',Owner_name:'dipu',Contact_number:7768878732, Address:'hajipur',},
+  { id: 1, Shop_name: 'Dipu',Owner_name:'dipu', Contact_number:34555654454,Address:'hajipur', },
 ];
 
 
@@ -26,7 +27,7 @@ const UserData: UserData[] = [
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  displayedColumns: string[] = ['id','Shop_name','Owner_name','Contact_number','action'];
+  displayedColumns: string[] = ['id','Shop_name','Owner_name','Contact_number','Address','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -41,7 +42,7 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  course_edit(row: any) {
+  customer_edit(row: any) {
     this.dailog.open(AddCustomerComponent, {
       data: row,
     });

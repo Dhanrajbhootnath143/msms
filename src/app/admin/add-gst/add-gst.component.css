@@ -9,6 +9,12 @@
     color: #1d1f23;
     margin-bottom: 20px;
   }
+  .mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    margin-left: 11px;
+}
   
   mat-toolbar {
     height: 30px;
@@ -17,52 +23,53 @@
     position: relative;
     color: whitesmoke;
   }
-  .example-full-width{
-    margin-left: 10px;
-  }
+
   .submit {
-    margin-left: 9.6em;
+   display: flex;
+   justify-content: center;
+   margin-left: -13px;
   }
   
   button {
     margin-left: 10px;
   }
+  #main_area{
+    width: 419px;
+    margin-left: -10px;
+
+  }
+  .box{
+    margin-left: -5px;
+  }
   
-  @media (max-width:587px) {
+  
+  @media (max-width:420px) {
   
     #main_area{
       width: 230px;
-      margin-left: 20px;
+      
     }
     .box{
       width: 230px;
+      margin-left: 10px;
       
     }
-  
-    .submit {
-  margin-left: 2.6em;
-     justify-content: center;
-    }
-    .example-full-width{
-      width: 290px;
-    }
   }
-  @media (max-width:420px) {
+  @media (max-width:587px) {
 
     #main_area{
       width: 245px;
     }
     .box{
       width: 260px;
+      margin-left: 4px;
       
     }
     .example-full-width{
       width: 240px;
       margin-left: 3px;
     }
-    .submit {
-      margin-left: 2.8em;
-    }
+  
     
   }
   

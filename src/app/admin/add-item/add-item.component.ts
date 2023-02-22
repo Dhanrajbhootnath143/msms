@@ -35,6 +35,7 @@ export class AddItemComponent implements OnInit {
       hsn_no: ['', Validators.required],
       Unit:[''],
       mrp: ['', Validators.required],
+      Description:['', Validators.required],
       admin_id_fk: ['', Validators.required],
     })
     this.item_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
@@ -51,6 +52,7 @@ export class AddItemComponent implements OnInit {
       this.item_form.controls[ 'hsn_no'].setValue(this.add_item.hsn_no)
       this.item_form.controls[ 'Unit'].setValue(this.add_item.Unit)
       this.item_form.controls[ 'mrp'].setValue(this.add_item.mrp)
+      this.item_form.controls[ 'Description'].setValue(this.add_item.Description)
       this.item_form.controls[ 'admin_id_fk'].setValue(this.add_item.admin_id_fk)
     }
   }
