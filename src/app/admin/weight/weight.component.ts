@@ -13,9 +13,9 @@ export interface UserData {
   Description: string;
 }
 const UserData: UserData[] = [
-  { id: 1, weight: '2(kg)', Description:'kg', },
-  { id: 1, weight: '3(liter)',Description:'liter', },
-  { id: 1, weight: '6(mili garam)',Description:'mili garam',},
+  { id: 1, weight: '2', Description:'kg', },
+  { id: 1, weight: '3',Description:'liter', },
+  { id: 1, weight: '6',Description:'mili garam',},
 ];
 
 

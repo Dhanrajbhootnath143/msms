@@ -1,244 +1,289 @@
-<ul ngbNav #nav="ngbNav"  class="nav-tabs">
-	<li [ngbNavItem]="1">
-		<a ngbNavLink class="three_btn">Party</a>
-		 <ng-template ngbNavContent>
+<div class="head">
+    <span>Add Sale Details</span>
+</div>
 
-				<form [formGroup]="party_form" class="center">
-                    <div id="main_area">
-                        <div class="box">
+<div id="box">
+    <nav ngbNav #nav="ngbNav" class="nav-tabs">
+        <ng-container ngbNavItem>
+            <a ngbNavLink
+                style="background-color: #232838; color: whitesmoke; border-radius: 5px; height: 40px; margin: 3px">Party</a>
+            <ng-template ngbNavContent>
+             <div class="customer_box">
 
-                            <mat-form-field class="example-full-width" appearance="fill">
-                                <mat-label>Party Id</mat-label>
-                                <input matInput formControlName="Party_Id" placeholder="Party Id">
-                            </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Customer</mat-label>
+                    <input matInput>
+                </mat-form-field>
 
-                            <mat-form-field class="example-full-width" appearance="fill">
-                                <mat-label>Name</mat-label>
-                                <input matInput formControlName="name" placeholder="Name">
-                            </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Customer</mat-label>
+                    <mat-select>
+                        <mat-option value="one">Mukesh Singh</mat-option>
+                        <mat-option value="two">Akash Raz</mat-option>
+                        <mat-option value="two">Rana Singh</mat-option>
+                    </mat-select>
+                </mat-form-field>
 
-                            <mat-form-field class="example-full-width" appearance="fill">
-                                <mat-label>Mobile number</mat-label>
-                                <input formControlName="Mobile_number"  matInput type="Mobile_number" onkeypress=" return this.value.length < 10"
-                                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="Mobile number">
-                            </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput type="number" onkeypress="return this.value.length < 10;"
+                        oninput="if(this.value.length>=10) { this.value = this.value.slice(0,10); }">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Email Id.</mat-label>
+                    <input matInput placeholder="Email Id">  
+                </mat-form-field><br>
                 
-                            <mat-form-field class="example-full-width" appearance="fill">
-                                <mat-label>Email</mat-label>
-                                <input matInput formControlName="Email" placeholder="Email ">
-                            </mat-form-field>
-   
-                            <mat-form-field class="example-full-width" appearance="fill" class="adr1">
-                                <mat-label>Address</mat-label>
-                                <input matInput formControlName="Address" placeholder="Address">
-                            </mat-form-field>
-                
-                        </div>
+                <mat-form-field appearance="fill" class="form">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput></textarea>
+                  </mat-form-field>
+
+                  <span class="btn_box">
+                    <button class="reset_btn" mat-raised-button color="warn" type="reset">Save</button>
+                  </span>
+             </div>
+            </ng-template>
+        </ng-container>
+
+
+        <ng-container ngbNavItem>
+            <a ngbNavLink
+                style="background-color: #232838; color: whitesmoke; border-radius: 5px; height: 40px; margin: 3px">Item</a>
+            <ng-template ngbNavContent>
+
+                <div class="product_box">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Party</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Category</mat-label>
+                        <mat-select placeholder="Category">
+                            <mat-option value="Drup">drup</mat-option>
+                            <mat-option value="Liquid">Liquid</mat-option>
+                            <mat-option value="Tablet">Tablet</mat-option>
+                            <mat-option value="ML">ML</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+        
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Iten</mat-label>
+                        <input matInput placeholder="Iten">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Company</mat-label>
+                        <input matInput  placeholder="Company Name">
+                    </mat-form-field>
+        
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>HSN No</mat-label>
+                        <input matInput  placeholder="hsn_no">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Batch No</mat-label>
+                        <input matInput  placeholder="HSN No">
+                    </mat-form-field>
+        
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Unit</mat-label>
+                        <input matInput placeholder="Unit">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>MRP</mat-label>
+                        <input matInput  placeholder="HSN No">
+                    </mat-form-field>
+        
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Pack</mat-label>
+                        <input matInput  placeholder="Pack">
+                    </mat-form-field>
+        
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Rate</mat-label>
+                        <input matInput  placeholder="Rate">
+                    </mat-form-field>
+        
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Expiry Date</mat-label>
+                    <input matInput >
+                </mat-form-field>
+        
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput placeholder="Quantity">
+                </mat-form-field>
+        
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder="Total">
+                </mat-form-field>
+        
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Fee</mat-label>
+                    <input matInput placeholder="Fee">
+                </mat-form-field>
+        
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Discount</mat-label>
+                    <input matInput placeholder="Discount">
+                </mat-form-field>
+        
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>GST</mat-label>
+                    <mat-select  placeholder="GST">
+                        <mat-option value="2%">drup</mat-option>
+                        <mat-option value="3%">Liquid</mat-option>
+                        <mat-option value="5%">Tablet</mat-option>
+                        <mat-option value="10%">ML</mat-option>
+                    </mat-select>
+                </mat-form-field>
+        
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Net Rate</mat-label>
+                        <input matInput  placeholder="Net_Rate">
+                    </mat-form-field>
+        
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Amount</mat-label>
+                        <input matInput placeholder="Amount">
+                    </mat-form-field>
+
+                    <div class="add_btn">
+                        <mat-icon>add</mat-icon>
                     </div>
-                
-                    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
-                    <input type="number" formControlName="id" readonly hidden>
-                </form>
-                
-                <div class="submit">
-                    <button mat-raised-button color="warn">Reset</button>
-                    <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
                 </div>
+                
 
-		</ng-template>
-	</li>
+                <div class="count_area">
+                    <span class="notice_text">Total : 10</span>
+                    <div class="search">
+                        <input type="text" placeholder="Search" matInput (keyup)="($event)" #input>
+                    </div>
+                </div>
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource" matSort>
+
+                        <ng-container matColumnDef="sn_no">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>S.N</th>
+                            <td mat-cell *matCellDef="let row"> {{row.sn_no}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Item_Name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Item Name</th>
+                            <td mat-cell *matCellDef="let row"> {{row.Item_Name}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Pack">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Pack</th>
+                            <td mat-cell *matCellDef="let row"> {{row.Pack}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Company">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Company</th>
+                            <td mat-cell *matCellDef="let row"> {{row.Company}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Quantity">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+                            <td mat-cell *matCellDef="let row"> {{row.Quantity}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Rate">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Rate</th>
+                            <td mat-cell *matCellDef="let row"> {{row.Rate}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Discount">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Discount(%)</th>
+                            <td mat-cell *matCellDef="let row"> {{row.Discount}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="gst">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>GST(%)</th>
+                            <td mat-cell *matCellDef="let row"> {{row.gst}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Net_Rete">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Net Rete</th>
+                            <td mat-cell *matCellDef="let row"> {{row.Net_Rete}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Amount">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount</th>
+                            <td mat-cell *matCellDef="let row"> {{row.Amount}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Action">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+                            <td mat-cell *matCellDef="let row"><mat-icon class="icon">visibility</mat-icon><mat-icon
+                                    class="icon">edit</mat-icon> </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns" id="tbl_hight"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" id="tbl_hight"></tr>
+
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="9" style="color:silver;">No record found"{{input.value}}"</td>
+                        </tr>
+                    </table>
+
+                    <mat-paginator #paginatorRef [pageSizeOptions]="[10, 25, 100]"
+                     aria-label="Select page of users"></mat-paginator>
+                </div>
+            </ng-template>
+        </ng-container>
 
 
-	<li [ngbNavItem]="2">
-		<a ngbNavLink class="three_btn">Item</a>
-		<ng-template ngbNavContent>
-			
-         <form [formGroup]="item_form">
-            <div id="main_area1">
-              <div class="box">
+        <ng-container ngbNavItem>
+            <a ngbNavLink
+                style="background-color: #232838; color: whitesmoke; border-radius: 5px; height: 40px; margin: 3px">Final Bill</a>
+            <ng-template ngbNavContent>
+                <div class="Final_box">
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Basic Amount</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="0.00">
+                    </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Party</mat-label>
-                <input matInput formControlName="Party" placeholder="Name">
-            </mat-form-field>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Discount (0%)</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="0">
+                    </mat-form-field>
 
-            <mat-form-field appearance="fill" class="example-full-width">
-                <mat-label>Category</mat-label>
-                <mat-select formControlName="category" placeholder="Category">
-                    <mat-option value="Drup">drup</mat-option>
-                    <mat-option value="Liquid">Liquid</mat-option>
-                    <mat-option value="Tablet">Tablet</mat-option>
-                    <mat-option value="ML">ML</mat-option>
-                </mat-select>
-            </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>GST (%)</mat-label>
+                        <mat-select>
+                            <mat-option value="one">10%</mat-option>
+                            <mat-option value="two">15%</mat-option>
+                            <mat-option value="two">20%</mat-option>
+                        </mat-select>
+                    </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Iten</mat-label>
-                <input matInput formControlName="Iten" placeholder="Iten">
-            </mat-form-field>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Paybill Amount</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="0.00">
+                    </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Company</mat-label>
-                <input matInput formControlName="Company" placeholder="Company Name">
-            </mat-form-field>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Paid</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="0">
+                    </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>HSN no</mat-label>
-                <input matInput formControlName="Company" placeholder="hsn_no">
-            </mat-form-field>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Dues</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="0.00">
+                    </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Batch No</mat-label>
-                <input matInput formControlName="Batch_no" placeholder="HSN No">
-            </mat-form-field>
+                    <input type="date" class="date_box">
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Unit</mat-label>
-                <input matInput formControlName="Unit" placeholder="Unit">
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>MRP</mat-label>
-                <input matInput formControlName="mrp" placeholder="HSN No">
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Pack</mat-label>
-                <input matInput formControlName="Pack" placeholder="Pack">
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Rate</mat-label>
-                <input matInput formControlName="Rate" placeholder="Rate">
-            </mat-form-field>
-
-        <!-- <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Expiry Date</mat-label>
-            <input matInput formControlName="Expiry_Dat" placeholder="Expiry Dat">
-        </mat-form-field> -->
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Quantity</mat-label>
-            <input matInput formControlName="Quantity" placeholder="Quantity">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Total</mat-label>
-            <input matInput formControlName="Total" placeholder="Total">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Fee</mat-label>
-            <input matInput formControlName="Fee"placeholder="Fee">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Discount</mat-label>
-            <input matInput formControlName="Discount"placeholder="Discount">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" class="example-full-width">
-            <mat-label>GST</mat-label>
-            <mat-select formControlName="gst" placeholder="GST">
-                <mat-option value="2%">drup</mat-option>
-                <mat-option value="3%">Liquid</mat-option>
-                <mat-option value="5%">Tablet</mat-option>
-                <mat-option value="10%">ML</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Net Rate</mat-label>
-                <input matInput formControlName="Net_Rate" placeholder="Net_Rate">
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Amount</mat-label>
-                <input matInput formControlName="Amount" placeholder="Amount">
-            </mat-form-field>
-
-        </div>
-    </div>
-
-    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
-    <input type="number" formControlName="id" readonly hidden>
-</form>
-    <div class="submit1">
-    <button mat-raised-button color="warn">Reset</button>
-    <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
-   </div>
-		</ng-template>
-
-	<li [ngbNavItem]="3">
-		<a ngbNavLink class="three_btn">Final Bill</a>
-        <ng-template ngbNavContent>
-			
-            <form [formGroup]="final_form">
-               <div id="main_area2">
-                 <div class="box">
-   
-               <mat-form-field class="example-full-width" appearance="fill">
-                   <mat-label>Basic Amount</mat-label>
-                   <input matInput formControlName="Basic_Amount" placeholder="Basic Amount">
-               </mat-form-field>
-   
-               <mat-form-field class="example-full-width"  appearance="fill" >
-                   <mat-label>Discount</mat-label>
-                   <input matInput formControlName="Discount" placeholder="Discount ">
-               </mat-form-field>
-   
-               <mat-form-field class="example-full-width" appearance="fill">
-                   <mat-label>GST</mat-label>
-                   <input matInput formControlName="gst" placeholder="GST">
-               </mat-form-field>
-   
-               <mat-form-field class="example-full-width" appearance="fill">
-                   <mat-label>SGST</mat-label>
-                   <input matInput formControlName="sgst" placeholder="SGST">
-               </mat-form-field>
-   
-               <mat-form-field class="example-full-width" appearance="fill">
-                   <mat-label>CGST</mat-label>
-                   <input matInput formControlName="cgst" placeholder="CGST">
-               </mat-form-field>
-   
-               <mat-form-field class="example-full-width" appearance="fill">
-                   <mat-label>R/O</mat-label>
-                   <input matInput formControlName="ro" placeholder="R/o">
-               </mat-form-field>
-   
-               <mat-form-field class="example-full-width" appearance="fill">
-                   <mat-label>Net Amount</mat-label>
-                   <input matInput formControlName="Net_amount" placeholder="Net amount">
-               </mat-form-field>
-
-               <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Bill Number</mat-label>
-                <input matInput formControlName="Bill_Number" placeholder="Bill Number">
-            </mat-form-field>
-
-                <!-- <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Date</mat-label>
-                    <input type="Date" matInput formControlName="Date">
-                </mat-form-field> -->
-
-           </div>
-       </div>
-   
-       <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
-       <input type="number" formControlName="id" readonly hidden>
-   </form>
-       <div class="submit2">
-       <button mat-raised-button color="warn">Reset</button>
-       <button mat-raised-button color="primary" [disabled]="!final_form.valid">{{actionBtn}}</button>
-      </div>
-           </ng-template>
-	</li>
-    <li id="bill">
-        <button mat-raised-button class="butt">Bill Ref. No.:</button>
-    </li>
-   
-</ul>
-
-<div [ngbNavOutlet]="nav" class="mt-2"></div>
-
+                </div>
+            </ng-template>
+        </ng-container>
+    </nav>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>

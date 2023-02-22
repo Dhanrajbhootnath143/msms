@@ -16,9 +16,9 @@ export interface UserData {
 }
 
 const UserData: UserData[] = [
-  { id: 1, gst: 234, cgst:9153634848, sgst: 234,Description:'Gst', },
-  { id: 1, gst: 56757, cgst:9153634848, sgst: 234,Description:'14For more then', },
-  { id: 1, gst: 657, cgst:9153634848, sgst: 234,Description:'Raja', },
+  { id: 1, gst: 40, cgst:20, sgst: 234,Description:'Gst', },
+  { id: 1, gst: 50, cgst:25, sgst: 234,Description:'14For more then', },
+  { id: 1, gst: 90, cgst:45, sgst: 234,Description:'Raja', },
 ];
 
 @Component({

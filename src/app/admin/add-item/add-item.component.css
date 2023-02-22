@@ -24,6 +24,7 @@
    display: flex;
    justify-content: center;
    margin-top: -55px;
+   margin-left: 429px;
   }
   
   button {
@@ -85,7 +86,9 @@
     }
     .submit {
       position: relative;
-      top: 55px;
+      border-bottom: 15px solid white;
+      top: 50px;
+      margin-left: 10px;
         }
   
   }
@@ -99,7 +102,9 @@
     }
 .submit {
   position: relative;
+  border-bottom: 15px solid white;
   top: 55px;
+  
     }
     .example-full-width{
       width: 230px;

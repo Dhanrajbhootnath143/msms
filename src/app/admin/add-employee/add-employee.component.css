@@ -114,7 +114,9 @@ button {
 @media (max-width:519px) {
  
   #main_area{
-    width: 330px;
+    width: 300px;
+    height: 500px;
+    margin-left: -10px;
   }
   .box{
     width: 230px;
@@ -133,6 +135,10 @@ button {
     width: 290px;
     margin-left: 10px;
   }
+  .submit{
+  margin-left: 67px;
+  border-bottom: 15px solid white;
+  }
 }
 @media (max-width:420px) {
   .adr{
@@ -146,11 +152,15 @@ button {
   }
   #main_area{
     width: 245px;
+    margin-left: 2px;
   }
   .box{
     width: 260px;
     
   }
+  .submit{
+    margin-left:-12px;
+    }
   .example-full-width{
     width: 240px;
     margin-left: 3px;
