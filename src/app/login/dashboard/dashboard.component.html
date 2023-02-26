@@ -1,74 +1,164 @@
 <div class="main_area">
-    <a routerLink="/dashboard">
-        <div id="thumbnail" class="color4" >
-             <br>
-             <mat-icon>dashboard</mat-icon>
-             <span>Dashboard</span>
-        </div>
-    </a>
+  
 
-    <a routerLink="/">
+    <a  [routerLink]="['party']">
         <div id="thumbnail" class="color5">
-            <mat-icon>local_library</mat-icon><br>
+            <mat-icon>list_alt</mat-icon><br>
             <span><b>10</b></span><br>
-            <span>Batch</span>
+            <span>Party</span><br>
         </div>
     </a>
 
-    <a routerLink="tack-admission">
+    <a [routerLink]="['unit']">
         <div id="thumbnail" class="color1">
-            <mat-icon>transfer_within_a_station</mat-icon><br>
+            <mat-icon>notes</mat-icon><br>
             <span><b>31</b></span><br>
-            <span>Tack admission</span>
+            <span>Unit </span>
         </div>
     </a>
 
-    <a routerLink="/fee-report">
+    <a [routerLink]="['gst']">
         <div id="thumbnail" class="color2">
-            <mat-icon>library_books</mat-icon><br>
+            <mat-icon>style</mat-icon><br>
             <span><b>60</b></span><br>
-            <span>Fee Paid</span>
+            <span>GST</span>
         </div>
     </a>
-    <a routerLink="/dues">
+    <a [routerLink]="['weight']">
         <div id="thumbnail" class="color3">
-            <mat-icon>airline_seat_recline_normal</mat-icon><br>
+            <mat-icon>question_answer</mat-icon><br>
             <span><b>47</b></span><br>
-            <span>Dues</span>
+            <span>Weight</span>
         </div>
     </a>
 
-    <a routerLink="/quize">
+    <a [routerLink]="['category']">
         <div id="thumbnail" class="color3">
-            <mat-icon>airline_seat_recline_normal</mat-icon><br>
+            <mat-icon>question_answer</mat-icon><br>
             <span><b>47</b></span><br>
-            <span>Query</span>
+            <span>Category</span>
         </div>
     </a>
 
 
-    <a routerLink="/online-test">
+    <a [routerLink]="['item']">
         <div id="thumbnail" class="color6">
-            <mat-icon>wc</mat-icon><br>
+            <mat-icon>question_answer</mat-icon><br>
             <span><b>56</b></span><br>
-            <span>Online test</span>
+            <span>Item</span>
         </div>
     </a>
 
-    <a routerLink="/result">
+    <a [routerLink]="['employee']">
         <div id="thumbnail" class="color8">
-            <mat-icon>accessible</mat-icon><br>
+            <mat-icon>question_answer</mat-icon><br>
             <span><b>7</b></span><br>
-            <span>Result</span>
+            <span>Employee</span>
         </div>
     </a>
 
   
-    <a routerLink="/qurey">
+    <a [routerLink]="['customer']">
         <div id="thumbnail" class="color9">
-            <mat-icon>account_balance_wallet</mat-icon><br>
+            <mat-icon>question_answer</mat-icon><br>
             <span><b>25</b></span><br>
-            <span>Quize</span>
+            <span>Customer</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['purchase']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>list_alt</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Purchase</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['sale']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>list_alt</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Sale</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['dues']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>redeem</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Dues</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['reciept']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>list_alt</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Reciept</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['account']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>payment</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Account</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['expense']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>accessible</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Expense</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['Purchase_Report']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>list_alt</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Purchase Report</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['query']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>accessible</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Sele Report</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['Stock_Report']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>accessible</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Stock Report</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['Expiry_Report']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>question_answer</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Expiry Report</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['Expiry_Report']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>accessible</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Purchase Cancel</span>
+        </div>
+    </a>
+
+    <a [routerLink]="['Expiry_Report']">
+        <div id="thumbnail" class="color9">
+            <mat-icon>question_answer</mat-icon><br>
+            <span><b>25</b></span><br>
+            <span>Sale Cancel</span>
         </div>
     </a>
 

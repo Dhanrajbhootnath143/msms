@@ -45,7 +45,7 @@
 
     .adr{
       width: 412.4px;  
-      margin-left: 4px;
+      margin-left: 9px;
       
     }
     #main_area{
@@ -71,7 +71,8 @@
       
     }
    .submit{
-      margin-left: -14px;
+    margin-left: 72px;
+    border-bottom: 15px solid white;
     
    }
 
@@ -96,6 +97,10 @@
       width: 240px;
       margin-left: 3px;
     }
+    .submit{
+   margin-left: -20px;
+      
+     }
    
     
   }
