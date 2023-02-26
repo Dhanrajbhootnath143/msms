@@ -14,6 +14,7 @@ import { ExpenseComponent } from './admin/expense/expense.component';
 import { GstComponent } from './admin/gst/gst.component';
 import { ItemComponent } from './admin/item/item.component';
 import { PartyComponent } from './admin/party/party.component';
+import { PurchaseReportComponent } from './admin/purchase-report/purchase-report.component';
 import { PurchaseComponent } from './admin/purchase/purchase.component';
 import { RecieptComponent } from './admin/reciept/reciept.component';
 import { SaleComponent } from './admin/sale/sale.component';
@@ -44,6 +45,7 @@ const routes: Routes = [
       {path:'reciept',component:RecieptComponent},
       {path:'account',component:AccountComponent},
       {path:'expense',component:ExpenseComponent},
+      {path:'purchase_report',component:PurchaseReportComponent},
       { path:'purchase',component:ViewportComponent,
       children:[
         {path: '', component: PurchaseComponent},

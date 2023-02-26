@@ -6,7 +6,7 @@
 }
 .customer_box{
   width: 80%;
-
+  overflow: hidden;
   margin-left: 15%;
   margin-top: 20px;
 }
@@ -93,15 +93,37 @@ textarea {
   }
 
   mat-form-field{
-      width: 100%;
+      width: 79%;
   }
+  .btn_box {
+    width: 100%;
+    /* display: flex; */
+    margin-left: 60px;
+
 }
+}
+/* @media (max-width:757px) {
+  .form {
+    width: 408px;
+}
+  
+} */
+
 
 @media(min-width: 521px) and (max-width: 1599px){
   .add_box {
       width: calc(100% - 51.7%);
   }
   .btn_box {
+    display: flex;
+    justify-content: center;
       margin-left: 15px;
+  }
+}
+@media(min-width: 520px){
+  .btn_box {
+    display: flex;
+    justify-content: center;
+     margin-left: 75px;
   }
 }

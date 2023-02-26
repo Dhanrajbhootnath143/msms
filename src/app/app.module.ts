@@ -52,6 +52,7 @@ import { AccountComponent } from './admin/account/account.component';
 import { AddAccountComponent } from './admin/add-account/add-account.component';
 import { ExpenseComponent } from './admin/expense/expense.component';
 import { AddExpenseComponent } from './admin/add-expense/add-expense.component';
+import { PurchaseReportComponent } from './admin/purchase-report/purchase-report.component';
 
 
 
@@ -90,6 +91,7 @@ import { AddExpenseComponent } from './admin/add-expense/add-expense.component';
     AddAccountComponent,
     ExpenseComponent,
     AddExpenseComponent,
+    PurchaseReportComponent,
   ],
   imports: [
     BrowserModule,
