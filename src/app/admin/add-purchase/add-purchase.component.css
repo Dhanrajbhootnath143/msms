@@ -1,20 +1,119 @@
+.nav-tabs{
+  height: 45px; 
+}
+.party_btn{
+  width: 60px;
+  height: 38px;
+  color: whitesmoke;
+  padding-left: 13px;
+  margin-top: 3px;
+  text-align: center;
+  border-radius: 4px;  
+}
+.search{
+  border-bottom: 1px solid;
+}
+
+#Bill_ref_no{
+  float: right;
+  position: absolute;
+  right: 10px;
+  margin-top: 10px;
+}
+#Bill_ref{
+  width: 100px;
+  height: 38px;
+  background-color: #232838;
+  float: right;
+  margin-top: -6px;
+  margin-right: -3%;
+  cursor: pointer;
+  border-radius: 5px;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+
+}
+.Item_btn{
+  width: 60px;
+  height: 38px;
+  color: whitesmoke;
+  margin-left: 2px;
+  margin-top: 3px;
+  text-align: center;
+  border-radius: 4px; 
+}
+.Final_btn{
+  width: 86px;
+  color: whitesmoke;
+  height: 38px;
+  margin-left: 3px;
+  margin-top: 3px;
+  text-align: center;
+  border-radius: 4px;
+  background: #232838;
+}
+.customer_box{
+  width: 80%;
+  overflow-y: auto;
+  margin-left: 15%;
+  margin-top: 20px;
+  overflow: hidden;
+}
 .product_box{
   width: 90%;
   overflow-y: auto;
   margin-left: 9%;
+  overflow: hidden;
   
 }
-.customer_box{
-  width: 80%;
-  overflow: hidden;
-  margin-left: 15%;
-  margin-top: 20px;
+.Final_box{
+  margin-left: 17px;
+}
+#finel_buttam{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
 }
 .Final_box{
   width: 90%;
   overflow-y: auto;
   margin-left: 9%; 
+  overflow: hidden;
 }
+#buttom{
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  background-color: #343a40;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.bill_btn{
+  position: absolute;
+  right: 3px;
+  top: 105px;
+  color: white;
+  background-color: #3B4259;
+}
+#upload{
+  background-color: rgba(0,0,0,.04);
+  width: 98.8%;
+  margin-left: 4px;
+  height: 51px;
+  border-bottom: 1px solid black;
+  display: inline-block;
+}
+#upload h6{
+  margin: 0px;
+  color: black;
+  padding-left: 3px;
+  font-size: 11px;
+}
+
 mat-form-field{
   margin-left: 4px;
 }
@@ -24,7 +123,7 @@ mat-form-field{
   background-color: #3b4259;
   float: right;
   margin-top: 13px;
-  margin-right: 26%;
+  margin-right: 43%;
   cursor: pointer; 
   border-radius: 5px;
 }
@@ -35,6 +134,7 @@ mat-form-field{
   font-size: 34px;
 }
 
+
 mat-form-field mat-icon {
   color: rgb(244, 246, 247);
 }
@@ -44,29 +144,12 @@ mat-form-field mat-icon {
 }
 
 .mat-input-element {
-  color: black;
+  color: rgb(11, 11, 11);
 }
 
 textarea {
   height: 17px; 
 }
-.form{
-  width: 80%;
-}
-.date_box{
-  width: 17.3%;
-  height: 50px;
-  border-radius: 2px;
-  top: 19px;
-  padding-top: 14px;
-  border: aliceblue;
-  border: bott;
-  border-bottom: 1px solid black;
-  margin-left: 4px;
-  background-color: #e0e0e0;
-}
-
-
 
 .btn_box {
   width: 100%;
@@ -81,49 +164,103 @@ textarea {
   background-color: #3b4259;
 
 }
+.save_btn{
+  width: 8%;
+  background-color: #3b4259; 
+  margin-left: 40%;
+  margin-top: 28px;
+}
 
 /* -----------------------Media query----------------------- */
 @media(min-width: 350px) and (max-width: 520px){
   .product_box {
       width: 96%;
-      margin-left: 2%; 
+      margin-left: 1.7%;
   }
   .add_btn{
       margin-right: 44%;
   }
 
   mat-form-field{
-      width: 79%;
+      width: 100%;
   }
-  .btn_box {
-    width: 100%;
-    /* display: flex; */
-    margin-left: 60px;
-
+  .Final_box{
+      width: 96%;
+      margin-left: 1.7%;
+  }
+  .save_btn{
+      margin-left: 44%;
+      width: 25%;
+  }
+  .customer_box{
+      width: 96%;
+      margin-left: 1.7%;
+      margin-top: 1%;
+  }
+  #upload{
+      width: 100%;
+  }
+   
+.form{
+  width: 100%;
+}
+.reset_btn{
+  display: block;
+  margin: auto;
+  margin-left: 66%;
 }
 }
-/* @media (max-width:757px) {
-  .form {
-    width: 408px;
-}
-  
-} */
 
 
-@media(min-width: 521px) and (max-width: 1599px){
+@media(min-width: 521px) and (max-width: 720px){
   .add_box {
       width: calc(100% - 51.7%);
   }
   .btn_box {
-    display: flex;
-    justify-content: center;
-      margin-left: 15px;
+      margin-left: 20%;
   }
+  .customer_box{
+      width: 95%;
+      margin-left: 2.5%;
+  }
+  mat-form-field{
+      width: 49.2%;
+      margin-left: 3px;
+  } 
+  .form{
+      width: 99%;
+    }
+    .Final_box{
+      width: 96%;
+      margin-left: 2%;
+  }
+  .product_box{
+      width: 96%;
+      margin-left: 2.2%;
+  }
+ .save_btn{
+  width: 13%;
+ }
+  
 }
-@media(min-width: 520px){
-  .btn_box {
-    display: flex;
-    justify-content: center;
-     margin-left: 75px;
+
+
+@media(min-width: 721px) and (max-width: 1699px){
+  .customer_box{
+      width: 95%;
+      margin-left: 2.5%;
+  }
+  mat-form-field{
+      width: 24.4%;
+  } 
+  .reset_btn {
+      margin-left: 414px;
+  }
+  .form {
+      width: 98.7%;
+  }
+  .product_box{
+      width: 95%;
+      margin-left: 2.4%;
   }
 }

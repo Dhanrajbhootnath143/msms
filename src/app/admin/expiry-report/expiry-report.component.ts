@@ -3,32 +3,32 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.component';
 
 
 export interface UserData {
   id: number;
-  name: string;
-  Mobile_Number: number;
-  Address: string;
-  Contact_person:string;
+  Product: string;
+  category: string;
+  Company_name: string;
+  Expiry:string;
+  Remaining:string;
+
   
 }
 
 const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
+  { id: 1, Product: 'ACIFY', category:'SYRUP',Company_name:'VETCARE',Expiry:'02/23',Remaining:'Expird',},
+  
 ];
 
-
 @Component({
-  selector: 'app-party',
-  templateUrl: './party.component.html',
-  styleUrls: ['./party.component.css']
+  selector: 'app-expiry-report',
+  templateUrl: './expiry-report.component.html',
+  styleUrls: ['./expiry-report.component.css']
 })
-export class PartyComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
+export class ExpiryReportComponent implements OnInit {
+
+  displayedColumns: string[] = ['id','Product','category','Company_name','Expiry','Remaining',];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -43,19 +43,6 @@ export class PartyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  party_edit(row: any) {
-    this.dailog.open(AddEditPartyComponent, {
-      data: row,
-    });
-  }
-
-  add_party() {
-    this.dailog.open(AddEditPartyComponent, {
-      disableClose: true
-    });
-  }
-  
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -66,4 +53,5 @@ export class PartyComponent implements OnInit {
   }
  
 }
+
 

@@ -3,32 +3,31 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.component';
 
 
 export interface UserData {
   id: number;
-  name: string;
-  Mobile_Number: number;
-  Address: string;
-  Contact_person:string;
-  
+  Party: string;
+  Basic_amount:string
+  Discount: string;
+  sgst: string;
+  cgst:string;
+  ro:string;
+  net_amount:string;
+  Bill_number:string;
 }
 
 const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
+  
 ];
 
-
 @Component({
-  selector: 'app-party',
-  templateUrl: './party.component.html',
-  styleUrls: ['./party.component.css']
+  selector: 'app-purchase-cancel',
+  templateUrl: './purchase-cancel.component.html',
+  styleUrls: ['./purchase-cancel.component.css']
 })
-export class PartyComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
+export class PurchaseCancelComponent implements OnInit {
+  displayedColumns: string[] = ['id','Party','Basic_amount','Discount','sgst','cgst','ro','net_amount','Bill_number','action',];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -43,18 +42,12 @@ export class PartyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  party_edit(row: any) {
-    this.dailog.open(AddEditPartyComponent, {
-      data: row,
-    });
-  }
-
-  add_party() {
-    this.dailog.open(AddEditPartyComponent, {
+  purchase_edit(row: any) {
+    this.dailog.open(PurchaseCancelComponent, {
       disableClose: true
     });
+ 
   }
-  
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -66,4 +59,5 @@ export class PartyComponent implements OnInit {
   }
  
 }
+
 

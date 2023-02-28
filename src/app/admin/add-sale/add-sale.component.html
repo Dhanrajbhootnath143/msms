@@ -7,7 +7,17 @@
         <ng-container ngbNavItem>
             <a ngbNavLink
                 style="background-color: #232838; color: whitesmoke; border-radius: 5px; height: 40px; margin: 3px">Party</a>
+
+                <div id="Bill_ref_no">
+                    <ng-container ngbNavItem>
+                        <a id="Bill_ref">Bill Ref No</a>
+                        <ng-template ngbNavContent>
+                            </ng-template>
+                            </ng-container>
+                        </div>
+
             <ng-template ngbNavContent>
+                
              <div class="customer_box">
 
                 <mat-form-field appearance="fill">
@@ -34,8 +44,8 @@
                     <mat-label>Email Id.</mat-label>
                     <input matInput placeholder="Email Id">  
                 </mat-form-field><br>
-                
-                <mat-form-field appearance="fill" class="form">
+
+                  <mat-form-field appearance="fill" class="form">
                     <mat-label>Address</mat-label>
                     <textarea matInput></textarea>
                   </mat-form-field>
@@ -305,9 +315,19 @@
                         <input matInput type="date" class="example-right-align" placeholder="0">
                     </mat-form-field>
 
+                    <div id="finel_buttam">
+                    <ng-container ngbNavItem>
+                        <a id="buttom">Final Submit</a>
+                        <ng-template ngbNavContent>
+                            </ng-template>
+                            </ng-container>
+                        </div>
+
                 </div>
             </ng-template>
         </ng-container>
+        
+      
     </nav>
     <div [ngbNavOutlet]="nav" class="mt-2"></div>
 </div>

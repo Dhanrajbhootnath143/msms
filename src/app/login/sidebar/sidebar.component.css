@@ -43,6 +43,11 @@
     display: none;
 }
 
+
+#report_dropdown {
+    margin-left: 10px;
+}
+
 #dropdown_master {
     display: none ;
 }
@@ -79,4 +84,7 @@
 }
 .menu-button{
     width: 100%;
+}
+#dropdown_report{
+    margin-left: 10px;
 }

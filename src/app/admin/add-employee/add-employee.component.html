@@ -18,19 +18,19 @@
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Mobile</mat-label>
-                <input formControlName="Mobile" matInput type="mobile_number" onkeypress=" return this.value.length < 10"
+                <input formControlName="Mobile" matInput type="number" onkeypress=" return this.value.length < 10"
                     oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="Mobile">
             </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>WhatsApp No</mat-label>
-            <input formControlName="WhatsApp_number" matInput type="WhatsApp_number" onkeypress=" return this.value.length < 10"
+            <input formControlName="WhatsApp_number" matInput type="number" onkeypress=" return this.value.length < 10"
                 oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="WhatsApp No">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Aadhar number</mat-label>
-            <input matInput formControlName="Aadhar_number" placeholder="Aadhar number">
+            <input matInput type="number" formControlName="Aadhar_number" placeholder="Aadhar number">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -42,7 +42,7 @@
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Number</mat-label>
-                <input formControlName="Account_Number" matInput type="Account_Number" onkeypress=" return this.value.length < 14"
+                <input formControlName="Account_Number" matInput type="number" onkeypress=" return this.value.length < 14"
                     oninput="if(this.value.length>=14) {this.value = this.value.sclice (0,14);}" placeholder="A/C Numbe">
             </mat-form-field>
             
@@ -63,11 +63,20 @@
                 <textarea matInput formControlName="address" placeholder="Address"></textarea>
             </mat-form-field>
 
+            <mat-form-field class="example-full-width" appearance="fill" class="Description">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="address" placeholder="Description"></textarea>
+            </mat-form-field>
+
             <table class="pic" cellspacing="0">
                 <mat-label class="photo">Employee photo</mat-label><br>
                 <input type="file" name="photo" class="upload" (change)="OnUpload($event)"
                     formControlName="photo">
             </table>
+
+           
+    
+
 
             <div class="submit">
                 <button mat-raised-button color="warn">Reset</button>

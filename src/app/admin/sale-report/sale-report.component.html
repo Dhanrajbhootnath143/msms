@@ -1,5 +1,5 @@
 <div class="head">
-    <span>Purchase Report</span>
+    <span>Sale Report</span>
   </div>
   <div class="count_are">
 
@@ -78,6 +78,11 @@
       <ng-container matColumnDef="Basic_amount">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Basic Amount</th>
         <td mat-cell *matCellDef="let row"> {{row.Basic_amount}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Totel_amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Amount</th>
+        <td mat-cell *matCellDef="let row"> {{row.Totel_amount}}</td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns" id="tbl_hight"></tr>

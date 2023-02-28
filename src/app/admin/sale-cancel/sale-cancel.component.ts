@@ -3,32 +3,33 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.component';
-
+import { AddItemComponent } from '../add-item/add-item.component';
 
 export interface UserData {
   id: number;
-  name: string;
-  Mobile_Number: number;
-  Address: string;
-  Contact_person:string;
+  Customer: string;
+  Bill_Number: string;
+  Total_amount: number;
+  cgst:string;
+  sgst:number;
+  Discount:number;
+  Basic_amount:number;
+  Totel_amount:number;
+
   
 }
-
 const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
-];
+  // { id: 1, Customer: 'Akhilesh',Bill_Number:'VE/2/22-23',Total_amount:500,Paid:743,Dues:332, },
+]
 
 
 @Component({
-  selector: 'app-party',
-  templateUrl: './party.component.html',
-  styleUrls: ['./party.component.css']
+  selector: 'app-sale-cancel',
+  templateUrl: './sale-cancel.component.html',
+  styleUrls: ['./sale-cancel.component.css']
 })
-export class PartyComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
+export class SaleCancelComponent implements OnInit {
+  displayedColumns: string[] = ['id','Customer','Bill_Number','Quantity','cgst','sgst','Discount','Basic_amount','Totel_amount',];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -43,14 +44,8 @@ export class PartyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  party_edit(row: any) {
-    this.dailog.open(AddEditPartyComponent, {
-      data: row,
-    });
-  }
-
   add_party() {
-    this.dailog.open(AddEditPartyComponent, {
+    this.dailog.open(AddItemComponent, {
       disableClose: true
     });
   }

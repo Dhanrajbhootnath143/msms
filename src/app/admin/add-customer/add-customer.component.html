@@ -18,17 +18,17 @@
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Contact Number</mat-label>
-                <input formControlName="contact_number" matInput type="contact_number" onkeypress=" return this.value.length < 10"
+                <input formControlName="contact_number" matInput type="number" onkeypress=" return this.value.length < 10"
                     oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="Contact Number">
             </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Contact Person</mat-label>
-            <input matInput formControlName="Contact_Person" placeholder="Contact Person">
+            <input matInput  formControlName="Contact_Person" placeholder="Contact Person">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>WhatsApp No</mat-label>
-            <input formControlName="WhatsApp_number" matInput type="WhatsApp_number" onkeypress=" return this.value.length < 10"
+            <input formControlName="WhatsApp_number" matInput type="number" onkeypress=" return this.value.length < 10"
                 oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="WhatsApp No">
         </mat-form-field>
 

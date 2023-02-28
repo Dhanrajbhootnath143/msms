@@ -3,32 +3,32 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.component';
 
 
 export interface UserData {
   id: number;
-  name: string;
-  Mobile_Number: number;
-  Address: string;
-  Contact_person:string;
+  Category: string;
+  Product: string;
+  Company_name: string;
+  Purchase:number;
+  Available:number;
+  Sale:number;
   
 }
 
 const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
+  { id: 1, Category: 'Syrup', Product:'ACIFT',Company_name:'VETCARE',Purchase:22,Sale:16,Available:6,},
+  { id: 1, Category: 'Drup', Product:'AZITHRAL SP',Company_name:'ALEMBIC',Purchase:17,Sale:0,Available:11, },
+  { id: 1, Category: 'Liquid', Product:'B-904',Company_name:'VENKYS',Purchase:8,Sale:30,Available:8, },
 ];
 
-
 @Component({
-  selector: 'app-party',
-  templateUrl: './party.component.html',
-  styleUrls: ['./party.component.css']
+  selector: 'app-stock-report',
+  templateUrl: './stock-report.component.html',
+  styleUrls: ['./stock-report.component.css']
 })
-export class PartyComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
+export class StockReportComponent implements OnInit {
+  displayedColumns: string[] = ['id','Category','Product','Company_name','Purchase','Sale','Available',];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -43,19 +43,6 @@ export class PartyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  party_edit(row: any) {
-    this.dailog.open(AddEditPartyComponent, {
-      data: row,
-    });
-  }
-
-  add_party() {
-    this.dailog.open(AddEditPartyComponent, {
-      disableClose: true
-    });
-  }
-  
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -66,4 +53,5 @@ export class PartyComponent implements OnInit {
   }
  
 }
+
 

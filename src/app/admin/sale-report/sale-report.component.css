@@ -10,6 +10,9 @@
 .search{
     float: right;
 }
+.search{
+    border-bottom: 1px solid;
+}
 .Time{
 margin-left: 2px;
 }
