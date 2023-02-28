@@ -37,11 +37,14 @@ button {
   margin-left: 10px;
   margin-top: 1px;
 }
+.Description{
+ margin-left: 10px;
+}
 .pic{
   width: 197px;
   height: 66px;
   margin-top: -86px;
-  margin-left: 222px;
+  margin-left: 433px;
   border-bottom: 1px solid #757272;
   background-color: whitesmoke;
 }
@@ -64,9 +67,9 @@ button {
   }
   
   .pic{
-    margin-top: 7px;
-    width: 414px;
-    margin-left: 8px;
+    margin-top: -84px;
+    width: 199px;
+    margin-left: 223px;
   }
    .adr{
     margin-left: 11px;
@@ -84,16 +87,15 @@ button {
   
 }
 @media(min-width:520px)and (max-width:719px) {
-  #main_area {
-    width: 355px;
-  }
-  
+ 
   .adr{
     margin-left: 10px;
   }
-  mat-form-field {
-    width: 160px;
+  #main_area {
+    width: 425px;
+    margin-left: -8px;
   }
+ 
   .submit {
    display: flex;
    justify-content: center;   
@@ -103,15 +105,18 @@ button {
   margin-left: 11px;
 }
 .pic{
-  margin-top: 7px;
-  width: 334px;
-  margin-left: 8px;
+     width: 197px;
+    height: 66px;
+    margin-top: -86px;
+    margin-left: 226px;
+    border-bottom: 1px solid #757272;
+    background-color: whitesmoke;
 }
 
 }
 
 
-@media (max-width:519px) {
+@media (max-width:568px) {
  
   #main_area{
     width: 300px;
@@ -122,14 +127,19 @@ button {
     width: 230px;
     
   }
+  .Description{
+    margin-left: 10px;
+    width: 290px;
+}
 
   .example-full-width{
     width: 290px;
   }
   .pic{
-    margin-left: 5px;
+    margin-left: 7px;
     width: 290px;
     margin-top: -3px;
+
   }
   .adr{
     width: 290px;
@@ -149,7 +159,12 @@ button {
     margin-left: 2px;
     width: 240px;
     margin-top: -3px;
+    
   }
+  .Description {
+    margin-left: 2px;
+    width: 241px;
+}
   #main_area{
     width: 245px;
     margin-left: 2px;

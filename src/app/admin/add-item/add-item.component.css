@@ -23,11 +23,13 @@
   .submit {
    display: flex;
    justify-content: center;
-   margin-top: -55px;
-   margin-left: 429px;
   }
   
   button {
+    margin-left: 10px;
+  }
+  .Description{
+    width: 412px;
     margin-left: 10px;
   }
  
@@ -59,7 +61,10 @@
       width: 340px;
       margin-left: -12px;
     }
-   
+    .Description{
+      width: 331px;
+      margin-left: 10px;
+    }
     mat-form-field {
       width: 160px;
     }
@@ -80,6 +85,10 @@
       width: 230px;
       
     }
+    .Description{
+      width: 291px;
+      margin-left: 10px;
+    }
  
     .example-full-width{
       width: 290px;
@@ -87,8 +96,7 @@
     .submit {
       position: relative;
       border-bottom: 15px solid white;
-      top: 50px;
-    margin-left: -7px;
+      margin-left: -7px;
         }
   
   }
@@ -103,12 +111,15 @@
 .submit {
   position: relative;
   border-bottom: 15px solid white;
-  top: 55px;
-  
+
     }
     .example-full-width{
       width: 230px;
       
+    }
+    .Description{
+      width: 231px;
+      margin-left: 10px;
     }
     
   } 

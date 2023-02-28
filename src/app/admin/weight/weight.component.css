@@ -1,3 +1,6 @@
 #add_course{
     cursor: pointer;
 }
+.search{
+    border-bottom: 1px solid;
+}

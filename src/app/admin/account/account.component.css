@@ -2,3 +2,6 @@
 #add_Account{
     cursor: pointer;
 }
+.search{
+    border-bottom: 1px solid;
+}
