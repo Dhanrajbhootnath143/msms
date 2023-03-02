@@ -50,7 +50,7 @@ export class ExpenseComponent implements OnInit {
     });
   }
 
-  add_party() {
+  add_expense() {
     this.dailog.open(AddExpenseComponent, {
       disableClose: true
     });

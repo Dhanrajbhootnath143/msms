@@ -45,10 +45,11 @@ export class PurchaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
   edit_purch(row: any) {
-   
+    this.route.navigate(['home/purchase/addpurch'])
   }
 
   add_purchase() {

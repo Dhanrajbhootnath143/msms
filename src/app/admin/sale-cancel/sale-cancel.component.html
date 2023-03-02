@@ -20,7 +20,7 @@
   
       <ng-container matColumnDef="Customer">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer</th>
-        <td mat-cell *matCellDef="let row"> {{row.Product}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.Customer}} </td>
       </ng-container>
   
       <ng-container matColumnDef="Bill_Number">
@@ -33,16 +33,44 @@
         <td mat-cell *matCellDef="let row"> {{row.Total_amount}}</td>
       </ng-container>
 
-      <!-- <ng-container matColumnDef="Basic_amount">
+      <ng-container matColumnDef="Basic_amount">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Basic Amount</th>
         <td mat-cell *matCellDef="let row"> {{row.Basic_amount}}</td>
-      </ng-container> -->
+      </ng-container>
   
-<!--   
+  
       <ng-container matColumnDef="Dues">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Dues</th>
         <td mat-cell *matCellDef="let row"> {{row.Dues}}</td>
-      </ng-container> -->
+      </ng-container>
+
+      <ng-container matColumnDef="Gst">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>GST</th>
+        <td mat-cell *matCellDef="let row"> {{row.Gst}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Discount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Discount</th>
+        <td mat-cell *matCellDef="let row"> {{row.Discount}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Cancel_rancel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cancel Rrancel</th>
+        <td mat-cell *matCellDef="let row"> {{row.Cancel_rancel}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+        <td mat-cell *matCellDef="let row"> {{row.Date}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon style="cursor: pointer;" (click)="edit_sale_cancel(row)">edit</mat-icon>
+        </td>
+      </ng-container>
   
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns" id="tbl_hight"></tr>

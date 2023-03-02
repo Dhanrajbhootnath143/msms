@@ -27,7 +27,7 @@ export class AddDuesComponent implements OnInit {
     this.dues_form = this.fb.group({
       id: [''],
       Customer_Name: ['', Validators.required],
-      Pey: ['',],
+      Pey: ['', Validators.required],
       Bil_lnumber: ['', Validators.required],
       Current_dues:['', Validators.required],
       Back_dues: ['', Validators.required],

@@ -4,3 +4,6 @@
 .search{
     border-bottom: 1px solid;
 }
+#add_weight{
+    cursor: pointer;
+}

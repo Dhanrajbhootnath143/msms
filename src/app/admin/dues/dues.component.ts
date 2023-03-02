@@ -42,13 +42,13 @@ export class DuesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  course_edit(row: any) {
+  dues_edit(row: any) {
     this.dailog.open(AddDuesComponent, {
       data: row,
     });
   }
 
-  add_party() {
+  add_dues() {
     this.dailog.open(AddDuesComponent, {
       disableClose: true
     });

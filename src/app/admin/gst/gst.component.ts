@@ -42,13 +42,13 @@ export class GstComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  course_edit(row: any) {
+  gst_edit(row: any) {
     this.dailog.open(AddGstComponent, {
       data: row,
     });
   }
 
-  add_party() {
+  add_gst() {
     this.dailog.open(AddGstComponent, {
       disableClose: true
     });

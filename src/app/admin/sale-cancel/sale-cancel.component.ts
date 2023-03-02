@@ -3,23 +3,24 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { AddItemComponent } from '../add-item/add-item.component';
+import { Router } from '@angular/router';
 
 export interface UserData {
   id: number;
   Customer: string;
   Bill_Number: string;
   Total_amount: number;
-  cgst:string;
-  sgst:number;
-  Discount:number;
   Basic_amount:number;
-  Totel_amount:number;
+  Dues:number;
+  Gst:number;
+  Discount:number;
+  Cancel_rancel:string;
+  Date:string;
 
   
 }
 const UserData: UserData[] = [
-  // { id: 1, Customer: 'Akhilesh',Bill_Number:'VE/2/22-23',Total_amount:500,Paid:743,Dues:332, },
+  { id: 1, Customer:'raja',Bill_Number:'VE/2/22-23',Total_amount:500,Basic_amount:800,Dues:76,Gst:0,Discount:0,Cancel_rancel:'Test',Date:'2022-06-27',},
 ]
 
 
@@ -29,25 +30,28 @@ const UserData: UserData[] = [
   styleUrls: ['./sale-cancel.component.css']
 })
 export class SaleCancelComponent implements OnInit {
-  displayedColumns: string[] = ['id','Customer','Bill_Number','Quantity','cgst','sgst','Discount','Basic_amount','Totel_amount',];
+  displayedColumns: string[] = ['id','Customer','Bill_Number','Total_amount','Basic_amount','Dues','Gst','Discount','Cancel_rancel','Date','action',];
   dataSource!: MatTableDataSource<UserData>;
 
+ 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    private dailog: MatDialog,
-  ) {
+    private route:Router
+    ) {
     this.dataSource = new MatTableDataSource(UserData);
   }
 
   ngOnInit(): void {
   }
 
-  add_party() {
-    this.dailog.open(AddItemComponent, {
-      disableClose: true
-    });
+  edit_sale_cancel(row: any) {
+    this.route.navigate(['home/sale_cancel/add_sale_cancel'])
+  }
+
+  add_purchase() {
+   this.route.navigate(['home/sale_cancel/add_sale_cancel'])
   }
   
 

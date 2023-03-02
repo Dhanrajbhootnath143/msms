@@ -44,13 +44,13 @@ export class EmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  course_edit(row: any) {
+  employee_edit(row: any) {
     this.dailog.open(AddEmployeeComponent, {
       data: row,
     });
   }
 
-  add_party() {
+  add_employee() {
     this.dailog.open(AddEmployeeComponent, {
       disableClose: true
     });

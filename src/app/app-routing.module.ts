@@ -4,6 +4,7 @@ import { AccountComponent } from './admin/account/account.component';
 import { AddEditPartyComponent } from './admin/add-edit-party/add-edit-party.component';
 import { AddGstComponent } from './admin/add-gst/add-gst.component';
 import { AddPurchaseComponent } from './admin/add-purchase/add-purchase.component';
+import { AddSaleCancelComponent } from './admin/add-sale-cancel/add-sale-cancel.component';
 import { AddSaleComponent } from './admin/add-sale/add-sale.component';
 import { AddUnitComponent } from './admin/add-unit/add-unit.component';
 import { CategoryComponent } from './admin/category/category.component';
@@ -92,7 +93,14 @@ const routes: Routes = [
             {path:'',component:SaleComponent},
             {path:'addsale',component:AddSaleComponent}
       ]
-    }
+    },
+    {
+      path:'sale_cancel',component:ViewportComponent,
+      children:[
+            {path:'',component:SaleCancelComponent},
+            {path:'add_sale_cancel',component:AddSaleCancelComponent}
+      ]
+    },
     ]
   }
 ];

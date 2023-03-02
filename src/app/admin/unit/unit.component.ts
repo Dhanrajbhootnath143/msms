@@ -46,7 +46,7 @@ export class UnitComponent implements OnInit {
     });
   }
 
-  add_party() {
+  add_unit() {
     this.dailog.open(AddUnitComponent, {
       disableClose: true
     });

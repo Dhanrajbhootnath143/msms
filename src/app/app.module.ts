@@ -58,6 +58,7 @@ import { StockReportComponent } from './admin/stock-report/stock-report.componen
 import { ExpiryReportComponent } from './admin/expiry-report/expiry-report.component';
 import { PurchaseCancelComponent } from './admin/purchase-cancel/purchase-cancel.component';
 import { SaleCancelComponent } from './admin/sale-cancel/sale-cancel.component';
+import { AddSaleCancelComponent } from './admin/add-sale-cancel/add-sale-cancel.component';
 
 
 
@@ -102,6 +103,7 @@ import { SaleCancelComponent } from './admin/sale-cancel/sale-cancel.component';
     ExpiryReportComponent,
     PurchaseCancelComponent,
     SaleCancelComponent,
+    AddSaleCancelComponent,
     
   ],
   imports: [

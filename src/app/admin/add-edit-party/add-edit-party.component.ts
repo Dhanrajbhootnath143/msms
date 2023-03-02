@@ -26,14 +26,14 @@ export class AddEditPartyComponent implements OnInit {
     this.party_form = this.fb.group({
       id: [''],
       name: ['', Validators.required],
-      Email: ['',],
+      Email: ['',Validators.required],
       mobile_number: ['', Validators.required],
       WhatsApp_number:['', Validators.required],
       Contact_Person: ['', Validators.required],
       GST_Number: ['', Validators.required],
       Account_Name:['', Validators.required],
       Account_Number: ['', Validators.required],
-      IFSC:[''],
+      IFSC:['',Validators.required ],
       address: ['', Validators.required],
       admin_id_fk: ['', Validators.required],
     })

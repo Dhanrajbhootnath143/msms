@@ -49,7 +49,7 @@ export class SaleComponent implements OnInit {
   }
 
   edit_sale(row: any) {
-   
+    this.route.navigate(['home/sale/addsale'])
   }
 
   add_sale() {

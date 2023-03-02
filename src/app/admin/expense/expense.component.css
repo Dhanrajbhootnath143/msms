@@ -1,3 +1,6 @@
 .search{
     border-bottom: 1px solid;
 }
+#add_expense{
+    cursor: pointer;
+}

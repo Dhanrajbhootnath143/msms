@@ -26,16 +26,16 @@ export class AddItemComponent implements OnInit {
     this.item_form = this.fb.group({
       id: [''],
       name: ['', Validators.required],
-      weight: ['',],
+      weight: ['', Validators.required],
       Purchase_amount: ['', Validators.required],
       Company:['', Validators.required],
       Pack: ['', Validators.required],
       Sale_amount: ['', Validators.required],
       category:['', Validators.required],
       hsn_no: ['', Validators.required],
-      Unit:[''],
+      Unit:['',Validators.required],
       mrp: ['', Validators.required],
-      Description:['', Validators.required],
+      Description:['',],
       admin_id_fk: ['', Validators.required],
     })
     this.item_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
