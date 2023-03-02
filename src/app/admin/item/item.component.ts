@@ -48,13 +48,13 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  course_edit(row: any) {
+  item_edit(row: any) {
     this.dailog.open(AddItemComponent, {
       data: row,
     });
   }
 
-  add_party() {
+  add_item() {
     this.dailog.open(AddItemComponent, {
       disableClose: true
     });

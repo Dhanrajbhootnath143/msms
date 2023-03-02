@@ -46,7 +46,7 @@ export class WeightComponent implements OnInit {
     });
   }
 
-  add_party() {
+  add_weight() {
     this.dailog.open(AddWeightComponent, {
       disableClose: true
     });

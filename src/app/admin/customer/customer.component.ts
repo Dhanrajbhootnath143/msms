@@ -48,7 +48,7 @@ export class CustomerComponent implements OnInit {
     });
   }
 
-  add_party() {
+  add_customer() {
     this.dailog.open(AddCustomerComponent, {
       disableClose: true
     });

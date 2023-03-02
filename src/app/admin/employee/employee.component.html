@@ -1,6 +1,6 @@
 <div class="head">
     <span>Employee Details</span>
-    <mat-icon id="add_course" (click)="add_party()">add_circle</mat-icon>
+    <mat-icon id="add_employee" (click)="add_employee()">add_circle</mat-icon>
   </div>
   <div class="count_area">
     <span class="notice_text">Total : 10</span>
@@ -42,7 +42,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
-          <mat-icon style="cursor: pointer;" (click)="course_edit(row)">edit</mat-icon>
+          <mat-icon style="cursor: pointer;" (click)="employee_edit(row)">edit</mat-icon>
         </td>
       </ng-container>
   

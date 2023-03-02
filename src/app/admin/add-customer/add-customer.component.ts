@@ -25,7 +25,7 @@ export class AddCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.party_form = this.fb.group({
       shop_name: ['', Validators.required],
-      Owner_name: ['',],
+      Owner_name: ['',Validators.required],
       contact_number: ['', Validators.required],
       WhatsApp_number:['', Validators.required],
       Contact_Person: ['', Validators.required],
