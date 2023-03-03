@@ -53,11 +53,13 @@ const routes: Routes = [
         {path:'reciept',component:RecieptComponent},
         {path:'account',component:AccountComponent},
         {path:'expense',component:ExpenseComponent},
+        {path:'purchase',component:PurchaseComponent},
         {path:'purchase_report',component:PurchaseReportComponent},
-        {path: 'sale_report',component:SaleReportComponent},
+        {path:'sale_report',component:SaleReportComponent},
         {path:'stock_report',component:StockReportComponent},
         {path:'expiry_report',component:ExpiryReportComponent},
         {path:'purchase_cancel',component:PurchaseCancelComponent},
+        {path:'sale',component:SaleComponent},
         {path:'sale_cancel',component:SaleCancelComponent},
 
       ]
@@ -76,7 +78,7 @@ const routes: Routes = [
       {path:'account',component:AccountComponent},
       {path:'expense',component:ExpenseComponent},
       {path:'purchase_report',component:PurchaseReportComponent},
-      {path: 'sale_report',component:SaleReportComponent},
+      {path:'sale_report',component:SaleReportComponent},
       {path:'stock_report',component:StockReportComponent},
       {path:'expiry_report',component:ExpiryReportComponent},
       {path:'purchase_cancel',component:PurchaseCancelComponent},

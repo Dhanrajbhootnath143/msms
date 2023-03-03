@@ -263,4 +263,8 @@ textarea {
       width: 95%;
       margin-left: 2.4%;
   }
+  .product_box mat-form-field {
+    width: 13.4%;
+    margin-bottom: -13px;
+}
 }

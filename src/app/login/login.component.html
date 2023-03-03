@@ -18,10 +18,11 @@
                     <input matInput placeholder="Name">
                 </mat-form-field>
                
+                
                 <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
                     <mat-icon class="icon_2">lock</mat-icon>
-                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" class="password">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                         [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

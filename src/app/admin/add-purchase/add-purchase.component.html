@@ -35,7 +35,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Mobile Number</mat-label>
-                    <input matInput type="number" onkeypress="return this.value.length < 10;"
+                    <input matInput type="number" placeholder="Mobile Number" onkeypress="return this.value.length < 10;"
                         oninput="if(this.value.length>=10) { this.value = this.value.slice(0,10); }">
                 </mat-form-field>
 
@@ -46,7 +46,7 @@
                 
                 <mat-form-field appearance="fill" class="form">
                     <mat-label>Address</mat-label>
-                    <textarea matInput></textarea>
+                    <textarea matInput placeholder="Address"></textarea>
                   </mat-form-field>
 
                   <span class="btn_box">
@@ -65,7 +65,7 @@
                 <div class="product_box">
                     <mat-form-field appearance="fill">
                         <mat-label>Party</mat-label>
-                        <input matInput>
+                        <input matInput placeholder="Party">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" class="example-full-width">
@@ -120,7 +120,7 @@
         
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Expiry Date</mat-label>
-                    <input matInput >
+                    <input matInput  type="date">
                 </mat-form-field>
         
                 <mat-form-field class="example-full-width" appearance="fill">
