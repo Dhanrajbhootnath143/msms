@@ -6,15 +6,16 @@
 <form [formGroup]="item_form">
     <div id="main_area">
         <div class="box">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Company</mat-label>
+                <input matInput formControlName="Company" placeholder="Company Name">
+            </mat-form-field>
+
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Name</mat-label>
                 <input matInput formControlName="name" placeholder="Name">
             </mat-form-field>
-
-              <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Company</mat-label>
-            <input matInput formControlName="Company" placeholder="Company Name">
-        </mat-form-field>
 
         <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>Category</mat-label>
@@ -64,13 +65,13 @@
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Purchase amount</mat-label>
-                <input matInput formControlName="Purchase_amount" placeholder="Purchase amount">
+                <input matInput type="number" formControlName="Purchase_amount" placeholder="Purchase amount">
             </mat-form-field>
 
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Sale amount</mat-label>
-            <input matInput formControlName="Sale_amount" placeholder="Sale_amount">
+            <input matInput  type="number"  formControlName="Sale_amount" placeholder="Sale_amount">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill" class="Description">

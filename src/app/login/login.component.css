@@ -15,12 +15,21 @@
     display: flex;
     justify-content: space-between;
 }
+.password{
+    top: 3.28125em;
+    margin-left: 28px;
+}
 
 h1 {
     margin: 11px 15px;
     color: white;
     font-size: 20px;
     font-style: normal;
+}
+mat-label{
+    margin-left: 30px;
+    line-height: 70px;
+
 }
 .mat-card{
     padding: none;

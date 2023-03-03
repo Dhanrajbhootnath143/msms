@@ -32,7 +32,7 @@ export class AddItemComponent implements OnInit {
       Pack: ['', Validators.required],
       Sale_amount: ['', Validators.required],
       category:['', Validators.required],
-      hsn_no: ['', Validators.required],
+      hsn_no: ['',],
       Unit:['',Validators.required],
       mrp: ['', Validators.required],
       Description:['',],

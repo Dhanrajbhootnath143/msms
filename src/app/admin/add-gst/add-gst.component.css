@@ -41,6 +41,9 @@
   .box{
     margin-left: -5px;
   }
+  .add_gst{
+    cursor: pointer;
+  }
   
   
   @media (max-width:420px) {

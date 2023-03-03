@@ -21,6 +21,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   Master_dropdown() {
     this.setting = document.getElementById("dropdown_report")
     if (this.setting.style.display != "block") {

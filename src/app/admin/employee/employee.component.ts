@@ -3,7 +3,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.component';
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 
 
@@ -13,14 +12,15 @@ export interface UserData {
   Mobile_Number: number;
   Aadhar_number:number;
   Address: string;
+  photo: string;
 
   
 }
 
 const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Aadhar_number:345556544545, Address:'Hajipur',},
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Aadhar_number:345556544545,Address:'Hajipur', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Aadhar_number:345556544545,Address:'Hajipur', },
+  { id: 1, name: 'Raja', Mobile_Number:9153634848,Aadhar_number:345556544545, Address:'Hajipur', photo:'logo.png',},
+  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Aadhar_number:345556544545,Address:'Hajipur', photo:'logo.png',},
+  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Aadhar_number:345556544545,Address:'Hajipur',photo:'logo.png', },
 ];
 
 @Component({
@@ -29,7 +29,7 @@ const UserData: UserData[] = [
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Aadhar_number','Address','action'];
+  displayedColumns: string[] = ['id','name','Mobile_Number','Aadhar_number','Address','photo','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
