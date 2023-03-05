@@ -13,14 +13,15 @@ export interface UserData {
   Deposit:number;
   Closing_Amount:number;
   Remaraks:string;
+  Date:string;
   
   
 }
 
 const UserData: UserData[] = [
-  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:34567,Deposit:4881,Closing_Amount:56758,Remaraks:'today' },
-  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:23456,Deposit:738,Closing_Amount:43322,Remaraks:'hjp' },
-  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:34567,Deposit:8793207,Closing_Amount:2476,Remaraks:'24-06-22' },
+  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:34567,Deposit:4881,Closing_Amount:56758,Date:'30/09/2009',Remaraks:'today' },
+  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:23456,Deposit:738,Closing_Amount:43322,Date:'30/09/2009',Remaraks:'hjp' },
+  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:34567,Deposit:8793207,Closing_Amount:2476,Date:'30/09/2009',Remaraks:'24-06-22' },
 ];
 
 @Component({
