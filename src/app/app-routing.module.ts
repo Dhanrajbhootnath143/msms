@@ -90,7 +90,7 @@ const routes: Routes = [
       ]
     },
     {
-      path:'sale',component:ViewportComponent,
+      path:'sale',
       children:[
             {path:'',component:SaleComponent},
             {path:'addsale',component:AddSaleComponent}

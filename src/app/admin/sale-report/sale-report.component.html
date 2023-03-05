@@ -4,7 +4,7 @@
   <div class="count_are">
 
     <mat-form-field  appearance="fill">
-        <mat-label>---Select---</mat-label>
+        <mat-label>Month</mat-label>
         <mat-select placeholder="Category">
             <mat-option value="">January</mat-option>
             <mat-option value="">February</mat-option>
@@ -29,9 +29,7 @@
         <mat-label>Date</mat-label>
         <input matInput type="date" >
     </mat-form-field>
- 
-    <button mat-raised-button>Search</button>
-  
+   
     <div class="search">
       <input type="text" placeholder="Search" class="search_box" matInput (keyup)="applyFilter($event)" #input>
     </div>

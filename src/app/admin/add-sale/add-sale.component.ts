@@ -20,7 +20,7 @@ export interface PeriodicElement {
   Amount:number;
 }
 const ELEMENT_DATA:PeriodicElement [] = [
-  {sn_no: 1,  Item_Name: '', Pack: '', Company: '', Quantity: 457, Rate:55  ,Discount:67, gst:896, Net_Rete:578,Amount:222,Action: ''},
+  {sn_no: 1,  Item_Name: 'Droup', Pack: '4', Company: 'Raj', Quantity: 457, Rate:55  ,Discount:67, gst:896, Net_Rete:578,Amount:222,Action: ''},
 ];
 @Component({
   selector: 'app-add-sale',

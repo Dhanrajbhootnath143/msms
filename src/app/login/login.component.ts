@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import {MatMenuTrigger} from '@angular/material/menu';
+
 
 @Component({
   selector: 'app-login',
@@ -7,13 +9,18 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  hide=true
+  hide=true;
   constructor(
-    private dilog:MatDialog
+    private dilog:MatDialog,
+    
+    
   ) { }
+  
+  
 
 
   ngOnInit(): void {
   }
+  
 
 }

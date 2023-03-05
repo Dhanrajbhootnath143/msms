@@ -6,3 +6,6 @@
 #add_customer{
     cursor: pointer;
 }
+.search{
+  background-color: rgb(235, 230, 230);
+}
