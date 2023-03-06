@@ -54,4 +54,7 @@ export class AddEditPartyComponent implements OnInit {
       this.party_form.controls[ 'admin_id_fk'].setValue(this.add_edit_party.admin_id_fk)
     }
   }
+  party_form_reset(){
+    this.party_form.reset()
+  }
 }

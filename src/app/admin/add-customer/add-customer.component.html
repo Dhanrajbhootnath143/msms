@@ -3,7 +3,7 @@
     <mat-icon mat-dialog-close>cancel</mat-icon>
 </mat-toolbar>
 
-<form [formGroup]="party_form">
+<form [formGroup]="customer_form">
     <div id="main_area">
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
@@ -49,6 +49,6 @@
 </form>
 
 <div class="submit">
-    <button mat-raised-button color="warn">Reset</button>
-    <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
+    <button mat-raised-button color="warn" (click)="add_customer_reset()">Reset</button>
+    <button mat-raised-button color="primary" [disabled]="!customer_form.valid">{{actionBtn}}</button>
 </div>

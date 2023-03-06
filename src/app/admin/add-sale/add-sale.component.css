@@ -211,7 +211,14 @@ textarea {
   margin-left: 66%;
 }
 }
+@media (max-width:1120px) {
+  .add_btn {
 
+    margin-right: 37%;
+
+}
+  
+}
 
 @media(min-width: 521px) and (max-width: 720px){
   .add_box {

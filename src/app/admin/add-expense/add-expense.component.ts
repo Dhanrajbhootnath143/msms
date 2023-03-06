@@ -11,12 +11,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddExpenseComponent implements OnInit {
 
   disableSelect = new FormControl(false);
-  account_form!: FormGroup;
+  expense_form!: FormGroup;
   admin = 1;
   upload: any;
   actionBtn: string = 'Add';
   
-  add_account: any;
+  add_expense: any;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +25,7 @@ export class AddExpenseComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.account_form = this.fb.group({
+    this.expense_form = this.fb.group({
       id: [''],
       cash: ['', Validators.required],
       Deposit: ['',],
@@ -35,17 +35,20 @@ export class AddExpenseComponent implements OnInit {
       Remarks: ['', Validators.required],
       admin_id_fk: ['', Validators.required],
     })
-    this.account_form.controls['add_account'].setValue(new Date().toISOString().slice(0, 10));
-    if(this.add_account){
+    this.expense_form.controls['add_account'].setValue(new Date().toISOString().slice(0, 10));
+    if(this.add_expense){
       this.actionBtn='update'
-      this.account_form.controls[ 'id'].setValue(this.add_account.id)
-      this.account_form.controls[ 'cash'].setValue(this.add_account.cash)
-      this.account_form.controls[ 'Deposit'].setValue(this.add_account.Deposit)
-      this.account_form.controls[ 'Today_Sale'].setValue(this.add_account.Today_Sale)
-      this.account_form.controls[ 'Closeing_Amount'].setValue(this.add_account.Closeing_Amount)
-      this.account_form.controls[ 'Expense'].setValue(this.add_account.Expense)
-      this.account_form.controls[ 'Remarks'].setValue(this.add_account.Remarks)
-      this.account_form.controls[ 'admin_id_fk'].setValue(this.add_account.admin_id_fk)
+      this.expense_form.controls[ 'id'].setValue(this.add_expense.id)
+      this.expense_form.controls[ 'cash'].setValue(this.add_expense.cash)
+      this.expense_form.controls[ 'Deposit'].setValue(this.add_expense.Deposit)
+      this.expense_form.controls[ 'Today_Sale'].setValue(this.add_expense.Today_Sale)
+      this.expense_form.controls[ 'Closeing_Amount'].setValue(this.add_expense.Closeing_Amount)
+      this.expense_form.controls[ 'Expense'].setValue(this.add_expense.Expense)
+      this.expense_form.controls[ 'Remarks'].setValue(this.add_expense.Remarks)
+      this.expense_form.controls[ 'admin_id_fk'].setValue(this.add_expense.admin_id_fk)
     }
+  }
+  add_expense_reset(){
+    this.expense_form.reset()
   }
 }

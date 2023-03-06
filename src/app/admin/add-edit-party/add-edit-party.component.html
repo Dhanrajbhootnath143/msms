@@ -66,7 +66,7 @@
             </mat-form-field>
         
             <div class="submit">
-                <button mat-raised-button color="warn">Reset</button>
+                <button mat-raised-button color="warn"(click)="party_form_reset()">Reset</button>
                 <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
             </div>
 

@@ -46,4 +46,7 @@ export class AddGstComponent implements OnInit {
       this.gst_form.controls[ 'admin_id_fk'].setValue(this.add_gst.admin_id_fk)
     }
   }
+  add_gst_reset(){
+    this.gst_form.reset()
+  }
 }

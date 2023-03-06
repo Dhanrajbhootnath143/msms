@@ -56,4 +56,7 @@ export class AddItemComponent implements OnInit {
       this.item_form.controls[ 'admin_id_fk'].setValue(this.add_item.admin_id_fk)
     }
   }
+  add_item_reset(){
+    this.item_form.reset()
+  }
 }

@@ -41,4 +41,7 @@ export class AddWeightComponent implements OnInit {
       this.Weight_form.controls[ 'admin_id_fk'].setValue(this.add_weight.admin_id_fk)
     }
   }
+  add_weight_reset(){
+    this.Weight_form.reset()
+  }
 }

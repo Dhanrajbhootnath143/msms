@@ -9,12 +9,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddCustomerComponent implements OnInit {
   disableSelect = new FormControl(false);
-  party_form!: FormGroup;
+  customer_form!: FormGroup;
   admin = 1;
   upload: any;
   actionBtn: string = 'Add';
   course_data:any;
-  add_edit_party: any;
+  add_customer_party: any;
 
   constructor(
     private fb: FormBuilder,
@@ -23,7 +23,7 @@ export class AddCustomerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.party_form = this.fb.group({
+    this.customer_form = this.fb.group({
       shop_name: ['', Validators.required],
       Owner_name: ['',Validators.required],
       contact_number: ['', Validators.required],
@@ -33,18 +33,21 @@ export class AddCustomerComponent implements OnInit {
       address: ['', Validators.required],
       admin_id_fk: ['', Validators.required],
     })
-    this.party_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
-    if(this.add_edit_party){
+    this.customer_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
+    if(this.add_customer_party){
       this.actionBtn='update'
-      this.party_form.controls[ 'id'].setValue(this.add_edit_party.id)
-      this.party_form.controls[ 'shop_name'].setValue(this.add_edit_party.name)
-      this.party_form.controls[ 'Owner_name'].setValue(this.add_edit_party.Owner_name)
-      this.party_form.controls[ 'contact_number'].setValue(this.add_edit_party.contact_number)
-      this.party_form.controls[ 'WhatsApp_number'].setValue(this.add_edit_party.WhatsApp_number)
-      this.party_form.controls[ 'Contact_Person'].setValue(this.add_edit_party.Contact_Person)
-      this.party_form.controls[ 'Email'].setValue(this.add_edit_party.Email)
-      this.party_form.controls[ 'address'].setValue(this.add_edit_party.enq_address)
-      this.party_form.controls[ 'admin_id_fk'].setValue(this.add_edit_party.admin_id_fk)
+      this.customer_form.controls[ 'id'].setValue(this.add_customer_party.id)
+      this.customer_form.controls[ 'shop_name'].setValue(this.add_customer_party.name)
+      this.customer_form.controls[ 'Owner_name'].setValue(this.add_customer_party.Owner_name)
+      this.customer_form.controls[ 'contact_number'].setValue(this.add_customer_party.contact_number)
+      this.customer_form.controls[ 'WhatsApp_number'].setValue(this.add_customer_party.WhatsApp_number)
+      this.customer_form.controls[ 'Contact_Person'].setValue(this.add_customer_party.Contact_Person)
+      this.customer_form.controls[ 'Email'].setValue(this.add_customer_party.Email)
+      this.customer_form.controls[ 'address'].setValue(this.add_customer_party.enq_address)
+      this.customer_form.controls[ 'admin_id_fk'].setValue(this.add_customer_party.admin_id_fk)
     }
+  }
+  add_customer_reset(){
+    this.customer_form.reset()
   }
 }
