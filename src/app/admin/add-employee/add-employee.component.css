@@ -39,6 +39,7 @@ button {
 }
 .Description{
  margin-left: 10px;
+ width: 412px;
 }
 .pic{
   width: 197px;
@@ -54,7 +55,7 @@ button {
 
 }
 
- @media(min-width:720px)and (max-width:850px) {
+ @media(min-width:567px)and (max-width:850px) {
 
   #main_area {
     width: 425px;
@@ -63,13 +64,15 @@ button {
   .submit {
     display: flex;
     justify-content: center;
-    margin-left: -11px;     
+    margin-left: -11px; 
+    margin-top: 112px;    
   }
   
   .pic{
-    margin-top: -84px;
+    margin-top: -174px;
     width: 199px;
     margin-left: 223px;
+
   }
    .adr{
     margin-left: 11px;
@@ -86,35 +89,6 @@ button {
   }
   
 }
-@media(min-width:520px)and (max-width:719px) {
- 
-  .adr{
-    margin-left: 10px;
-  }
-  #main_area {
-    width: 425px;
-    margin-left: -8px;
-  }
- 
-  .submit {
-   display: flex;
-   justify-content: center;   
-
-}
-.adr{
-  margin-left: 11px;
-}
-.pic{
-     width: 197px;
-    height: 66px;
-    margin-top: -86px;
-    margin-left: 226px;
-    border-bottom: 1px solid #757272;
-    background-color: whitesmoke;
-}
-
-}
-
 
 @media (max-width:568px) {
  

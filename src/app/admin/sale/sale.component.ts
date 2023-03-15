@@ -16,15 +16,16 @@ export interface UserData {
   Dues:number;
   gst:number;
   Discount:number;
+  date:string;
   
   
   
 }
 
 const UserData: UserData[] = [
-  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457, Dues:56, gst:3456,Discount:284,},
-  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457,Dues:56, gst:456,Discount:284, },
-  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457,Dues:56, gst:4567,Discount:284, },
+  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457, Dues:56, gst:3456,Discount:284,date:'30/09/2001',},
+  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457,Dues:56, gst:456,Discount:284,date:'30/09/2001', },
+  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457,Dues:56, gst:4567,Discount:284, date:'30/09/2001',},
 ];
 
 @Component({

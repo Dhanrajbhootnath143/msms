@@ -49,4 +49,6 @@ export class AddGstComponent implements OnInit {
   add_gst_reset(){
     this.gst_form.reset()
   }
+  // const formdata = new FormData()
+  // formdata.append('gst_id')
 }

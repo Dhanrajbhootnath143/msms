@@ -123,8 +123,8 @@ mat-form-field{
   background-color: #3b4259;
   float: right;
   margin-top: 13px;
-  margin-right: 41%;
-  cursor: pointer; 
+  margin-right: 40%;
+  cursor: pointer;
   border-radius: 5px;
 }
 .add_btn mat-icon{

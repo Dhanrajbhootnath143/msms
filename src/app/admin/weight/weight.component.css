@@ -8,6 +8,7 @@
   }
 #add_weight{
     cursor: pointer;
+    line-height: 20px;
 }
 .search{
     background-color: rgb(235, 230, 230);

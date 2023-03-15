@@ -5,7 +5,11 @@
   }
 #add_purchase{
     cursor: pointer;
+    line-height: 23px;
 }
 .search{
   background-color: rgb(235, 230, 230);
+}
+.mat-sort-header{
+  width: 40px;
 }

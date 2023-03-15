@@ -17,7 +17,7 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Mobile</mat-label>
+                <mat-label>Mobile Number</mat-label>
                 <input formControlName="Mobile" matInput type="number" onkeypress=" return this.value.length < 10"
                     oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="Mobile">
             </mat-form-field>
@@ -32,13 +32,6 @@
             <mat-label>Aadhar number</mat-label>
             <input matInput type="number" formControlName="Aadhar_number" placeholder="Aadhar number">
         </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>GST Number</mat-label>
-            <input formControlName="GST_Number" matInput type="GST_Number" onkeypress=" return this.value.length < 10"
-                oninput="if(this.value.length>=20) {this.value = this.value.sclice (0,20);}" placeholder="GST Number">
-        </mat-form-field>
-
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Number</mat-label>
