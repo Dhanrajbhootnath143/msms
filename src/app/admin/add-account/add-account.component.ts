@@ -47,4 +47,7 @@ export class AddAccountComponent implements OnInit {
       this.account_form.controls[ 'admin_id_fk'].setValue(this.add_account.admin_id_fk)
     }
   }
+  add_account_reset(){
+    this.account_form.reset()
+  }
 }

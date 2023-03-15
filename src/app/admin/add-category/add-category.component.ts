@@ -41,4 +41,7 @@ export class AddCategoryComponent implements OnInit {
       this.Category_form.controls[ 'admin_id_fk'].setValue(this.add_category.admin_id_fk)
     }
   }
+  add_category_reset(){
+    this.Category_form.reset()
+  }
 }

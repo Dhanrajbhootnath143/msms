@@ -3,7 +3,8 @@
 }
 #add_sale{
     cursor: pointer;
-}
+    line-height: 20px;
+  }
 .search{
     border-bottom: 1px solid;
     margin-bottom: -6px;

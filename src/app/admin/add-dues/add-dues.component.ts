@@ -48,4 +48,7 @@ export class AddDuesComponent implements OnInit {
       this.dues_form.controls[ 'admin_id_fk'].setValue(this.add_dues.admin_id_fk)
     }
   }
+  add_dues_reset(){
+    this.dues_form.reset()
+  }
 }

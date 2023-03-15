@@ -16,6 +16,7 @@
     margin-left: 26px;
 }
 
+
 .menu-button {
     width: 100%;
     font-size: 16px;
@@ -38,6 +39,15 @@
  .menu-button:focus{
     background-color: #0099ff;
 }
+
+.active{
+    background-color: #0099ff;
+}
+.menu-button:focus{
+    background-color: #0099ff;
+
+}
+
 
 #dropdown_report{
     display: none;

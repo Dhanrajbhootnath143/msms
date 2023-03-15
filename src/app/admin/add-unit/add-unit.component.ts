@@ -44,4 +44,7 @@ export class AddUnitComponent implements OnInit {
       this.Unit_form.controls[ 'admin_id_fk'].setValue(this.add_unit.admin_id_fk)
     }
   }
+  add_unit_reset(){
+    this.Unit_form.reset()
+  }
 }

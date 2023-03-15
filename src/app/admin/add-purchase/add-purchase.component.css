@@ -123,8 +123,8 @@ mat-form-field{
   background-color: #3b4259;
   float: right;
   margin-top: 13px;
-  margin-right: 43%;
-  cursor: pointer; 
+  margin-right: 40%;
+  cursor: pointer;
   border-radius: 5px;
 }
 .add_btn mat-icon{
@@ -212,6 +212,14 @@ textarea {
 }
 
 
+@media (max-width:1120px) {
+  .add_btn {
+
+    margin-right: 37%;
+
+}
+  
+}
 @media(min-width: 521px) and (max-width: 720px){
   .add_box {
       width: calc(100% - 51.7%);

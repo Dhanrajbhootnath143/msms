@@ -139,4 +139,22 @@ tr:hover {
         position: absolute;
         width: 100%;
     }
+    th.mat-header-cell {
+        text-align: left;
+        /* width: 40px; */
+        white-space: nowrap;
+        padding: 9px;
+    }
+}
+@media (max-width:768px) {
+    th.mat-header-cell {
+        text-align: left;
+        white-space: nowrap;
+        padding:0px 10px;
+    }
+    td.mat-cell{
+        white-space: nowrap;
+        padding:0px 10px;
+    }
+
 }

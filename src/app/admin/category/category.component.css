@@ -1,5 +1,6 @@
 #add_course{
     cursor: pointer;
+    line-height: 20px;
 }
 .search{
     border-bottom: 1px solid;

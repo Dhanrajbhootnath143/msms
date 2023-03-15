@@ -9,13 +9,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddEmployeeComponent implements OnInit {
   disableSelect = new FormControl(false);
-  party_form!: FormGroup;
+  employee_form!: FormGroup;
   admin = 1;
   upload: any;
   actionBtn: string = 'Add';
   course_data:any;
-  add_edit_party: any;
-
+  add_employee_party: any;
   constructor(
     private fb: FormBuilder,
     private matref: MatDialogRef<AddEmployeeComponent>,
@@ -23,7 +22,7 @@ export class AddEmployeeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.party_form = this.fb.group({
+    this.employee_form = this.fb.group({
       id: [''],
       name: ['', Validators.required],
       Email: ['',Validators.required],
@@ -38,28 +37,31 @@ export class AddEmployeeComponent implements OnInit {
       address: ['', Validators.required],
       admin_id_fk: ['', Validators.required],
     })
-    this.party_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
-    if(this.add_edit_party){
+    this.employee_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
+    if(this.add_employee_party){
       this.actionBtn='update'
-      this.party_form.controls[ 'id'].setValue(this.add_edit_party.id)
-      this.party_form.controls[ 'name'].setValue(this.add_edit_party.name)
-      this.party_form.controls[ 'Email'].setValue(this.add_edit_party.Email)
-      this.party_form.controls[ 'mobile_number'].setValue(this.add_edit_party.mobile_number)
-      this.party_form.controls[ 'WhatsApp_number'].setValue(this.add_edit_party.WhatsApp_number)
-      this.party_form.controls[ 'Aadhar_number'].setValue(this.add_edit_party.Aadhar_number)
-      this.party_form.controls[ 'GST_Number'].setValue(this.add_edit_party.GST_Number)
-      this.party_form.controls[ 'Account_Name'].setValue(this.add_edit_party.Account_Name)
-      this.party_form.controls[ 'Account_Number'].setValue(this.add_edit_party.Account_Number)
-      this.party_form.controls[ 'IFSC'].setValue(this.add_edit_party.IFSC)
-      this.party_form.controls[ 'photo'].setValue(this.add_edit_party.photo)
-      this.party_form.controls[ 'address'].setValue(this.add_edit_party.enq_address)
-      this.party_form.controls[ 'admin_id_fk'].setValue(this.add_edit_party.admin_id_fk)
+      this.employee_form.controls[ 'id'].setValue(this.add_employee_party.id)
+      this.employee_form.controls[ 'name'].setValue(this.add_employee_party.name)
+      this.employee_form.controls[ 'Email'].setValue(this.add_employee_party.Email)
+      this.employee_form.controls[ 'mobile_number'].setValue(this.add_employee_party.mobile_number)
+      this.employee_form.controls[ 'WhatsApp_number'].setValue(this.add_employee_party.WhatsApp_number)
+      this.employee_form.controls[ 'Aadhar_number'].setValue(this.add_employee_party.Aadhar_number)
+      this.employee_form.controls[ 'GST_Number'].setValue(this.add_employee_party.GST_Number)
+      this.employee_form.controls[ 'Account_Name'].setValue(this.add_employee_party.Account_Name)
+      this.employee_form.controls[ 'Account_Number'].setValue(this.add_employee_party.Account_Number)
+      this.employee_form.controls[ 'IFSC'].setValue(this.add_employee_party.IFSC)
+      this.employee_form.controls[ 'photo'].setValue(this.add_employee_party.photo)
+      this.employee_form.controls[ 'address'].setValue(this.add_employee_party.enq_address)
+      this.employee_form.controls[ 'admin_id_fk'].setValue(this.add_employee_party.admin_id_fk)
     }
   }
   OnUpload(event: any) {
     if (event.target.files) {
       const file = event.target.files[0];
-      this.party_form.get('photo')?.setValue(file)
+      this.employee_form.get('photo')?.setValue(file)
     }
+  }
+  employee_form_reset(){
+    this.employee_form.reset()
   }
 }
