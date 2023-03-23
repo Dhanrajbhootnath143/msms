@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MsmsService } from 'src/app/msms.service';
 
 
 
@@ -12,18 +13,19 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddUnitComponent implements OnInit {
  
   disableSelect = new FormControl(false);
-  party_form!: FormGroup;
+  Unit_form!: FormGroup;
   admin = 1;
   upload: any;
   actionBtn: string = 'Add';
   course_data:any;
   add_unit: any;
-  Unit_form: any;
 
   constructor(
     private fb: FormBuilder,
+    private msms :MsmsService,
     private matref: MatDialogRef<AddUnitComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_party: any
+
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +46,30 @@ export class AddUnitComponent implements OnInit {
       this.Unit_form.controls[ 'admin_id_fk'].setValue(this.add_unit.admin_id_fk)
     }
   }
+
   add_unit_reset(){
-    this.Unit_form.reset()
+    // this.Unit_form.reset()
+    this.Unit_form.controls['name'].reset()
+    this.Unit_form.controls['Description'].reset()
+  }
+  onsubmit(){
+    // console.log( this.Unit_form.value)
+    console.log(this.Unit_form.get('name')?.value)
+    console.log(this.Unit_form.get('Description')?.value)
+
+    
+    const unitdata = new FormData()
+    unitdata.append('name',this.Unit_form.get('name')?.value)
+    unitdata.append('Description',this.Unit_form.get('Description')?.value)
+
+    // this.msms.unit(unitdata).subscribe(
+    //   (result:any)=>{
+    //     console.log(result)
+    //   }
+    // )
+
+    
+
+    
   }
 }

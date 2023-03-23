@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MsmsService } from 'src/app/msms.service';
 
 @Component({
   selector: 'app-add-category',
@@ -19,6 +20,7 @@ export class AddCategoryComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private msms:MsmsService,
     private matref: MatDialogRef<AddCategoryComponent>,
     @Inject(MAT_DIALOG_DATA) publicadd_category: any
   ) { }
@@ -41,7 +43,18 @@ export class AddCategoryComponent implements OnInit {
       this.Category_form.controls[ 'admin_id_fk'].setValue(this.add_category.admin_id_fk)
     }
   }
+  onsubmit(){
+    // console.log(this.Category_form.value)
+    console.log(this.Category_form.get('name')?.value)
+    console.log(this.Category_form.get('Description')?.value)
+
+    const categorydata = new FormData()
+    categorydata.append('name',this.Category_form.get('name')?.value)
+    categorydata.append('Description',this.Category_form.get('Description')?.value)
+  }
   add_category_reset(){
-    this.Category_form.reset()
+    // this.Category_form.reset()
+    this.Category_form.controls['name'].reset()
+    this.Category_form.controls['Description'].reset()
   }
 }

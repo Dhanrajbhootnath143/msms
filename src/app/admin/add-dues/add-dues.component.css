@@ -1,73 +1,86 @@
 .example-spacer {
-    flex: 1 1 auto;
-    margin-bottom: 20px;
-    color: #1d1f23;
-    font-size: 18px;
-  }
-  
-  .material-icons {
-    color: #1d1f23;
-    margin-bottom: 20px;
-  }
-  #main_area{
-      width: 450px;
-      margin-left: 10px;
-  }
-  mat-toolbar {
-    height: 30px;
-    padding: 0px;
-    background: none;
-    position: relative;
-    color: whitesmoke;
-  }
-  .example-full-width{
-    margin-left: 10px;
-  }
-  .submit {
-    margin-left: 10.4em;
-  }
-  
-  button {
-    margin-left: 10px;
-  }
+  flex: 1 1 auto;
+  margin-bottom: 20px;
+  color: #1d1f23;
+  font-size: 18px;
+}
 
-  @media (max-width:587px) {
-   
-    #main_area{
-      width: 330px;
-      margin-left: 14px;
-    }
-    .box{
-      width: 230px;
-      
-    }
-    .submit {
-      margin-left: 5.8em;
-    }
-    .example-full-width{
-      width: 290px;
-    }
-  }
-  @media (max-width:420px) {
-    .adr{
-      width: 240px;
-      margin-left: 3px;
-    }
-    #main_area{
-      width: 245px;
-    }
-    .box{
-      width: 260px;
-      
-    }
-    .example-full-width{
-      width: 240px;
-      margin-left: 3px;
-    }
-    .submit {
-      margin-left: 2.8em;
-    }
+.material-icons {
+  color: #1d1f23;
+  margin-bottom: 20px;
+}
+
+mat-toolbar {
+  height: 30px;
+  padding: 0px;
+  background: none;
+  position: relative;
+ 
+}
+.example-full-width{
+  margin-left: 10px;
+}
+.submit {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin-left: 10px;
+}
+
+@media (max-width:2000px) {
+
+  #main_area{
+    width: 423px;
+    margin-left: -7px;
     
   }
+  .box{
+    width: 430px; 
+  }
+}
+
+@media (max-width:587px) {
+
+  #main_area{
+    width: 300px;
+    height: 400px;
+  }
+  .box{
+    width: 230px;
+    
+  }
+ .submit{
+  margin: 20px 13px -17px 5px;
+  border-bottom: 15px solid white;
   
- 
+ }
+ .submit[_ngcontent-rac-c208] {
+  margin-left: 43px;
+  justify-content: center;
+  margin: 27px 0px -13px 9px;
+  border-bottom: 15px solid white;
+}
+
+  .example-full-width{
+    width: 290px;
+  }
+}
+@media (max-width:461px) {
+  #main_area{
+    width: 235px;
+    margin-left: -7px;
+  }
+  .box{
+    width: 260px;
+    
+  }
+  .example-full-width{
+    width: 240px;
+    margin-left: 3px;
+  }
+  .submit{
+    margin-left: 9px; 
+   }
+}

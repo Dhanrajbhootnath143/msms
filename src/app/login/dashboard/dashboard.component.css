@@ -16,6 +16,9 @@
 .number{
   line-height: 14px;
 }
+b{
+  line-height: 30px;
+}
 
 mat-icon {
   width: 40px;

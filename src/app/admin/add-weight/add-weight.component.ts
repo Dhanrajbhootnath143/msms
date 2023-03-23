@@ -1,6 +1,8 @@
+import { formatDate } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MsmsService } from 'src/app/msms.service';
 
 @Component({
   selector: 'app-add-weight',
@@ -19,6 +21,7 @@ export class AddWeightComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private msms :MsmsService,
     private matref: MatDialogRef<AddWeightComponent>,
     @Inject(MAT_DIALOG_DATA) public add_weight: any
   ) { }
@@ -31,6 +34,7 @@ export class AddWeightComponent implements OnInit {
    
       admin_id_fk: ['', Validators.required],
     })
+    
     this.Weight_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
     if(this.add_weight){
       this.actionBtn='update'
@@ -41,7 +45,22 @@ export class AddWeightComponent implements OnInit {
       this.Weight_form.controls[ 'admin_id_fk'].setValue(this.add_weight.admin_id_fk)
     }
   }
-  add_weight_reset(){
-    this.Weight_form.reset()
+  onsubmit(){
+    // console.log(this.Weight_form.value)
+    console.log(this.Weight_form.get('Weight')?.value)
+    console.log(this.Weight_form.get('Description')?.value)
+
+    const weightdata = new FormData()
+    weightdata.append('Weight',this.Weight_form.get('Weight')?.value)
+    weightdata.append('Description',this.Weight_form.get('Description')?.value)
+
   }
+  add_weight_reset(){
+    // this.Weight_form.reset()
+    this.Weight_form.controls['Weight'].reset()
+    this.Weight_form.controls['Description'].reset()
+    
+
+  }
+
 }

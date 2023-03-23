@@ -23,7 +23,7 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label> Current dues</mat-label>
-            <input matInput formControlName=" Current_dues" placeholder=" Current dues">
+            <input matInput formControlName="Current_dues" placeholder=" Current dues">
         </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -35,7 +35,7 @@
 
             <mat-form-field class="example-full-width" appearance="fill" floatLabel="always">
                 <mat-label>Date </mat-label>
-                <input matInput type="date" class="example-right-align" placeholder="0.00">
+                <input matInput type="date" formControlName="date" class="example-right-align" placeholder="0.00">
             </mat-form-field>
         </div>
     </div>
@@ -46,5 +46,5 @@
 
 <div class="submit">
     <button mat-raised-button color="warn" (click)="add_dues_reset()">Reset</button>
-    <button mat-raised-button color="primary" [disabled]="!dues_form.valid">{{actionBtn}}</button>
+    <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
 </div>

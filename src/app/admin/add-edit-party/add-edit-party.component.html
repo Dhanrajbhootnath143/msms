@@ -67,7 +67,7 @@
         
             <div class="submit">
                 <button mat-raised-button color="warn"(click)="party_form_reset()">Reset</button>
-                <button mat-raised-button color="primary" [disabled]="!party_form.valid">{{actionBtn}}</button>
+                <button mat-raised-button color="primary"  (click)="onsubmit()">{{actionBtn}}</button>
             </div>
 
         </div>
@@ -77,4 +77,5 @@
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
     <input type="number" formControlName="id" readonly hidden>
 </form>
+
 

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MsmsService } from 'src/app/msms.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class AddGstComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private msms:MsmsService,
     private matref: MatDialogRef<AddGstComponent>,
     @Inject(MAT_DIALOG_DATA) publicgst_form: any
   ) { }
@@ -42,13 +44,31 @@ export class AddGstComponent implements OnInit {
       this.gst_form.controls[ 'cgst'].setValue(this.add_gst.cgst)
       this.gst_form.controls[ 'sgst'].setValue(this.add_gst.sgst)
       this.gst_form.controls[ 'Description'].setValue(this.add_gst.Description)
-
       this.gst_form.controls[ 'admin_id_fk'].setValue(this.add_gst.admin_id_fk)
     }
   }
-  add_gst_reset(){
-    this.gst_form.reset()
+  onsubmit(){
+    console.log(this.gst_form.value)
+    console.log(this.gst_form.get('gst')?.value)
+    console.log(this.gst_form.get('cgst')?.value)
+    console.log(this.gst_form.get('sgst')?.value)
+    console.log(this.gst_form.get('Description')?.value)
+
+    const gstdata = new FormData()
+    gstdata.append('gst',this.gst_form.get('gst')?.value)
+    gstdata.append('cgst',this.gst_form.get('cgst')?.value)
+    gstdata.append('sgst',this.gst_form.get('sgst')?.value)
+    gstdata.append('Description',this.gst_form.get('Description')?.value)
+
+
+
   }
-  // const formdata = new FormData()
-  // formdata.append('gst_id')
+  add_gst_reset(){
+    // this.gst_form.reset()
+    this.gst_form.controls['gst'].reset()
+    this.gst_form.controls['cgst'].reset()
+    this.gst_form.controls['sgst'].reset()
+    this.gst_form.controls['Description'].reset()
+
+  }
 }

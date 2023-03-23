@@ -18,12 +18,12 @@
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Today Sale</mat-label>
-                <input matInput formControlName="Today_Sale" placeholder="Today Sale">
+                <input type="number" matInput formControlName="Today_Sale" placeholder="Today Sale">
             </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Closeing Amount</mat-label>
-            <input formControlName="Closeing_Amount" matInput type="Enter Closing Amount" placeholder="Closeing Amount">
+            <input type="number" formControlName="Closeing_Amount" matInput type="Enter Closing Amount" placeholder="Closeing Amount">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -33,7 +33,7 @@
 
         <mat-form-field class="example-full-width" appearance="fill" floatLabel="always">
             <mat-label>Date </mat-label>
-            <input matInput type="date" class="example-right-align" placeholder="0.00">
+            <input matInput type="date" formControlName="date" class="example-right-align" placeholder="0.00">
         </mat-form-field>
 
         </div>
@@ -49,5 +49,5 @@
 
 <div class="submit">
     <button mat-raised-button color="warn" (click)="add_expense_reset()">Reset</button>
-    <button mat-raised-button color="primary" [disabled]="!expense_form.valid">{{actionBtn}}</button>
+    <button mat-raised-button color="primary"  (click)="onsubmit()">{{actionBtn}}</button>
 </div>

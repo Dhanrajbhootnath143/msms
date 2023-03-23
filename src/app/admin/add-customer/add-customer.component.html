@@ -50,5 +50,5 @@
 
 <div class="submit">
     <button mat-raised-button color="warn" (click)="add_customer_reset()">Reset</button>
-    <button mat-raised-button color="primary" [disabled]="!customer_form.valid">{{actionBtn}}</button>
+    <button mat-raised-button color="primary" [disabled]="!customer_form.valid" (click)="onsubmit()">{{actionBtn}}</button>
 </div>

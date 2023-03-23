@@ -33,7 +33,7 @@
 
         <mat-form-field class="example-full-width" appearance="fill" floatLabel="always">
             <mat-label>Date </mat-label>
-            <input matInput type="date" class="example-right-align" placeholder="0.00">
+            <input matInput type="date" formControlName="date" class="example-right-align" placeholder="0.00">
         </mat-form-field>
 
           <mat-form-field appearance="fill" class="adr">
@@ -43,7 +43,7 @@
 
     <div class="submit">
         <button mat-raised-button color="warn" (click)="add_account_reset()">Reset</button>
-        <button mat-raised-button color="primary" [disabled]="!account_form.valid">{{actionBtn}}</button>
+        <button mat-raised-button color="primary" [disabled]="!account_form.valid" (click)="onsubmit()">{{actionBtn}}</button>
     </div>
 
         </div>
