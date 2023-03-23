@@ -85,7 +85,7 @@
         </div>
         <div class="submit">
             <button mat-raised-button color="warn" (click)="add_item_reset()">Reset</button>
-            <button mat-raised-button color="primary" [disabled]="!item_form.valid">{{actionBtn}}</button>
+            <button mat-raised-button color="primary"(click)="onsubmit()">{{actionBtn}}</button>
         </div>
     </div>
 

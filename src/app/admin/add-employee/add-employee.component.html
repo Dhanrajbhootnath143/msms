@@ -30,7 +30,8 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Aadhar number</mat-label>
-            <input matInput type="number" formControlName="Aadhar_number" placeholder="Aadhar number">
+            <input matInput type="number" formControlName="Aadhar_number" onkeypress=" return this.value.length < 16"
+            oninput="if(this.value.length>=16) {this.value = this.value.sclice (0,16);}" placeholder="Aadhar number">
         </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -69,7 +70,7 @@
 
             <div class="submit">
                 <button mat-raised-button color="warn" (click)="employee_form_reset()">Reset</button>
-                <button mat-raised-button color="primary" [disabled]="!employee_form.valid">{{actionBtn}}</button>
+                <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
             </div>
 
     </div>

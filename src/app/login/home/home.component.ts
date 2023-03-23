@@ -22,7 +22,15 @@ export class HomeComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private observe:BreakpointObserver
-  ) { }
+  ) { 
+    if(window.innerWidth < 720){
+      this.opened = false
+    }
+    else{
+      this.opened = true
+    }
+
+  }
 
   openDialog() {
    

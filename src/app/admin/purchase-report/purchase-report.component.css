@@ -57,6 +57,11 @@ button{
     color: white;
    
 }
-.search{
-    background-color: rgb(235, 230, 230);
+
+  @media (max-width:768px) {
+    
   }
+.mat-form-field{
+    width: 104px;
+    
+}

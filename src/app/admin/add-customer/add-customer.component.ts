@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MsmsService } from 'src/app/msms.service';
 
 @Component({
   selector: 'app-add-customer',
@@ -18,6 +19,7 @@ export class AddCustomerComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private msms : MsmsService,
     private matref: MatDialogRef<AddCustomerComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_party: any
   ) { }
@@ -47,7 +49,35 @@ export class AddCustomerComponent implements OnInit {
       this.customer_form.controls[ 'admin_id_fk'].setValue(this.add_customer_party.admin_id_fk)
     }
   }
+  onsubmit(){
+    console.log(this.customer_form.value)
+    console.log(this.customer_form.get('shop_name')?.value)
+    console.log(this.customer_form.get('Owner_name')?.value)
+    console.log(this.customer_form.get('contact_number')?.value)
+    console.log(this.customer_form.get('Contact_Person')?.value)
+    console.log(this.customer_form.get('WhatsApp_number')?.value)
+    console.log(this.customer_form.get('Email')?.value)
+    console.log(this.customer_form.get('address')?.value)
+    
+    const customerdata = new FormData()
+    customerdata.append('shop_name',this.customer_form.get('shop_name')?.value)
+    customerdata.append('Owner_name',this.customer_form.get('Owner_name')?.value)
+    customerdata.append('contact_number',this.customer_form.get('contact_number')?.value)
+    customerdata.append('Contact_Person',this.customer_form.get('Contact_Person')?.value)
+    customerdata.append('WhatsApp_number',this.customer_form.get('WhatsApp_number')?.value)
+    customerdata.append('Email',this.customer_form.get('Email')?.value)
+    customerdata.append('address',this.customer_form.get('address')?.value)
+
+
+  }
   add_customer_reset(){
-    this.customer_form.reset()
+    // this.customer_form.reset()
+    this.customer_form.controls['shop_name'].reset()
+    this.customer_form.controls['Owner_name'].reset()
+    this.customer_form.controls['contact_number'].reset()
+    this.customer_form.controls['Contact_Person'].reset()
+    this.customer_form.controls['WhatsApp_number'].reset()
+    this.customer_form.controls['Email'].reset()
+    this.customer_form.controls['address'].reset()
   }
 }

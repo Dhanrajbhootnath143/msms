@@ -71,25 +71,23 @@
     }
     .adr{
     width: 415.4px;
-    margin-left: 7px;
+    margin-left: 5px;
 
     }
     .Select{
       width: 411.4px;
     }
-
   }
-  
   @media (max-width:587px) {
     .adr{
-      width: 295px
+      width: 291px;
     }
     .Select{
       width: 290px
     }
     #main_area{
       width: 300px;
-      margin-left: 10px;
+      margin-left: -4px;
     }
     .box{
       width: 230px;

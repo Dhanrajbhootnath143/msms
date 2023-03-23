@@ -1,6 +1,7 @@
 import { Component,Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MsmsService } from 'src/app/msms.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class AddItemComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private msms: MsmsService,
     private matref: MatDialogRef<AddItemComponent>,
     @Inject(MAT_DIALOG_DATA) public add_item: any
   ) { }
@@ -32,7 +34,7 @@ export class AddItemComponent implements OnInit {
       Pack: ['', Validators.required],
       Sale_amount: ['', Validators.required],
       category:['', Validators.required],
-      hsn_no: ['',],
+      hsn_no: ['',Validators.required],
       Unit:['',Validators.required],
       mrp: ['', Validators.required],
       Description:['',],
@@ -56,7 +58,48 @@ export class AddItemComponent implements OnInit {
       this.item_form.controls[ 'admin_id_fk'].setValue(this.add_item.admin_id_fk)
     }
   }
+  onsubmit(){
+    // console.log(this.item_form.value)
+    console.log(this.item_form.get('category')?.value)
+    console.log(this.item_form.get('name')?.value)
+    console.log(this.item_form.get('Company')?.value)
+    console.log(this.item_form.get('weight')?.value)
+    console.log(this.item_form.get('Unit')?.value)
+    console.log(this.item_form.get('Pack')?.value)
+    console.log(this.item_form.get('hsn_no')?.value)
+    console.log(this.item_form.get('mrp')?.value)
+    console.log(this.item_form.get('Purchase_amount')?.value)
+    console.log(this.item_form.get('Sale_amount')?.value)
+    console.log(this.item_form.get('Description')?.value)
+
+    const itemdata = new FormData()
+    itemdata.append('category',this.item_form.get('category')?.value)
+    itemdata.append('name',this.item_form.get('name')?.value)
+    itemdata.append('Company',this.item_form.get('Company')?.value)
+    itemdata.append('weight',this.item_form.get('weight')?.value)
+    itemdata.append('Unit',this.item_form.get('Unit')?.value)
+    itemdata.append('Pack',this.item_form.get('Pack')?.value)
+    itemdata.append('hsn_no',this.item_form.get('hsn_no')?.value)
+    itemdata.append('mrp',this.item_form.get('mrp')?.value)
+    itemdata.append('Purchase_amount',this.item_form.get('Purchase_amount')?.value)
+    itemdata.append('Sale_amount',this.item_form.get('Sale_amount')?.value)
+    itemdata.append('Description',this.item_form.get('Description')?.value)
+
+
+  }
   add_item_reset(){
-    this.item_form.reset()
+    // this.item_form.reset()
+    this.item_form.controls['category'].reset()
+    this.item_form.controls['name'].reset()
+    this.item_form.controls['Company'].reset()
+    this.item_form.controls['Unit'].reset()
+    this.item_form.controls['weight'].reset()
+    this.item_form.controls['Pack'].reset()
+    this.item_form.controls['hsn_no'].reset()
+    this.item_form.controls['mrp'].reset()
+    this.item_form.controls['Purchase_amount'].reset()
+    this.item_form.controls['Sale_amount'].reset()
+    this.item_form.controls['Description'].reset()
+
   }
 }

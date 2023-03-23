@@ -24,10 +24,19 @@ body {
 }
 
 .mat-menu-content:not(:empty) {
-    background-color: #1d1f23;
-    width: 150px;
+    background-color: #343a40;
+   margin-left: 20px;
 }
+.mat-menu-content:not(:empty):hover{
+    background-color:#0099ff ;
+}
+ .mat-menu-content:not(:empty):focus{
+    background-color: #0099ff;
+}
+.matMenu:focus{
+    background-color: #0099ff;
 
+}
 .mat-menu-panel {
     margin-top: 15px;
 }
@@ -43,6 +52,7 @@ body {
     padding: 10px;
     box-sizing: border-box;
 }
+
 
 .count_area {
     height: 40px;
@@ -100,17 +110,17 @@ tr:hover {
         overflow-x: auto;
     }
 
-    .course_text {
+     .course_text {
         font-size: 14px;
-    }
+    } 
 
     .count_area .notice_text {
         font-size: 14px;
-    }
+    }  
 
-    table td {
+     table td {
         font-size: 14px;
-    }
+    } 
 
     mat-paginator {
         position: absolute;
