@@ -5,19 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddCategoryComponent } from '../add-category/add-category.component';
+import { MsmsService } from 'src/app/msms.service';
 
-
-
-export interface UserData {
-  id: number;
-  Category: string;
-  Description: string;
-}
-const UserData: UserData[] = [
-  { id: 1, Category: 'Drup', Description:'Drup', },
-  { id: 1, Category: 'Injection',Description:'Injection', },
-  { id: 1, Category: 'Luquit',Description:' Luquit',},
-];
 
 @Component({
   selector: 'app-category',
@@ -25,24 +14,34 @@ const UserData: UserData[] = [
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  displayedColumns: string[] = ['id','Category','Description','action'];
-  dataSource!: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['cat_id','cat_name','description','action'];
+  dataSource = new MatTableDataSource<any>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  category_data:any
 
   constructor(
     private dailog: MatDialog,
-  ) {
-    this.dataSource = new MatTableDataSource(UserData);
-  }
+    private service :MsmsService,
+    private route:Router
+  ) { }
 
   ngOnInit(): void {
+    this.service.get_category().subscribe(
+      (category_data:any)=>{
+       this.dataSource = new MatTableDataSource(category_data.data);
+       this.category_data = category_data.data.length
+       this.dataSource.sort = this.sort;
+       this.dataSource.paginator = this.paginator
+
+      }
+    )
   }
 
   catogory_edit(row: any) {
     this.dailog.open(AddCategoryComponent, {
-      data: row,
+      data:row,
     });
   }
 
@@ -61,7 +60,18 @@ export class CategoryComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
- 
+  delete_category(row:any){
+    if(confirm('Do you really want to remove it?')){
+      const  deletecategory = new FormData();
+      deletecategory.append('cat_id',row.cat_id),
+      this.service.category_delete(deletecategory).subscribe(
+        (res:any) => {
+          this.route.navigate(['/home/category']);
+        }
+      )
+    }
+  }
+
 }
 
 

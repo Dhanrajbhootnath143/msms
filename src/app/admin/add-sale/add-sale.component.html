@@ -7,18 +7,17 @@
         <ng-container ngbNavItem>
             <a ngbNavLink
                 style="background-color: #232838; color: whitesmoke; border-radius: 5px; height: 40px; margin: 3px">Customer</a>
-
                 <div id="Bill_ref_no">
                     <ng-container ngbNavItem>
                         <a id="Bill_ref">Bill Ref No &nbsp;:&nbsp;DK2023/03/03</a>
                         <ng-template ngbNavContent>
                             </ng-template>
-                            </ng-container>
-                        </div>
+                        </ng-container>
+                    </div>
 
-            <ng-template ngbNavContent>
-                
+            <ng-template ngbNavContent>  
              <div class="customer_box">
+                <form [formGroup]="Customer_form">
 
                 <mat-form-field appearance="fill">
                     <mat-label>Customer Id</mat-label>
@@ -33,9 +32,6 @@
                     <mat-label>Name</mat-label>
                     <input matInput placeholder="Name">
                 </mat-form-field>
-
-               
-
                 <mat-form-field appearance="fill">
                     <mat-label>Mobile Number</mat-label>
                     <input matInput type="number" placeholder="Mobile Number" onkeypress="return this.value.length < 10;"
@@ -51,14 +47,16 @@
                     <mat-label>Address</mat-label>
                     <textarea matInput placeholder="Address"></textarea>
                   </mat-form-field>
+                  </form>
 
                   <span class="btn_box">
-                    <button class="reset_btn" mat-raised-button color="warn" type="reset">Save</button>
+                    <button class="reset_btn" mat-raised-button color="warn" type="reset" (click)="customer_onsubmit()">Save</button>
                   </span>
              </div>
+             
             </ng-template>
         </ng-container>
-
+        
 
         <ng-container ngbNavItem>
             <a ngbNavLink
@@ -66,6 +64,7 @@
             <ng-template ngbNavContent>
 
                 <div class="product_box">
+                    <form [formGroup]="Item_form">
                     <mat-form-field appearance="fill">
                         <mat-label>Customer</mat-label>
                         <input matInput placeholder="Customer">
@@ -170,8 +169,9 @@
                         <mat-label>Amount</mat-label>
                         <input matInput placeholder="Amount">
                     </mat-form-field>
+                   </form>
 
-                    <div class="add_btn">
+                    <div class="add_btn" (click)="item_onsubmit()">
                         <mat-icon>add</mat-icon>
                     </div>
                 </div>
@@ -262,6 +262,7 @@
                 style="background-color: #232838; color: whitesmoke; border-radius: 5px; height: 40px; margin: 3px">Final Bill</a>
             <ng-template ngbNavContent>
                 <div class="Final_box">
+                    <form [formGroup]="Final_form">
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Basic Amount</mat-label>
                         <input matInput type="number" class="example-right-align" placeholder="0.00">
@@ -321,10 +322,11 @@
                         <mat-label>Date</mat-label>
                         <input matInput type="date" class="example-right-align" placeholder="0">
                     </mat-form-field>
+                    </form>
 
                     <div id="finel_buttam">
                     <ng-container ngbNavItem>
-                        <a id="buttom">Final Submit</a>
+                        <a id="buttom" (click)="final_onsubmit()">Final Submit</a>
                         <ng-template ngbNavContent>
                             </ng-template>
                             </ng-container>
@@ -335,6 +337,5 @@
         </ng-container>
         
       
-    </nav>
+    
     <div [ngbNavOutlet]="nav" class="mt-2"></div>
-</div>

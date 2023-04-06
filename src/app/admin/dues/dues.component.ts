@@ -9,15 +9,15 @@ import { AddDuesComponent } from '../add-dues/add-dues.component';
 
 
 export interface UserData {
-  id: number;
-  Customer: string;
-  Bill_Number: number;
-  Amount:number;
-  Paid:number;
-  Dues:number;
+  cust_id: number;
+  customer: string;
+  bill_number: number;
+  amount:number;
+  paid:number;
+  dues:number;
 }
 const UserData: UserData[] = [
-  { id: 1, Customer: 'Raja',Bill_Number:3,Amount:500,Paid:743,Dues:332, },
+  { cust_id: 1, customer: 'Raja',bill_number:3,amount:500,paid:743,dues:332, },
  
 ];
 
@@ -27,7 +27,7 @@ const UserData: UserData[] = [
   styleUrls: ['./dues.component.css']
 })
 export class DuesComponent implements OnInit {
-  displayedColumns: string[] = ['id','Customer','Bill_Number','Amount','Paid','Dues','Date','action'];
+  displayedColumns: string[] = ['cust_id','customer','bill_number','amount','paid','dues','d','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

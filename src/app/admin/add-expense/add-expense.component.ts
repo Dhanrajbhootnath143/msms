@@ -30,12 +30,12 @@ export class AddExpenseComponent implements OnInit {
     this.expense_form = this.fb.group({
       id: [''],
       cash: ['', Validators.required],
-      Expense_Type:['',Validators.required],
-      Deposit: ['',],
-      Today_Sale: ['', Validators.required],
-      Closeing_Amount:['', Validators.required],
-      Expense: ['', Validators.required],
-      Remarks: ['', Validators.required],
+      expense_type:['',Validators.required],
+      deposit: ['',],
+      today_sale: ['', Validators.required],
+      closeing_amount:['', Validators.required],
+      expense: ['', Validators.required],
+      remarks: ['', Validators.required],
       date:[''],
       admin_id_fk: ['', Validators.required],
     })
@@ -43,13 +43,13 @@ export class AddExpenseComponent implements OnInit {
     if(this.add_expense){
       this.actionBtn='update'
       this.expense_form.controls[ 'id'].setValue(this.add_expense.id)
-      this.expense_form.controls['Expense_Type'].setValue(this.add_expense.Expense_Type)
+      this.expense_form.controls['expense_type'].setValue(this.add_expense.expense_type)
       this.expense_form.controls[ 'cash'].setValue(this.add_expense.cash)
-      this.expense_form.controls[ 'Deposit'].setValue(this.add_expense.Deposit)
-      this.expense_form.controls[ 'Today_Sale'].setValue(this.add_expense.Today_Sale)
-      this.expense_form.controls[ 'Closeing_Amount'].setValue(this.add_expense.Closeing_Amount)
-      this.expense_form.controls[ 'Expense'].setValue(this.add_expense.Expense)
-      this.expense_form.controls[ 'Remarks'].setValue(this.add_expense.Remarks)
+      this.expense_form.controls[ 'deposit'].setValue(this.add_expense.deposit)
+      this.expense_form.controls[ 'today_sale'].setValue(this.add_expense.today_sale)
+      this.expense_form.controls[ 'closeing_amount'].setValue(this.add_expense.closeing_amount)
+      this.expense_form.controls[ 'expense'].setValue(this.add_expense.expense)
+      this.expense_form.controls[ 'remarks'].setValue(this.add_expense.remarks)
       this.expense_form.controls['date'].setValue(this.add_expense.date)
       this.expense_form.controls[ 'admin_id_fk'].setValue(this.add_expense.admin_id_fk)
     }
@@ -57,35 +57,35 @@ export class AddExpenseComponent implements OnInit {
   onsubmit(){
     console.log(this.expense_form.value)
     console.log(this.expense_form.get('cash')?.value)
-    console.log(this.expense_form.get('Expense_Type')?.value)
-    console.log(this.expense_form.get('Deposit')?.value)
-    console.log(this.expense_form.get('Today_Sale')?.value)
-    console.log(this.expense_form.get('Closeing_Amount')?.value)
-    console.log(this.expense_form.get('Expense')?.value)
-    console.log(this.expense_form.get('Remarks')?.value)
+    console.log(this.expense_form.get('expense_type')?.value)
+    console.log(this.expense_form.get('deposit')?.value)
+    console.log(this.expense_form.get('today_sale')?.value)
+    console.log(this.expense_form.get('closeing_amount')?.value)
+    console.log(this.expense_form.get('expense')?.value)
+    console.log(this.expense_form.get('remarks')?.value)
     console.log(this.expense_form.get('date')?.value)
 
     const expensedata = new FormData()
     expensedata.append('cash',this.expense_form.get('cash')?.value)
-    expensedata.append('Expense_Type',this.expense_form.get('Expense_Type')?.value)
-    expensedata.append('Deposit',this.expense_form.get('Deposit')?.value)
-    expensedata.append('Today_Sale',this.expense_form.get('Today_Sale')?.value)
-    expensedata.append('Closeing_Amount',this.expense_form.get('Closeing_Amount')?.value)
-    expensedata.append('Expense',this.expense_form.get('Expense')?.value)
-    expensedata.append('Remarks',this.expense_form.get('Remarks')?.value)
+    expensedata.append('expense_type',this.expense_form.get('expense_type')?.value)
+    expensedata.append('deposit',this.expense_form.get('deposit')?.value)
+    expensedata.append('today_sale',this.expense_form.get('today_sale')?.value)
+    expensedata.append('closeing_amount',this.expense_form.get('closeing_amount')?.value)
+    expensedata.append('expense',this.expense_form.get('expense')?.value)
+    expensedata.append('remarks',this.expense_form.get('remarks')?.value)
     expensedata.append('date',this.expense_form.get('date')?.value)
 
 
   }
   add_expense_reset(){
     // this.expense_form.reset()
-    this.expense_form.controls['cash'].reset()
-    this.expense_form.controls['Expense_Type'].reset()
-    this.expense_form.controls['Deposit'].reset()
-    this.expense_form.controls['Today_Sale'].reset()
-    this.expense_form.controls['Closeing_Amount'].reset()
-    this.expense_form.controls['Expense'].reset()
-    this.expense_form.controls['Remarks'].reset()
-    this.expense_form.controls['date'].reset()
+    // this.expense_form.controls['cash'].reset()
+    // this.expense_form.controls['Expense_Type'].reset()
+    // this.expense_form.controls['Deposit'].reset()
+    // this.expense_form.controls['Today_Sale'].reset()
+    // this.expense_form.controls['Closeing_Amount'].reset()
+    // this.expense_form.controls['Expense'].reset()
+    // this.expense_form.controls['Remarks'].reset()
+    // this.expense_form.controls['date'].reset()
   }
 }

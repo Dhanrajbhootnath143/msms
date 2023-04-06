@@ -1,29 +1,29 @@
 <mat-toolbar>
-    <span class="example-spacer">Add Unit</span>
+    <span class="example-spacer">{{unit_update}}</span>
     <mat-icon mat-dialog-close>cancel</mat-icon>
 </mat-toolbar>
 
-<form [formGroup]="Unit_form">
+<form [formGroup]="unit_form">
     <div id="main_area">
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill" class="adr">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="name" placeholder="Name">
+                <input matInput formControlName="unit_name" placeholder="Name">
             </mat-form-field><br>
 
             <mat-form-field class="example-full-width" appearance="fill" class="adr">
                 <mat-label>Description</mat-label>
-                <input matInput formControlName="Description" placeholder="Description">
+                <input matInput formControlName="unit_desc" placeholder="Description">
             </mat-form-field>
         </div>
         </div>
 
 
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
-    <input type="number" formControlName="id" readonly hidden>
+    <input type="number" formControlName="unit_id" readonly hidden>
 </form>
 
 <div class="submit">
     <button mat-raised-button color="warn" (click)="add_unit_reset()">Reset</button>
-    <button mat-raised-button color="primary" [disabled]="!Unit_form.valid" (click)="onsubmit()">{{actionBtn}}</button>
+    <button mat-raised-button color="primary" [disabled]="!unit_form.valid"(click)="onsubmit()">{{actionBtn}}</button>
 </div>

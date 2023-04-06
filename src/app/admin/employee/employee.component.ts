@@ -4,24 +4,10 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
+import { MsmsService } from 'src/app/msms.service';
+import { Router } from '@angular/router';
 
 
-export interface UserData {
-  id: number;
-  name: string;
-  Mobile_Number: number;
-  Aadhar_number:number;
-  Address: string;
-  photo: string;
-
-  
-}
-
-const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Aadhar_number:345556544545, Address:'Hajipur', photo:'logo.png',},
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Aadhar_number:345556544545,Address:'Hajipur', photo:'logo.png',},
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Aadhar_number:345556544545,Address:'Hajipur',photo:'logo.png', },
-];
 
 @Component({
   selector: 'app-employee',
@@ -29,21 +15,31 @@ const UserData: UserData[] = [
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Aadhar_number','Address','photo','action'];
-  dataSource!: MatTableDataSource<UserData>;
-
+  displayedColumns: string[] = ['emp_id','emp_name','mobile','aadhar_number','address','photo','action'];
+  dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
+  employee_data:any
+  upload_img_url = 'http://localhost/uploads/';
   constructor(
     private dailog: MatDialog,
+    private service:MsmsService,
+    private route:Router
   ) {
-    this.dataSource = new MatTableDataSource(UserData);
   }
 
   ngOnInit(): void {
-  }
+    this.service.get_employee().subscribe(
+      (employee_data:any)=>{
+       this.dataSource = new MatTableDataSource(employee_data.data);
+       this.employee_data = employee_data.data.length
+       this.dataSource.sort = this.sort;
+       this.dataSource.paginator = this.paginator
 
+      }
+    )
+    
+  }
   employee_edit(row: any) {
     this.dailog.open(AddEmployeeComponent, {
       data: row,
@@ -65,6 +61,17 @@ export class EmployeeComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
- 
-}
+  delete_employee(row:any){
+    if(confirm('Do you really want to remove it?')){
+      const  deleteemployee = new FormData();
+      deleteemployee.append('emp_id',row.emp_id),
+      this.service.employee_delete(deleteemployee).subscribe(
+        (res:any) => {
+          this.route.navigate(['/home/employee']);
+        }
+      )
+    }
+  }
+  }
+
 

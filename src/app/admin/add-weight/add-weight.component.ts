@@ -14,51 +14,72 @@ export class AddWeightComponent implements OnInit {
   party_form!: FormGroup;
   admin = 1;
   upload: any;
-  actionBtn: string = 'Add';
+  actionBtn: string = 'Submit';
   course_data:any;
   add_unit: any;
   Weight_form: any;
+  weight_update: string = 'Add Topic'
 
   constructor(
     private fb: FormBuilder,
-    private msms :MsmsService,
+    private Service :MsmsService,
     private matref: MatDialogRef<AddWeightComponent>,
     @Inject(MAT_DIALOG_DATA) public add_weight: any
   ) { }
 
   ngOnInit(): void {
     this.Weight_form = this.fb.group({
-      id: [''],
-      Weight: ['', Validators.required],
-      Description: ['',],
+      weight_id: [''],
+      weight: ['', Validators.required],
+      description: ['',],
    
       admin_id_fk: ['', Validators.required],
     })
     
-    this.Weight_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
     if(this.add_weight){
+      console.log(this.add_weight)
       this.actionBtn='update'
-      this.Weight_form.controls[ 'id'].setValue(this.add_weight.id)
-      this.Weight_form.controls[ 'Weight'].setValue(this.add_weight.Weight)
-      this.Weight_form.controls[ 'Description'].setValue(this.add_weight.Description)
-
+      this.weight_update = "Update weight";
+      this.Weight_form.controls[ 'weight_id'].setValue(this.add_weight.weight_id)
+      this.Weight_form.controls[ 'weight'].setValue(this.add_weight.weight)
+      this.Weight_form.controls[ 'description'].setValue(this.add_weight.description)
       this.Weight_form.controls[ 'admin_id_fk'].setValue(this.add_weight.admin_id_fk)
     }
   }
   onsubmit(){
-    // console.log(this.Weight_form.value)
-    console.log(this.Weight_form.get('Weight')?.value)
-    console.log(this.Weight_form.get('Description')?.value)
-
-    const weightdata = new FormData()
-    weightdata.append('Weight',this.Weight_form.get('Weight')?.value)
-    weightdata.append('Description',this.Weight_form.get('Description')?.value)
-
+  if (!this.add_weight) {
+      this.Service.weight_post(this.Weight_form.value).subscribe(
+        (res:any)=>{
+          console.log(res);
+          this.matref.close();
+          alert('Data insert succssefully')
+        },
+        (error:any)=>{
+          alert('Data not insert...')
+        }
+      )
+    }
+    else{
+      this.update_unit()
+    }
   }
+  update_unit(){
+      console.log(this.Weight_form.value)
+      this.Service.put_unit(this.Weight_form.value).subscribe(
+        (res:any)=>{
+          console.log(res);
+          alert('Data Update succssefully...')
+          this.matref.close();
+        },
+        (error:any)=>{
+          alert('Data not Update...')
+        }
+      )
+    }
   add_weight_reset(){
-    // this.Weight_form.reset()
-    this.Weight_form.controls['Weight'].reset()
-    this.Weight_form.controls['Description'].reset()
+    this.Weight_form.reset()
+    // this.Weight_form.controls['weight'].reset()
+    // this.Weight_form.controls['description'].reset()
     
 
   }

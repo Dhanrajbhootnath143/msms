@@ -27,14 +27,14 @@ export class AddAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.account_form = this.fb.group({
-      id: [''],
+      account_id: [''],
       cash: ['', Validators.required],
-      Deposit: ['',],
-      Today_Sale: ['', Validators.required],
-      Closeing_Amount:['', Validators.required],
-      Expense:['', Validators.required],
+      deposit: ['',],
+      today_sale: ['', Validators.required],
+      closeing_amount:['', Validators.required],
+      expense:['', Validators.required],
       date:['',Validators.required],
-      Remarks:[''],
+      remarks:[''],
       admin_id_fk: ['', Validators.required],
     })
     this.account_form.controls['add_account'].setValue(new Date().toISOString().slice(0, 10));
@@ -42,42 +42,42 @@ export class AddAccountComponent implements OnInit {
       this.actionBtn='update'
       this.account_form.controls[ 'id'].setValue(this.add_account.id)
       this.account_form.controls[ 'cash'].setValue(this.add_account.cash)
-      this.account_form.controls[ 'Deposit'].setValue(this.add_account.Deposit)
-      this.account_form.controls[ 'Today_Sale'].setValue(this.add_account.Today_Sale)
-      this.account_form.controls[ 'Closeing_Amount'].setValue(this.add_account.Closeing_Amount)
-      this.account_form.controls[ 'Expense'].setValue(this.add_account.Expense)
-      this.account_form.controls[ 'Remarks'].setValue(this.add_account.Remarks)
+      this.account_form.controls[ 'deposit'].setValue(this.add_account.Deposit)
+      this.account_form.controls[ 'today_sale'].setValue(this.add_account.today_sale)
+      this.account_form.controls[ 'closeing_amount'].setValue(this.add_account.Closeing_Amount)
+      this.account_form.controls[ 'expense'].setValue(this.add_account.expense)
+      this.account_form.controls[ 'remarks'].setValue(this.add_account.remarks)
       this.account_form.controls[ 'admin_id_fk'].setValue(this.add_account.admin_id_fk)
     }
   }
   onsubmit(){
     console.log(this.account_form.value)
-    console.log(this.account_form.get('cash')?.value)
-    console.log(this.account_form.get('Deposit')?.value)
-    console.log(this.account_form.get('Today_Sale')?.value)
-    console.log(this.account_form.get('Closeing_Amount')?.value)
-    console.log(this.account_form.get('Expense')?.value)
-    console.log(this.account_form.get('date')?.value)
-    console.log(this.account_form.get('Remarks')?.value)
+    // console.log(this.account_form.get('cash')?.value)
+    // console.log(this.account_form.get('Deposit')?.value)
+    // console.log(this.account_form.get('Today_Sale')?.value)
+    // console.log(this.account_form.get('Closeing_Amount')?.value)
+    // console.log(this.account_form.get('Expense')?.value)
+    // console.log(this.account_form.get('date')?.value)
+    // console.log(this.account_form.get('Remarks')?.value)
 
    const accountdata = new FormData()
    accountdata.append('cash',this.account_form.get('cash')?.value)
-   accountdata.append('Deposit',this.account_form.get('Deposit')?.value)
-   accountdata.append('Today_Sale',this.account_form.get('Today_Sale')?.value)
-   accountdata.append('Closeing_Amount',this.account_form.get('Closeing_Amount')?.value)
-   accountdata.append('Expense',this.account_form.get('Expense')?.value)
+   accountdata.append('deposit',this.account_form.get('deposit')?.value)
+   accountdata.append('today_sale',this.account_form.get('today_sale')?.value)
+   accountdata.append('closeing_amount',this.account_form.get('closeing_amount')?.value)
+   accountdata.append('expense',this.account_form.get('expense')?.value)
    accountdata.append('date',this.account_form.get('date')?.value)
-   accountdata.append('Remarks',this.account_form.get('Remarks')?.value)
+   accountdata.append('remarks',this.account_form.get('remarks')?.value)
   }
   add_account_reset(){
-    // this.account_form.reset()
-    this.account_form.controls['cash'].reset()
-    this.account_form.controls['Deposit'].reset()
-    this.account_form.controls['Today_Sale'].reset()
-    this.account_form.controls['Closeing_Amount'].reset()
-    this.account_form.controls['Expense'].reset()
-    this.account_form.controls['date'].reset()
-    this.account_form.controls['Remarks'].reset()
+    this.account_form.reset()
+    // this.account_form.controls['cash'].reset()
+    // this.account_form.controls['Deposit'].reset()
+    // this.account_form.controls['Today_Sale'].reset()
+    // this.account_form.controls['Closeing_Amount'].reset()
+    // this.account_form.controls['Expense'].reset()
+    // this.account_form.controls['date'].reset()
+    // this.account_form.controls['Remarks'].reset()
 
   }
 }
