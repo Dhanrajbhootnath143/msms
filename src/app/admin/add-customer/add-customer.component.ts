@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MsmsService } from 'src/app/msms.service';
 
 @Component({
@@ -13,71 +14,89 @@ export class AddCustomerComponent implements OnInit {
   customer_form!: FormGroup;
   admin = 1;
   upload: any;
-  actionBtn: string = 'Add';
+  actionBtn: string = 'Submit';
   course_data:any;
-  add_customer_party: any;
+  add_customer: any;
+  customer_upadte:string = 'Add Topic'
 
   constructor(
     private fb: FormBuilder,
-    private msms : MsmsService,
+    private Service: MsmsService,
+    private route:Router,
     private matref: MatDialogRef<AddCustomerComponent>,
-    @Inject(MAT_DIALOG_DATA) public edit_party: any
-  ) { }
+    @Inject(MAT_DIALOG_DATA) public edit_customer:any
+  ) { 
+    this.route.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+  }
 
   ngOnInit(): void {
     this.customer_form = this.fb.group({
+      id:[''],
       shop_name: ['', Validators.required],
-      Owner_name: ['',Validators.required],
+      owner_name: ['',Validators.required],
       contact_number: ['', Validators.required],
-      WhatsApp_number:['', Validators.required],
-      Contact_Person: ['', Validators.required],
-      Email: ['', Validators.required],
+      whatsapp_number:['', Validators.required],
+      contact_person: ['', Validators.required],
+      email_id: ['', Validators.required],
       address: ['', Validators.required],
       admin_id_fk: ['', Validators.required],
     })
-    this.customer_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
-    if(this.add_customer_party){
+    if(this.add_customer){
+      console.log(this.edit_customer)
       this.actionBtn='update'
-      this.customer_form.controls[ 'id'].setValue(this.add_customer_party.id)
-      this.customer_form.controls[ 'shop_name'].setValue(this.add_customer_party.name)
-      this.customer_form.controls[ 'Owner_name'].setValue(this.add_customer_party.Owner_name)
-      this.customer_form.controls[ 'contact_number'].setValue(this.add_customer_party.contact_number)
-      this.customer_form.controls[ 'WhatsApp_number'].setValue(this.add_customer_party.WhatsApp_number)
-      this.customer_form.controls[ 'Contact_Person'].setValue(this.add_customer_party.Contact_Person)
-      this.customer_form.controls[ 'Email'].setValue(this.add_customer_party.Email)
-      this.customer_form.controls[ 'address'].setValue(this.add_customer_party.enq_address)
-      this.customer_form.controls[ 'admin_id_fk'].setValue(this.add_customer_party.admin_id_fk)
+      this.customer_upadte = "Update customer"
+      this.customer_form.controls[ 'cust_id'].setValue(this.add_customer.id)
+      this.customer_form.controls[ 'shop_name'].setValue(this.add_customer.name)
+      this.customer_form.controls[ 'owner_name'].setValue(this.add_customer.owner_name)
+      this.customer_form.controls[ 'contact_number'].setValue(this.add_customer.contact_number)
+      this.customer_form.controls[ 'whatsapp_number'].setValue(this.add_customer.whatsapp_number)
+      this.customer_form.controls[ 'contact_person'].setValue(this.add_customer.contact_person)
+      this.customer_form.controls[ 'email_id'].setValue(this.add_customer.email_id)
+      this.customer_form.controls[ 'address'].setValue(this.add_customer.address)
+      this.customer_form.controls[ 'admin_id_fk'].setValue(this.add_customer.admin_id_fk)
     }
   }
   onsubmit(){
     console.log(this.customer_form.value)
-    console.log(this.customer_form.get('shop_name')?.value)
-    console.log(this.customer_form.get('Owner_name')?.value)
-    console.log(this.customer_form.get('contact_number')?.value)
-    console.log(this.customer_form.get('Contact_Person')?.value)
-    console.log(this.customer_form.get('WhatsApp_number')?.value)
-    console.log(this.customer_form.get('Email')?.value)
-    console.log(this.customer_form.get('address')?.value)
-    
-    const customerdata = new FormData()
-    customerdata.append('shop_name',this.customer_form.get('shop_name')?.value)
-    customerdata.append('Owner_name',this.customer_form.get('Owner_name')?.value)
-    customerdata.append('contact_number',this.customer_form.get('contact_number')?.value)
-    customerdata.append('Contact_Person',this.customer_form.get('Contact_Person')?.value)
-    customerdata.append('WhatsApp_number',this.customer_form.get('WhatsApp_number')?.value)
-    customerdata.append('Email',this.customer_form.get('Email')?.value)
-    customerdata.append('address',this.customer_form.get('address')?.value)
-
-
+    if(!this.add_customer){
+    this.Service.customer_post(this.customer_form.value).subscribe(
+      (res:any)=>{
+        console.log(res)
+        this.matref.close();
+        alert('Data insert succssefully')
+      },
+      (error:any)=>{
+        alert('Data not insert...')
+      }
+    )
+    }
+    else{
+      this.update_customer()
+    }
+  }
+  update_customer(){
+    console.log(this.customer_form.value)
+    this.Service.put_customer(this.customer_form.value).subscribe(
+      (res:any)=>{
+        console.log(res);
+        alert('Data Update succssefully....')
+        this.matref.close();
+      },
+      (error:any)=>{
+        alert('Data not Update...')
+      }
+    )
   }
   add_customer_reset(){
-    // this.customer_form.reset()
-    this.customer_form.controls['shop_name'].reset()
-    this.customer_form.controls['Owner_name'].reset()
-    this.customer_form.controls['contact_number'].reset()
-    this.customer_form.controls['Contact_Person'].reset()
-    this.customer_form.controls['WhatsApp_number'].reset()
-    this.customer_form.controls['Email'].reset()
-    this.customer_form.controls['address'].reset()
+    this.customer_form.reset()
+    // this.customer_form.controls['shop_name'].reset()
+    // this.customer_form.controls['Owner_name'].reset()
+    // this.customer_form.controls['contact_number'].reset()
+    // this.customer_form.controls['Contact_Person'].reset()
+    // this.customer_form.controls['WhatsApp_number'].reset()
+    // this.customer_form.controls['Email'].reset()
+    // this.customer_form.controls['address'].reset()
   }
 }

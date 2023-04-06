@@ -4,23 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.component';
-
-
-export interface UserData {
-  id: number;
-  name: string;
-  Mobile_Number: number;
-  Address: string;
-  Contact_person:string;
-  
-}
-
-const UserData: UserData[] = [
-  { id: 1, name: 'Raja', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Diraj', },
-  { id: 1, name: 'Roushan', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Mohan', },
-  { id: 1, name: 'Dipu', Mobile_Number:9153634848,Address:'Hajipur',Contact_person:'Raja', },
-];
-
+import { MsmsService } from 'src/app/msms.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-party',
@@ -28,19 +13,28 @@ const UserData: UserData[] = [
   styleUrls: ['./party.component.css']
 })
 export class PartyComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','Mobile_Number','Address','Contact_person','action'];
-  dataSource!: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['party_id','party_name','mobile','address','contact_person','action'];
+  dataSource = new MatTableDataSource<any>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  party_data:any
 
   constructor(
     private dailog: MatDialog,
-  ) {
-    this.dataSource = new MatTableDataSource(UserData);
-  }
+    private service:MsmsService,
+    private route:Router
+  ) { }
 
   ngOnInit(): void {
+    this.service.get_Party().subscribe(
+      (party_data : any) => {
+        this.dataSource = new MatTableDataSource(party_data.data);
+        this.party_data = party_data.data.length
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator
+      }
+    )
   }
 
   party_edit(row: any) {
@@ -62,6 +56,18 @@ export class PartyComponent implements OnInit {
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+    }
+  }
+
+  delete_party(row:any){
+    if(confirm('Do you really want to remove it?')){
+      const  deleteparty = new FormData();
+      deleteparty.append('party_id',row.party_id),
+      this.service.party_delete(deleteparty).subscribe(
+        (res:any) => {
+          this.route.navigate(['/home/party']);
+        }
+      )
     }
   }
  

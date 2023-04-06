@@ -4,27 +4,22 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddItemComponent } from '../add-item/add-item.component';
+import { MsmsService } from 'src/app/msms.service';
+import {  Router } from '@angular/router';
+
 
 export interface UserData {
-  id: number;
-  name: string;
-  Company: string;
-  Category: string;
-  Pack:string;
-  mrp:number;
-  Purchase_amount:number;
-  Sale_amount:number;
+item_id:number,
+item_name:string,
+company:string,
+category:string,
+pack:string,
+mrp:number,
+purchase_amount:number,
+sale_amount:number
 
-  
+
 }
-const UserData: UserData[] = [
-  { id: 1, name: 'ACIFY', Company:'VETCARE',Category:'Liquid',Pack:'5LIT',mrp:1442,Purchase_amount:1150,Sale_amount:1400,},
-  { id: 2, name: 'ACIFY', Company:'VETCARE',Category:'Liquid',Pack:'5LIT',mrp:1442,Purchase_amount:1150,Sale_amount:1400,},
-  { id: 3, name: 'ACIFY', Company:'VETCARE',Category:'Liquid',Pack:'5LIT',mrp:1442,Purchase_amount:1150,Sale_amount:1400,},
-  { id: 4, name: 'ACIFY', Company:'VETCARE',Category:'Liquid',Pack:'5LIT',mrp:1442,Purchase_amount:1150,Sale_amount:1400,},
-];
-
-
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
@@ -33,19 +28,30 @@ const UserData: UserData[] = [
 
 export class ItemComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','name','Company','Category','Pack','mrp','Purchase_amount','Sale_amount','action'];
-  dataSource!: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['item_id','item_name','company','category','pack','mrp','purchase_amount','sale_amount','action'];
+  dataSource = new MatTableDataSource<any>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  item_data:any
 
   constructor(
     private dailog: MatDialog,
+    private service:MsmsService,
+    private route:Router
   ) {
-    this.dataSource = new MatTableDataSource(UserData);
   }
 
   ngOnInit(): void {
+    this.service.get_item().subscribe(
+      (item_data : any)=>{
+        this.dataSource = new MatTableDataSource(item_data.data);
+        this.item_data = item_data.data.length
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator
+
+      }
+    )
   }
 
   item_edit(row: any) {
@@ -67,6 +73,18 @@ export class ItemComponent implements OnInit {
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+    }
+  }
+
+  delete_item(row:any){
+    if(confirm('Do you really want to remove it?')){
+      const  deleteitem = new FormData();
+      deleteitem.append('item_id',row.item_id),
+      this.service.item_delete(deleteitem).subscribe(
+        (res:any) => {
+          this.route.navigate(['/home/item']);
+        }
+      )
     }
   }
  

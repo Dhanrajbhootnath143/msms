@@ -5,19 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddUnitComponent } from '../add-unit/add-unit.component';
-
-export interface UserData {
-  id: number;
-  Unit: string;
-  Description: string;
-}
-
-const UserData: UserData[] = [
-  { id: 1, Unit: 'kg', Description:'kg', },
-  { id: 1, Unit: 'liter',Description:'liter', },
-  { id: 1, Unit: 'mili garam',Description:'mili garam',},
-];
-
+import { MsmsService } from 'src/app/msms.service';
 
 @Component({
   selector: 'app-unit',
@@ -25,19 +13,30 @@ const UserData: UserData[] = [
   styleUrls: ['./unit.component.css']
 })
 export class UnitComponent implements OnInit {
-  displayedColumns: string[] = ['id','Unit','Description','action'];
-  dataSource!: MatTableDataSource<UserData>;
-
+  displayedColumns: string[] = ['unit_id','unit_name','unit_desc','action'];
+  dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  unit_data:any
 
   constructor(
     private dailog: MatDialog,
+    private servies :MsmsService,
+    private route:Router
   ) {
-    this.dataSource = new MatTableDataSource(UserData);
+   
   }
 
   ngOnInit(): void {
+    this.servies.get_unit().subscribe(
+      (unit_data:any)=>{
+       this.dataSource = new MatTableDataSource(unit_data.data);
+       this.unit_data = unit_data.data.length
+       this.dataSource.sort = this.sort;
+       this.dataSource.paginator = this.paginator
+
+      }
+    )
   }
 
   unit_edit(row: any) {
@@ -52,7 +51,6 @@ export class UnitComponent implements OnInit {
     });
   }
   
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -61,7 +59,16 @@ export class UnitComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
- 
+
+  delete_unit(row:any){
+    if(confirm('Do you really want to remove it?')){
+      const  deleteparty = new FormData();
+      deleteparty.append('unit_id',row.unit_id),
+      this.servies.unit_delete(deleteparty).subscribe(
+        (res:any) => {
+          this.route.navigate(['/home/unit']);
+        }
+      )
+    }
+  }
 }
-
-

@@ -4,22 +4,19 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddGstComponent } from '../add-gst/add-gst.component';
+import { MsmsService } from 'src/app/msms.service';
+import { Router } from '@angular/router';
 
 
 export interface UserData {
-  id: number;
+  gst_id: number;
   gst:number;
   cgst: number;
   sgst: number;
-  Description:string;
+  description:string;
   
 }
 
-const UserData: UserData[] = [
-  { id: 1, gst: 40, cgst:20, sgst: 234,Description:'Gst', },
-  { id: 1, gst: 50, cgst:25, sgst: 234,Description:'14For more then', },
-  { id: 1, gst: 90, cgst:45, sgst: 234,Description:'Raja', },
-];
 
 @Component({
   selector: 'app-gst',
@@ -27,19 +24,29 @@ const UserData: UserData[] = [
   styleUrls: ['./gst.component.css']
 })
 export class GstComponent implements OnInit {
-  displayedColumns: string[] = ['id','gst','cgst','sgst','Description','action'];
+  displayedColumns: string[] = ['gst_id','gst','cgst','sgst','description','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  gst_data:any
 
   constructor(
     private dailog: MatDialog,
+    private sarvies : MsmsService,
+    private route :Router,
   ) {
-    this.dataSource = new MatTableDataSource(UserData);
   }
 
   ngOnInit(): void {
+    this.sarvies.get_gst().subscribe(
+      (gst_data:any)=>{
+        this.dataSource = new MatTableDataSource(gst_data.data);
+        this.gst_data = gst_data.data.length
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator
+      }
+    )
   }
 
   gst_edit(row: any) {
@@ -63,6 +70,15 @@ export class GstComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
- 
+  delete_gst(row:any){
+    if(confirm('Do you really want to remove it?')){
+      const  deletegst = new FormData();
+      deletegst.append('gst_id',row.gst_id),
+      this.sarvies.gst_delete(deletegst).subscribe(
+        (res:any) => {
+          this.route.navigate(['/home/gst']);
+        }
+      )
+    }
+  }
 }
-

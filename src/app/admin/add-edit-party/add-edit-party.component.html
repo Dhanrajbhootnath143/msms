@@ -8,74 +8,70 @@
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="name" placeholder="Name">
+                <input matInput placeholder="Name" formControlName="party_name">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email Id</mat-label>
-                <input matInput formControlName="Email" placeholder="Email Id">
+                <input matInput placeholder="Email Id" formControlName="email_id">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Mobile</mat-label>
-                <input formControlName="Mobile" matInput type="number" onkeypress=" return this.value.length < 10"
-                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);} "placeholder="Mobile">
+                <input formControlName="mobile" matInput type="number" onkeypress=" return this.value.length < 10"
+                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);} " placeholder="Mobile">
             </mat-form-field>
 
-          
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>WhatsApp No</mat-label>
+                <input formControlName="whatsapp_number" matInput type="number"
+                    onkeypress=" return this.value.length < 10"
+                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}"
+                    placeholder="WhatsApp No">
+            </mat-form-field>
 
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Contact Person</mat-label>
+                <input matInput formControlName="contact_person" placeholder="Contact Person">
+            </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>WhatsApp No</mat-label>
-            <input formControlName="WhatsApp_number" matInput type="number" onkeypress=" return this.value.length < 10"
-                oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="WhatsApp No">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Contact Person</mat-label>
-            <input matInput formControlName="Contact_Person" placeholder="Contact Person">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>GST Number</mat-label>
-            <input formControlName="GST_Number" matInput type="GST_Number" onkeypress=" return this.value.length < 10"
-                oninput="if(this.value.length>=20) {this.value = this.value.sclice (0,20);}" placeholder="GST Number">
-        </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>GST Number</mat-label>
+                <input formControlName="gst_number" matInput type="GST_Number"
+                    onkeypress=" return this.value.length < 10"
+                    oninput="if(this.value.length>=20) {this.value = this.value.sclice (0,20);}"
+                    placeholder="GST Number">
+            </mat-form-field>
 
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Number</mat-label>
-                <input formControlName="Account_Number" matInput type="number" onkeypress=" return this.value.length < 14"
-                    oninput="if(this.value.length>=14) {this.value = this.value.sclice (0,14);}" placeholder="A/C Number">
+                <input formControlName="account_number" matInput type="number"
+                    onkeypress=" return this.value.length < 20" placeholder="A/C Number">
             </mat-form-field>
-            
+
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>IFSC</mat-label>
-                <input matInput formControlName="IFSC" matInput type="IFSC" onkeypress=" return this.value.length < 7"
-                oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}" placeholder="IFSC">
+                <input matInput formControlName="ifsc" matInput type="IFSC" onkeypress=" return this.value.length < 15"
+                    oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}" placeholder="IFSC">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Holder Name</mat-label>
-                <input matInput formControlName="Account_Name" placeholder="A/C Holder Name">
+                <input matInput formControlName="account_name" placeholder="A/C Holder Name">
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="adr">
                 <mat-label>Address</mat-label>
                 <textarea matInput formControlName="address" placeholder="Address"></textarea>
             </mat-form-field>
-        
-            <div class="submit">
-                <button mat-raised-button color="warn"(click)="party_form_reset()">Reset</button>
-                <button mat-raised-button color="primary"  (click)="onsubmit()">{{actionBtn}}</button>
-            </div>
-
+            <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
+            <input type="number" formControlName="id" readonly hidden>
         </div>
     </div>
-    
-
-    <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
-    <input type="number" formControlName="id" readonly hidden>
 </form>
 
-
+<div class="submit">
+    <button mat-raised-button color="warn" (click)="party_form_reset()">Reset</button>
+    <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
+</div>

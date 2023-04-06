@@ -4,21 +4,19 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
+import { MsmsService } from 'src/app/msms.service';
+import { Router } from '@angular/router';
 
 
 
 export interface UserData {
   id: number;
-  Shop_name: string;
+  shop_name: string;
   Owner_name: string;
-  Contact_number:number;
-  Address:string;
+  contact_number:number;
+  address:string;
 }
-const UserData: UserData[] = [
-  { id: 1, Shop_name: 'Raja',Owner_name:'dipu',Contact_number:3455565423,Address:'hajipur', },
-  { id: 1, Shop_name: 'Roushan',Owner_name:'dipu',Contact_number:7768878732, Address:'hajipur',},
-  { id: 1, Shop_name: 'Dipu',Owner_name:'dipu', Contact_number:34555654454,Address:'hajipur', },
-];
+
 
 
 @Component({
@@ -27,19 +25,30 @@ const UserData: UserData[] = [
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  displayedColumns: string[] = ['id','Shop_name','Owner_name','Contact_number','Address','action'];
+  displayedColumns: string[] = ['cust_id','shop_name','owner_name','contact_number','address','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  customer_data:any
 
   constructor(
     private dailog: MatDialog,
+    private service : MsmsService,
+    private route : Router
   ) {
-    this.dataSource = new MatTableDataSource(UserData);
   }
 
   ngOnInit(): void {
+    this.service.get_customer().subscribe(
+      (customer_data:any)=>{
+       this.dataSource = new MatTableDataSource(customer_data.data);
+       this.customer_data = customer_data.data.length
+       this.dataSource.sort = this.sort;
+       this.dataSource.paginator = this.paginator
+
+      }
+    )
   }
 
   customer_edit(row: any) {
@@ -63,6 +72,18 @@ export class CustomerComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  delete_customer(row:any){
+    if(confirm('Do you really want to remove it?')){
+      const  deletecustomer = new FormData();
+      deletecustomer.append('cust_id',row.cust_id),
+      this.service.customer_delete(deletecustomer).subscribe(
+        (res:any) => {
+          this.route.navigate(['/home/customer']);
+        }
+      )
+    }
+  }
  
 }
+
 

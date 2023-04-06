@@ -11,50 +11,70 @@ import { MsmsService } from 'src/app/msms.service';
 export class AddCategoryComponent implements OnInit {
 
   disableSelect = new FormControl(false);
-  Category_form!: FormGroup;
+  category_form!: FormGroup;
   admin = 1;
   upload: any;
-  actionBtn: string = 'Add';
+  actionBtn: string = 'Submit';
   course_data:any;
-  add_category: any;
+  category_update: string = 'Add Topic'
 
   constructor(
     private fb: FormBuilder,
-    private msms:MsmsService,
+    private Service:MsmsService,
     private matref: MatDialogRef<AddCategoryComponent>,
-    @Inject(MAT_DIALOG_DATA) publicadd_category: any
+    @Inject(MAT_DIALOG_DATA) public add_category: any
   ) { }
 
   ngOnInit(): void {
-    this.Category_form = this.fb.group({
-      id: [''],
-      name: ['', Validators.required],
-      Description: ['',],
-   
+    this.category_form = this.fb.group({
+      cat_id: [''],
+      cat_name: ['', Validators.required],
+      description: [''],
       admin_id_fk: ['', Validators.required],
     })
-    this.Category_form.controls['add_category'].setValue(new Date().toISOString().slice(0, 10));
     if(this.add_category){
-      this.actionBtn='update'
-      this.Category_form.controls[ 'id'].setValue(this.add_category.id)
-      this.Category_form.controls[ 'name'].setValue(this.add_category.name)
-      this.Category_form.controls[ 'Description'].setValue(this.add_category.Description)
-
-      this.Category_form.controls[ 'admin_id_fk'].setValue(this.add_category.admin_id_fk)
+      console.log(this.add_category)
+      this.actionBtn='Update'
+      this.category_update = "Update category";
+      this.category_form.controls[ 'cat_id'].setValue(this.add_category.cat_id)
+      this.category_form.controls[ 'cat_name'].setValue(this.add_category.cat_name)
+      this.category_form.controls[ 'description'].setValue(this.add_category.description)
+      this.category_form.controls[ 'admin_id_fk'].setValue(this.add_category.admin_id_fk)
     }
   }
   onsubmit(){
-    // console.log(this.Category_form.value)
-    console.log(this.Category_form.get('name')?.value)
-    console.log(this.Category_form.get('Description')?.value)
-
-    const categorydata = new FormData()
-    categorydata.append('name',this.Category_form.get('name')?.value)
-    categorydata.append('Description',this.Category_form.get('Description')?.value)
+    if (!this.add_category) {
+      this.Service.category_post(this.category_form.value).subscribe(
+        (res:any)=>{
+          console.log(res);
+          this.matref.close();
+          alert('Data insert succssefully')
+        },
+        (error:any)=>{
+          alert('Data not insert...')
+        }
+      )
+    }
+    else{
+      this.update_catogory()
+    }
   }
+  update_catogory(){
+      console.log(this.category_form.value)
+      this.Service.put_category(this.category_form.value).subscribe(
+        (res:any)=>{
+          console.log(res);
+          alert('Data Update succssefully...')
+          this.matref.close();
+        },
+        (error:any)=>{
+          alert('Data not Update...')
+        }
+      )
+    }
   add_category_reset(){
-    // this.Category_form.reset()
-    this.Category_form.controls['name'].reset()
-    this.Category_form.controls['Description'].reset()
+    this.category_form.reset()
+    // this.Category_form.controls['name'].reset()
+    // this.Category_form.controls['Description'].reset()
   }
 }

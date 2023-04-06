@@ -8,72 +8,96 @@
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="name" placeholder="Name">
+                <input matInput formControlName="emp_name" placeholder="Name">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email Id</mat-label>
-                <input matInput formControlName="Email" placeholder="Email Id">
+                <input matInput formControlName="email_id" placeholder="Email Id">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Mobile Number</mat-label>
-                <input formControlName="Mobile" matInput type="number" onkeypress=" return this.value.length < 10"
+                <input formControlName="mobile" matInput type="number" onkeypress=" return this.value.length < 10"
                     oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="Mobile">
             </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>WhatsApp No</mat-label>
-            <input formControlName="WhatsApp_number" matInput type="number" onkeypress=" return this.value.length < 10"
-                oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="WhatsApp No">
-        </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>WhatsApp No</mat-label>
+                <input formControlName="whatsapp_number" matInput type="number"
+                    onkeypress=" return this.value.length < 10"
+                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}"
+                    placeholder="WhatsApp No">
+            </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Aadhar number</mat-label>
-            <input matInput type="number" formControlName="Aadhar_number" onkeypress=" return this.value.length < 16"
-            oninput="if(this.value.length>=16) {this.value = this.value.sclice (0,16);}" placeholder="Aadhar number">
-        </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Aadhar number</mat-label>
+                <input matInput type="number" formControlName="aadhar_number"
+                    onkeypress=" return this.value.length < 16"
+                    oninput="if(this.value.length>=16) {this.value = this.value.sclice (0,16);}"
+                    placeholder="Aadhar number">
+            </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Number</mat-label>
-                <input formControlName="Account_Number" matInput type="number" onkeypress=" return this.value.length < 14"
-                    oninput="if(this.value.length>=14) {this.value = this.value.sclice (0,14);}" placeholder="A/C Numbe">
+                <input formControlName="account_number" matInput type="number"
+                    onkeypress=" return this.value.length < 14"
+                    oninput="if(this.value.length>=14) {this.value = this.value.sclice (0,14);}"
+                    placeholder="A/C Numbe">
             </mat-form-field>
-            
+
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>IFSC</mat-label>
-                <input matInput formControlName="IFSC" matInput type="IFSC" onkeypress=" return this.value.length < 7"
-                oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}" placeholder="IFSC">
+                <input matInput formControlName="ifsc" matInput type="IFSC" onkeypress=" return this.value.length < 7"
+                    oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}" placeholder="IFSC">
             </mat-form-field>
 
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Holder Name</mat-label>
-                <input matInput formControlName="Account_Name" placeholder="A/C Holder Name">
+                <input matInput formControlName="account_name" placeholder="A/C Holder Name">
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill" class="adr" >
+            <div class="photo">
+
+                <div style=" width:100%; height:75%; text-align: center;">
+
+                    <img [src]="image_url" class="select_file" width="60%" height="100%">
+
+                </div>
+
+                <div
+                    style=" overflow: hidden; width: calc(100%); height:25%; padding-top: 5px;">
+                    <input type="file" accept=".jpg, .jpeg, .png" name="photo" class="d-none" #image
+                        (change)="OnUpload(image.files)">
+                    <button class="img_btn" (click)="image.click()">Upload Image</button>
+                </div>
+
+            </div>
+
+            <mat-form-field class="example-full-width" appearance="fill" class="Description">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="Description"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill" class="adr">
                 <mat-label>Address</mat-label>
                 <textarea matInput formControlName="address" placeholder="Address"></textarea>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill" class="Description">
-                <mat-label>Description</mat-label>
-                <textarea matInput formControlName="Description" placeholder="Description"></textarea>
-            </mat-form-field>
 
-            <table class="pic" cellspacing="0">
+
+            <!-- <table class="pic" cellspacing="0">
                 <mat-label class="photo">Employee photo</mat-label><br>
                 <input type="file" name="photo" class="upload" (change)="OnUpload($event)"
                     formControlName="photo">
-            </table>
+            </table> -->
 
             <div class="submit">
                 <button mat-raised-button color="warn" (click)="employee_form_reset()">Reset</button>
                 <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
             </div>
 
-    </div>
+        </div>
 
     </div>
 
