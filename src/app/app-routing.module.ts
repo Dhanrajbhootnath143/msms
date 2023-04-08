@@ -44,7 +44,7 @@ const routes: Routes = [
         {path:'party', component:PartyComponent},
         {path:'unit',component:UnitComponent},
         {path:'gst',component:GstComponent},
-        {path: 'weight',component:WeightComponent},
+        {path:'weight',component:WeightComponent},
         {path:'category',component:CategoryComponent},
         {path:'item',component:ItemComponent},
         {path:'employee',component:EmployeeComponent},

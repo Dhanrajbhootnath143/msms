@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MsmsService } from 'src/app/msms.service';
 
 
@@ -11,13 +12,13 @@ import { MsmsService } from 'src/app/msms.service';
 })
 export class AddGstComponent implements OnInit {
   disableSelect = new FormControl(false);
-  party_form!: FormGroup;
+  gst_form!: FormGroup;
   admin = 1;
   upload: any;
   actionBtn: string = 'Submit';
   course_data:any;
   // add_gst: any;
-  gst_form: any;
+
   gst_update: string = 'Add Topic'
 
   constructor(
@@ -25,6 +26,7 @@ export class AddGstComponent implements OnInit {
     private fb: FormBuilder,
     private service:MsmsService,
     private matref: MatDialogRef<AddGstComponent>,
+    private route:Router
 
   ) { }
 
@@ -35,7 +37,7 @@ export class AddGstComponent implements OnInit {
       cgst: ['', Validators.required],
       sgst: ['', Validators.required],
       description: [''],
-      admin_id_fk: ['', Validators.required],
+      admin_id_fk: [''],
     })
     if(this.add_gst){
       console.log(this.add_gst)
@@ -73,11 +75,13 @@ export class AddGstComponent implements OnInit {
       console.log(this.gst_form.value)
       this.service.put_gst(this.gst_form.value).subscribe(
         (res:any)=>{
+          this.route.navigate(['/home/gst']);
           console.log(res);
           alert('Data Update succssefully...')
           this.matref.close();
         },
         (error:any)=>{
+          console.log(error)
           alert('Data not Update...')
         }
       )

@@ -17,14 +17,12 @@ export class AddDuesComponent implements OnInit {
   actionBtn: string = 'Add';
   course_data:any;
   add_dues: any;
-
   
-
   constructor(
     private fb: FormBuilder,
     private service : MsmsService,
     private matref: MatDialogRef<AddDuesComponent>,
-    @Inject(MAT_DIALOG_DATA) public edit_party: any
+    @Inject(MAT_DIALOG_DATA) public add_duse: any
   ) { }
 
   ngOnInit(): void {

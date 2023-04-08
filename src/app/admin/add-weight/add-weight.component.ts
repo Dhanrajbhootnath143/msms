@@ -32,7 +32,6 @@ export class AddWeightComponent implements OnInit {
       weight_id: [''],
       weight: ['', Validators.required],
       description: ['',],
-   
       admin_id_fk: ['', Validators.required],
     })
     
@@ -65,7 +64,7 @@ export class AddWeightComponent implements OnInit {
   }
   update_unit(){
       console.log(this.Weight_form.value)
-      this.Service.put_unit(this.Weight_form.value).subscribe(
+      this.Service.put_weight(this.Weight_form.value).subscribe(
         (res:any)=>{
           console.log(res);
           alert('Data Update succssefully...')

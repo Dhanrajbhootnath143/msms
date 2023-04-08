@@ -8,17 +8,17 @@
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>GST</mat-label>
-                <input matInput formControlName="gst" placeholder="GST">
+                <input matInput formControlName="gst" type="number" placeholder="GST">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill" >
                 <mat-label>CGST</mat-label>
-                <input matInput formControlName="cgst" placeholder="CGST">
+                <input matInput formControlName="cgst" type="number" placeholder="CGST">
             </mat-form-field><br>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>SGST</mat-label>
-                <input matInput formControlName="sgst" placeholder="SGST">
+                <input matInput formControlName="sgst" type="number" placeholder="SGST">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -28,8 +28,6 @@
             
         </div>
         </div>
-
-
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
     <input type="number" formControlName="gst_id" readonly hidden>
 </form>

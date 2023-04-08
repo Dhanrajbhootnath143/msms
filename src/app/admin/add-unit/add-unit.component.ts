@@ -66,7 +66,7 @@ export class AddUnitComponent implements OnInit {
   
   update_unit(){
     console.log(this.unit_form.value)
-    this.service.put_party(this.unit_form.value).subscribe(
+    this.service.put_unit(this.unit_form.value).subscribe(
       (result:any) => {
         console.log(result)
         alert('Data Update Successfully...')
