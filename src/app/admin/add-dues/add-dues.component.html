@@ -1,6 +1,6 @@
 <mat-toolbar>
     <span class="example-spacer">Dues</span>
-    <mat-icon mat-dialog-close>cancel</mat-icon>
+    <mat-icon mat-dialog-close class="add_dues">cancel</mat-icon>
 </mat-toolbar>
 
 <form [formGroup]="dues_form">
@@ -13,22 +13,22 @@
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Pay</mat-label>
-                <input matInput formControlName="pey" placeholder="Pey">
+                <input matInput formControlName="pey" type="number" placeholder="Pey">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Bill number</mat-label>
-                <input matInput formControlName="bill_number" placeholder="Bill number">
+                <input matInput formControlName="bill_number" type="number" placeholder="Bill number">
             </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label> Current dues</mat-label>
-            <input matInput formControlName="current_dues" placeholder=" Current dues">
+            <input matInput formControlName="current_dues" type="number" placeholder=" Current dues">
         </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Back dues</mat-label>
-                <input formControlName="back_dues" matInput type="Account_Number"placeholder="Back dues" >
+                <input formControlName="back_dues" type="number" matInput type="Account_Number"placeholder="Back dues" >
             </mat-form-field>
             
         
@@ -41,7 +41,7 @@
     </div>
 
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
-    <input type="number" formControlName="id" readonly hidden>
+    <input type="number" formControlName="dues_id" readonly hidden>
 </form>
 
 <div class="submit">

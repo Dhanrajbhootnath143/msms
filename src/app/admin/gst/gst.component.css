@@ -7,3 +7,6 @@
     cursor: pointer;
     line-height: 23px;
 }
+button {
+  margin-right: 8px;
+}

@@ -29,76 +29,76 @@ const ELEMENT_DATA:PeriodicElement [] = [
 })
 export class AddSaleComponent implements OnInit {
   customer_form: any
-  displayedColumns: string[] = ['sn_no', 'Item_Name', 'Pack', 'Company', 'Quantity', 'Rate', 'Discount', 'gst', 'Net_Rete', 'Amount', 'Action' ];
+  displayedColumns: string[] = ['sn_no', 'item_name', 'pack', 'company', 'quantity', 'rate', 'discount', 'gst', 'net_rete', 'amount', 'action' ];
   dataSource = ELEMENT_DATA;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  Customer_form: any;
-  Item_form:any;
-  Final_form:any;
+  party_form: any;
+  item_form:any;
+  final_form:any;
   constructor(
-    private fb:FormBuilder
+    private fb: FormBuilder
   ){
 
   }
   ngOnInit(): void {
-    this.Customer_form = this.fb.group({
-      party_id:['', Validators.required],
-      name:['', Validators.required],
-      Mobile_Number:['', Validators.required],
-      Email:['',Validators.required],
-      Address:['',Validators.required],
-     })
-  
-     this.Item_form = this.fb.group({
-      Customer:['',Validators.required],
-      Category:['',Validators.required],
-      Iten:['',Validators.required],
-      Company_Name:['',Validators.required],
-      HSN_No:['',Validators.required],
-      Batch_No:['',Validators.required],
-      Unit:['',Validators.required],
-      MRP:['',Validators.required],
-      Pack:['',Validators.required],
-      Rate:['',Validators.required],
-      date:['',Validators.required],
-      Quantity:['',Validators.required],
-      Total:['',Validators.required],
-      Fee:['',Validators.required],
-      Discount:['',Validators.required],
-      GST:['',Validators.required],
-      Net_Rate:['',Validators.required],
-      Amount:['',Validators.required],
-  
-     })
+   this.party_form = this.fb.group({
+    party_id:['', Validators.required],
+    party_name:['', Validators.required],
+    mobile_number:['', Validators.required],
+    email_id:['',Validators.required],
+    address:['',Validators.required],
+   })
 
+   this.item_form = this.fb.group({
+    item_party:['',Validators.required],
+    category:['',Validators.required],
+    iten:['',Validators.required],
+    company_name:['',Validators.required],
+    hsn_no:['',Validators.required],
+    batch_no:['',Validators.required],
+    unit:['',Validators.required],
+    mrp:['',Validators.required],
+    pack:['',Validators.required],
+    rate:['',Validators.required],
+    date:['',Validators.required],
+    quantity:['',Validators.required],
+    total:['',Validators.required],
+    fee:['',Validators.required],
+    discount:['',Validators.required],
+    gst:['',Validators.required],
+    net_rate:['',Validators.required],
+    amount:['',Validators.required],
 
-
-    this.Final_form =  this.fb.group({
-      Basic_Amount:['',Validators.required],
-      Discount:['',Validators.required],
-      GST:['',Validators.required],
-      SGST:['',Validators.required],
-      ro:['',Validators.required],
-      Net_amount:['',Validators.required],
-      Bill_Number:['',Validators.required],
-      Date:['',Validators.required],
-      
-     })
-    
-   
+   })
+   this.final_form =  this.fb.group({
+    basic_amount:['',Validators.required],
+    gst:['',Validators.required],
+    sgst:['',Validators.required],
+    cgst:['',Validators.required],
+    discount:['',Validators.required],
+    amount:['',Validators.required],
+    back_duse:['',Validators.required],
+    ro:['',Validators.required],
+    totel_amount:['',Validators.required],
+    paid:['',Validators.required],
+    dues:['',Validators.required],
+    date:['',Validators.required],
+   })
   }
 
-
-  customer_onsubmit(){
-    console.log(this.Customer_form.value)
+  onsubmit(){
+    console.log(this.party_form.value)  
   }
-
-  item_onsubmit(){
-    console.log(this.Item_form.value)
-  }
-  final_onsubmit(){
-    console.log(this.Final_form.value)
-  }
+  onsubm(){
+    console.log(this.item_form.value)
  
+  }
+
+  onsubmi(){
+    console.log(this.final_form.value)
+  
+  }
+  
+  
 }

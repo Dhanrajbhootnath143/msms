@@ -5,21 +5,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
 import { AddDuesComponent } from '../add-dues/add-dues.component';
+import { MsmsService } from 'src/app/msms.service';
+import { Router } from '@angular/router';
+import { UserData } from '../account/account.component';
 
 
-
-export interface UserData {
-  cust_id: number;
-  customer: string;
-  bill_number: number;
-  amount:number;
-  paid:number;
-  dues:number;
-}
-const UserData: UserData[] = [
-  { cust_id: 1, customer: 'Raja',bill_number:3,amount:500,paid:743,dues:332, },
- 
-];
 
 @Component({
   selector: 'app-dues',
@@ -27,19 +17,28 @@ const UserData: UserData[] = [
   styleUrls: ['./dues.component.css']
 })
 export class DuesComponent implements OnInit {
-  displayedColumns: string[] = ['cust_id','customer','bill_number','amount','paid','dues','d','action'];
+  displayedColumns: string[] = ['dues_id','customer_name','bill_number','pey','current_dues','back_dues','date','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  duse_data:any
 
   constructor(
     private dailog: MatDialog,
-  ) {
-    this.dataSource = new MatTableDataSource(UserData);
-  }
+    private servies : MsmsService,
+    private route : Router,
+  ) {  }
 
   ngOnInit(): void {
+    this.servies.get_dues().subscribe(
+      (duse_data:any)=>{
+        this.dataSource = new MatTableDataSource(duse_data.data);
+        this.duse_data = duse_data.data.length
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator
+      }
+    )
   }
 
   dues_edit(row: any) {
@@ -63,6 +62,19 @@ export class DuesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  delete_dues(row:any){
+    if(confirm('Do you really want to remove it?')){
+      const  deletegst = new FormData();
+      deletegst.append('dues_id',row.dues_id),
+      this.servies.dues_delete(deletegst).subscribe(
+        (res:any) => {
+          this.route.navigate(['/home/dues']);
+        }
+      )
+    }
+
+  }
  
 }
+
 

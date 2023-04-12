@@ -44,13 +44,13 @@ const routes: Routes = [
         {path:'party', component:PartyComponent},
         {path:'unit',component:UnitComponent},
         {path:'gst',component:GstComponent},
-        {path: 'weight',component:WeightComponent},
+        {path:'weight',component:WeightComponent},
         {path:'category',component:CategoryComponent},
         {path:'item',component:ItemComponent},
         {path:'employee',component:EmployeeComponent},
         {path:'customer',component:CustomerComponent},
         {path:'dues',component:DuesComponent},
-        {path:'reciept',component:RecieptComponent},
+        {path:'reciept',component:DuesComponent},
         {path:'account',component:AccountComponent},
         {path:'expense',component:ExpenseComponent},
         {path:'purchase',component:PurchaseComponent},
@@ -108,7 +108,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

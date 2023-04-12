@@ -59,6 +59,8 @@ import { ExpiryReportComponent } from './admin/expiry-report/expiry-report.compo
 import { PurchaseCancelComponent } from './admin/purchase-cancel/purchase-cancel.component';
 import { SaleCancelComponent } from './admin/sale-cancel/sale-cancel.component';
 import { AddSaleCancelComponent } from './admin/add-sale-cancel/add-sale-cancel.component';
+import { DeleteDataComponent } from './admin/delete-data/delete-data.component';
+
 
 
 
@@ -104,6 +106,7 @@ import { AddSaleCancelComponent } from './admin/add-sale-cancel/add-sale-cancel.
     PurchaseCancelComponent,
     SaleCancelComponent,
     AddSaleCancelComponent,
+    DeleteDataComponent,
     
   ],
   imports: [

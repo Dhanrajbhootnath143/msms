@@ -36,26 +36,26 @@ export class AddItemComponent implements OnInit {
       hsn_no: ['',Validators.required],
       unit:['',Validators.required],
       mrp: ['', Validators.required],
-      description:['',],
+      description:[''],
       admin_id_fk: ['', Validators.required],
     })
     if(this.add_item){
       console.log(this.add_item)
-      this.actionBtn='update'
+      this.actionBtn='Update'
       this.item_update = "Update item"
-      this.item_form.controls[ 'item_id'].setValue(this.add_item.item_id)
-      this.item_form.controls[ 'item_name'].setValue(this.add_item.name)
-      this.item_form.controls[ 'weight'].setValue(this.add_item.weight)
-      this.item_form.controls[ 'purchase_amount'].setValue(this.add_item.purchase_amount)
-      this.item_form.controls[ 'company'].setValue(this.add_item.company)
-      this.item_form.controls[ 'pack'].setValue(this.add_item.pack)
-      this.item_form.controls[ 'sale_amount'].setValue(this.add_item.sale_amount)
-      this.item_form.controls[ 'category'].setValue(this.add_item.category)
-      this.item_form.controls[ 'hsn_no'].setValue(this.add_item.hsn_no)
-      this.item_form.controls[ 'unit'].setValue(this.add_item.unit)
-      this.item_form.controls[ 'mrp'].setValue(this.add_item.mrp)
-      this.item_form.controls[ 'description'].setValue(this.add_item.description)
-      this.item_form.controls[ 'admin_id_fk'].setValue(this.add_item.admin_id_fk)
+      this.item_form.controls['item_id'].setValue(this.add_item.item_id)
+      this.item_form.controls['item_name'].setValue(this.add_item.item_name)
+      this.item_form.controls['weight'].setValue(this.add_item.weight)
+      this.item_form.controls['purchase_amount'].setValue(this.add_item.purchase_amount)
+      this.item_form.controls['company'].setValue(this.add_item.company)
+      this.item_form.controls['pack'].setValue(this.add_item.pack)
+      this.item_form.controls['sale_amount'].setValue(this.add_item.sale_amount)
+      this.item_form.controls['category'].setValue(this.add_item.category)
+      this.item_form.controls['hsn_no'].setValue(this.add_item.hsn_no)
+      this.item_form.controls['unit'].setValue(this.add_item.unit)
+      this.item_form.controls['mrp'].setValue(this.add_item.mrp)
+      this.item_form.controls['description'].setValue(this.add_item.description)
+      this.item_form.controls['admin_id_fk'].setValue(this.add_item.admin_id_fk)
     }
   }
   onsubmit(){
@@ -72,21 +72,38 @@ export class AddItemComponent implements OnInit {
         }
       )
     }
- 
+    else{
+      this.update_item()
+    }
   }
+  update_item(){
+    console.log(this.item_form.value)
+    this.Service.put_item(this.item_form.value).subscribe(
+      (result:any) => {
+        console.log(result)
+        alert('Data Update Successfully...')
+        this.matref.close();
+      },
+      (error:any) => {
+        alert('Data not update')
+      }
+    )
+  }
+  
+
   add_item_reset(){
-    // this.item_form.reset()
-    this.item_form.controls['category'].reset()
-    this.item_form.controls['item_name'].reset()
-    this.item_form.controls['company'].reset()
-    this.item_form.controls['unit'].reset()
-    this.item_form.controls['weight'].reset()
-    this.item_form.controls['pack'].reset()
-    this.item_form.controls['hsn_no'].reset()
-    this.item_form.controls['mrp'].reset()
-    this.item_form.controls['purchase_amount'].reset()
-    this.item_form.controls['sale_amount'].reset()
-    this.item_form.controls['description'].reset()
+    this.item_form.reset()
+    // this.item_form.controls['category'].reset()
+    // this.item_form.controls['item_name'].reset()
+    // this.item_form.controls['company'].reset()
+    // this.item_form.controls['unit'].reset()
+    // this.item_form.controls['weight'].reset()
+    // this.item_form.controls['pack'].reset()
+    // this.item_form.controls['hsn_no'].reset()
+    // this.item_form.controls['mrp'].reset()
+    // this.item_form.controls['purchase_amount'].reset()
+    // this.item_form.controls['sale_amount'].reset()
+    // this.item_form.controls['description'].reset()
 
   }
 }

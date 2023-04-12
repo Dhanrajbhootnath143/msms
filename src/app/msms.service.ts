@@ -30,6 +30,15 @@ export class MsmsService {
   dues_post(data:any){
     return this.http.post<any>(this.baseUrl + 'dues_insert.php',data);
   }
+  put_dues(data:any){
+    return this.http.put<any>(this.baseUrl + 'dues_update.php',data);
+  }
+  get_dues(){
+    return this.http.get<any>(this.baseUrl + 'duse_view.php');
+  }
+  dues_delete(data:any){
+    return this.http.post<any>(this.baseUrl + 'delete_dues.php',data);
+  }
 
 
   gst_post(data:any){
@@ -44,7 +53,6 @@ export class MsmsService {
   }
   put_gst(data:any){
     return this.http.put<any>(this.baseUrl + 'gst_update.php',data);
-
   }
   // for party
 
@@ -106,12 +114,13 @@ export class MsmsService {
   get_item(){
     return this.http.get<any>(this.baseUrl + 'item_view.php');
   }
-  item_delete(data:any){
-    return this.http.post<any>(this.baseUrl + 'delete_item.php',data);
-  }
   put_item(data:any){
     return this.http.put<any>(this.baseUrl + 'item_update.php',data);
   }
+  item_delete(data:any){
+    return this.http.post<any>(this.baseUrl + 'delete_item.php',data);
+  }
+  
   
   
 

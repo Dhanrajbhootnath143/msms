@@ -49,8 +49,8 @@ export class AddEditPartyComponent implements OnInit {
 
     if (this.edit_party) {
       console.log(this.edit_party)
-      this.actionBtn = "update";
-      this.party_update = "update Party";
+      this.actionBtn = "Update";
+      this.party_update = "Update Party";
       this.party_form.controls['party_id'].setValue(Number(this.edit_party.party_id));
       this.party_form.controls['party_name'].setValue(this.edit_party.party_name);
       this.party_form.controls['email_id'].setValue(this.edit_party.email_id);
