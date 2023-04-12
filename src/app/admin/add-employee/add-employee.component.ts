@@ -48,9 +48,10 @@ export class AddEmployeeComponent implements OnInit {
       description:[''],
       admin_id_fk: ['', Validators.required],
     })
-    this.employee_form.controls['add_edit_party'].setValue(new Date().toISOString().slice(0, 10));
     if(this.add_employee_party){
-      this.actionBtn='update'
+      console.log(this.add_employee_party)
+      this.actionBtn='Update'
+      this.employee_update = "Update employee"
       this.employee_form.controls[ 'emp_id'].setValue(this.add_employee_party.emp_id)
       this.employee_form.controls[ 'emp_name'].setValue(this.add_employee_party.emp_name)
       this.employee_form.controls[ 'email_id'].setValue(this.add_employee_party.email_id)

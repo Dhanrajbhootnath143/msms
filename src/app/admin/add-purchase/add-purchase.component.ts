@@ -33,8 +33,8 @@ export class AddPurchaseComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   party_form: any;
-  Item_form:any;
-  Final_form:any;
+  item_form:any;
+  final_form:any;
   constructor(
     private fb: FormBuilder
   ){
@@ -49,8 +49,8 @@ export class AddPurchaseComponent implements OnInit {
     address:['',Validators.required],
    })
 
-   this.Item_form = this.fb.group({
-    item_name:['',Validators.required],
+   this.item_form = this.fb.group({
+    item_party:['',Validators.required],
     category:['',Validators.required],
     iten:['',Validators.required],
     company_name:['',Validators.required],
@@ -70,7 +70,7 @@ export class AddPurchaseComponent implements OnInit {
     amount:['',Validators.required],
 
    })
-   this.Final_form =  this.fb.group({
+   this.final_form =  this.fb.group({
     basic_amount:['',Validators.required],
     discount:['',Validators.required],
     gst:['',Validators.required],
@@ -87,12 +87,12 @@ export class AddPurchaseComponent implements OnInit {
     console.log(this.party_form.value)  
   }
   onsubm(){
-    console.log(this.Item_form.value)
+    console.log(this.item_form.value)
  
   }
 
   onsubmi(){
-    console.log(this.Final_form.value)
+    console.log(this.final_form.value)
   
   }
   

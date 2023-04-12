@@ -12,8 +12,8 @@
 }
 .search{
   border-bottom: 1px solid;
-  
 }
+
 #Bill_ref_no{
   float: right;
   position: absolute;
@@ -124,7 +124,7 @@ mat-form-field{
   float: right;
   margin-top: 13px;
   margin-right: 40%;
-  cursor: pointer; 
+  cursor: pointer;
   border-radius: 5px;
 }
 .add_btn mat-icon{
@@ -177,7 +177,6 @@ textarea {
       width: 96%;
       margin-left: 1.7%;
   }
-  
   .add_btn{
       margin-right: 44%;
   }
@@ -211,6 +210,8 @@ textarea {
   margin-left: 66%;
 }
 }
+
+
 @media (max-width:1120px) {
   .add_btn {
 
@@ -219,7 +220,6 @@ textarea {
 }
   
 }
-
 @media(min-width: 521px) and (max-width: 720px){
   .add_box {
       width: calc(100% - 51.7%);
@@ -251,6 +251,7 @@ textarea {
  }
   
 }
+
 
 @media(min-width: 721px) and (max-width: 1699px){
   .customer_box{

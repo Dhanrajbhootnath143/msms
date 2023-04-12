@@ -18,7 +18,6 @@ export class AddGstComponent implements OnInit {
   actionBtn: string = 'Submit';
   course_data:any;
   // add_gst: any;
-
   gst_update: string = 'Add Topic'
 
   constructor(
@@ -26,9 +25,13 @@ export class AddGstComponent implements OnInit {
     private fb: FormBuilder,
     private service:MsmsService,
     private matref: MatDialogRef<AddGstComponent>,
-    private route:Router
+    private router:Router
 
-  ) { }
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+  }
 
   ngOnInit(): void {
     this.gst_form = this.fb.group({
@@ -59,6 +62,7 @@ export class AddGstComponent implements OnInit {
           console.log(res);
           this.matref.close();
           alert('Data insert succssefully')
+          this.router.navigate(['/home/gst'])
         },
         (error:any)=>{
           alert('Data not insert...')
@@ -75,7 +79,7 @@ export class AddGstComponent implements OnInit {
       console.log(this.gst_form.value)
       this.service.put_gst(this.gst_form.value).subscribe(
         (res:any)=>{
-          this.route.navigate(['/home/gst']);
+          this.router.navigate(['/home/gst'])
           console.log(res);
           alert('Data Update succssefully...')
           this.matref.close();

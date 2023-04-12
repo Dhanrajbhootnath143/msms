@@ -42,7 +42,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Email Id.</mat-label>
-                    <input matInput placeholder="Email Id" formControlName="email-id">  
+                    <input matInput placeholder="Email Id" formControlName="email_id">  
                 </mat-form-field><br>
                 
                 <mat-form-field appearance="fill" class="form">
@@ -65,10 +65,10 @@
                 style="background-color: #232838; color: whitesmoke; border-radius: 5px; height: 40px; margin: 3px">Item</a>
             <ng-template ngbNavContent>
                 <div class="product_box">
-                    <form [formGroup]="Item_form">
+                    <form [formGroup]="item_form">
                     <mat-form-field appearance="fill">
                         <mat-label>Party</mat-label>
-                        <input formControlName="item_name" matInput placeholder="Party">
+                        <input formControlName="item_party" matInput placeholder="Party">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" class="example-full-width">
@@ -258,20 +258,20 @@
                 style="background-color: #232838; color: whitesmoke; border-radius: 5px; height: 40px; margin: 3px">Final Bill</a>
             <ng-template ngbNavContent>
                 <div class="Final_box">
-                    <form [formGroup]="Final_form">
+                    <form [formGroup]="final_form">
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Basic Amount</mat-label>
-                        <input matInput type="number" class="example-right-align" placeholder="0.00" formControlName="Basic_Amount">
+                        <input matInput type="number" class="example-right-align" placeholder="0.00" formControlName="basic_amount">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Discount (0%)</mat-label>
-                        <input matInput type="number" class="example-right-align" placeholder="0" formControlName="Discount">
+                        <input matInput type="number" class="example-right-align" placeholder="0" formControlName="discount">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill">
                         <mat-label>GST (%)</mat-label>
-                        <mat-select formControlName="GST">
+                        <mat-select formControlName="gst">
                             <mat-option value="10%">10%</mat-option>
                             <mat-option value="15%">15%</mat-option>
                             <mat-option value="20%">20%</mat-option>
@@ -280,7 +280,7 @@
 
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>SGST</mat-label>
-                        <input matInput type="number" class="example-right-align" placeholder="0.00" formControlName="SGST">
+                        <input matInput type="number" class="example-right-align" placeholder="0.00" formControlName="sgst">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" floatLabel="always">
@@ -290,17 +290,17 @@
 
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Net Amount</mat-label>
-                        <input matInput type="number" class="example-right-align" placeholder="0.00" formControlName="Net_amount">
+                        <input matInput type="number" class="example-right-align" placeholder="0.00" formControlName="net_amount">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Bill Number</mat-label>
-                        <input matInput type="number" class="example-right-align" placeholder="0.00" formControlName="Bill_Number">
+                        <input matInput type="number" class="example-right-align" placeholder="0.00" formControlName="bill_number">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Date </mat-label>
-                        <input matInput type="date" class="example-right-align" placeholder="0.00" formControlName="Date">
+                        <input matInput type="date" class="example-right-align" placeholder="0.00" formControlName="date">
                     </mat-form-field>
                     </form>
                   

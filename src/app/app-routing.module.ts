@@ -50,7 +50,7 @@ const routes: Routes = [
         {path:'employee',component:EmployeeComponent},
         {path:'customer',component:CustomerComponent},
         {path:'dues',component:DuesComponent},
-        {path:'reciept',component:RecieptComponent},
+        {path:'reciept',component:DuesComponent},
         {path:'account',component:AccountComponent},
         {path:'expense',component:ExpenseComponent},
         {path:'purchase',component:PurchaseComponent},
@@ -108,7 +108,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

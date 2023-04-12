@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
 import { AddGstComponent } from '../add-gst/add-gst.component';
 import { MsmsService } from 'src/app/msms.service';
 import { Router } from '@angular/router';
-
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 export interface UserData {
   gst_id: number;
@@ -16,7 +16,6 @@ export interface UserData {
   description:string;
   
 }
-
 
 @Component({
   selector: 'app-gst',
@@ -30,13 +29,24 @@ export class GstComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   gst_data:any
+  inputField: any;
 
   constructor(
+    public dialog: MatDialog,
     private dailog: MatDialog,
     private sarvies : MsmsService,
     private route :Router,
   ) {
   }
+    greetingFunc(newUser : string) {
+      if(newUser) {
+      this.gst_data.push(newUser);
+      console.log(this.gst_data);
+      this.inputField.nativeElement.value='';
+    }
+  }
+
+  
 
   ngOnInit(): void {
     this.sarvies.get_gst().subscribe(
@@ -60,7 +70,13 @@ export class GstComponent implements OnInit {
       disableClose: true
     });
   }
-  
+  openDialog(){
+    this.dailog.open(DeleteDataComponent, {
+      disableClose: true
+      
+    });
+  }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

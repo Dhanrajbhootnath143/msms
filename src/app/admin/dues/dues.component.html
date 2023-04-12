@@ -3,7 +3,7 @@
     <mat-icon id="add_dues" (click)="add_dues()">add_circle</mat-icon>
   </div>
   <div class="count_area">
-    <span class="notice_text">Total : 10</span>
+    <span class="notice_text">Total : {{duse_data}}</span>
     <div class="search">
       <input type="text" placeholder="Search" class="search_box" matInput (keyup)="applyFilter($event)" #input>
     </div>
@@ -12,14 +12,14 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
-      <ng-container matColumnDef="duse_id">
+      <ng-container matColumnDef="dues_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> S.N. </th>
         <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
       </ng-container>
   
-      <ng-container matColumnDef="customer">
+      <ng-container matColumnDef="customer_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer</th>
-        <td mat-cell *matCellDef="let row"> {{row.customer}}</td>
+        <td mat-cell *matCellDef="let row"> {{row.customer_name}}</td>
       </ng-container>
   
       <ng-container matColumnDef="bill_number">
@@ -27,19 +27,19 @@
         <td mat-cell *matCellDef="let row"> {{row.bill_number}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="amount">
+      <ng-container matColumnDef="pey">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount</th>
-        <td mat-cell *matCellDef="let row"> {{row.amount}}</td>
+        <td mat-cell *matCellDef="let row"> {{row.pey}}</td>
       </ng-container>
       
-      <ng-container matColumnDef="paid">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Paid</th>
-        <td mat-cell *matCellDef="let row"> {{row.paid}}</td>
+      <ng-container matColumnDef="current_dues">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Duse</th>
+        <td mat-cell *matCellDef="let row"> {{row.current_dues}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="dues">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Dues</th>
-        <td mat-cell *matCellDef="let row"> {{row.dues}}</td>
+      <ng-container matColumnDef="back_dues">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Back Dues</th>
+        <td mat-cell *matCellDef="let row"> {{row.back_dues}}</td>
       </ng-container>
 
       <ng-container matColumnDef="date">
@@ -51,6 +51,8 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
           <mat-icon style="cursor: pointer;" (click)="dues_edit(row)">edit</mat-icon>
+          <mat-icon style="cursor: pointer;" (click)="delete_dues(row)">delete</mat-icon>
+
         </td>
       </ng-container>
   
