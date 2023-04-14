@@ -8,6 +8,7 @@ import { AddDuesComponent } from '../add-dues/add-dues.component';
 import { MsmsService } from 'src/app/msms.service';
 import { Router } from '@angular/router';
 import { UserData } from '../account/account.component';
+import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 
 
@@ -23,12 +24,17 @@ export class DuesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   duse_data:any
+  deletevalue: any;
 
   constructor(
     private dailog: MatDialog,
     private servies : MsmsService,
-    private route : Router,
-  ) {  }
+    private router : Router,
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+   }
 
   ngOnInit(): void {
     this.servies.get_dues().subscribe(
@@ -52,6 +58,26 @@ export class DuesComponent implements OnInit {
       disableClose: true
     });
   }
+  openDialog(row: any) {
+    const dialogRef = this.dailog.open(DeleteDataComponent, {
+      data: this.deletevalue,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (this.deletevalue == result) {
+        const deldata = new FormData();
+        deldata.append('duse_id', row.duse_id);
+        this.servies.gst_delete(deldata).subscribe(
+          (res: any) => {
+            console.log(res)
+            alert('Data Delete Successfylly...')
+            this.router.navigate(['/home/duse'])
+          }
+        )
+      }
+      else { }
+    });
+  }
+
   
 
   applyFilter(event: Event) {
@@ -68,7 +94,7 @@ export class DuesComponent implements OnInit {
       deletegst.append('dues_id',row.dues_id),
       this.servies.dues_delete(deletegst).subscribe(
         (res:any) => {
-          this.route.navigate(['/home/dues']);
+          this.router.navigate(['/home/dues']);
         }
       )
     }

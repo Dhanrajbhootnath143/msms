@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.component';
 import { MsmsService } from 'src/app/msms.service';
 import { Router } from '@angular/router';
+import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 @Component({
   selector: 'app-party',
@@ -19,12 +20,18 @@ export class PartyComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   party_data:any
+  deletevalue: any;
 
   constructor(
+    public daolog: MatDialog,
     private dailog: MatDialog,
     private service:MsmsService,
-    private route:Router
-  ) { }
+    private router:Router
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+  }
 
   ngOnInit(): void {
     this.service.get_Party().subscribe(
@@ -48,6 +55,25 @@ export class PartyComponent implements OnInit {
       disableClose: true
     });
   }
+  openDialog(row: any) {
+    const dialogRef = this.dailog.open(DeleteDataComponent, {
+      data: this.deletevalue,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (this.deletevalue == result) {
+        const deldata = new FormData();
+        deldata.append('party_id', row.party_id);
+        this.service.party_delete(deldata).subscribe(
+          (res: any) => {
+            console.log(res)
+            alert('Data Delete Successfylly...')
+            this.router.navigate(['/home/party'])
+          }
+        )
+      }
+      else { }
+    });
+  }
   
 
   applyFilter(event: Event) {
@@ -65,7 +91,7 @@ export class PartyComponent implements OnInit {
       deleteparty.append('party_id',row.party_id),
       this.service.party_delete(deleteparty).subscribe(
         (res:any) => {
-          this.route.navigate(['/home/party']);
+          this.router.navigate(['/home/party']);
         }
       )
     }

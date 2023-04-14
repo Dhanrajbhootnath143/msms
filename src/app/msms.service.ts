@@ -63,6 +63,9 @@ export class MsmsService {
   get_Party(){
     return this.http.get<any>(this.baseUrl + 'party_view.php');
   }
+  get_party_by_id(party_id:any){
+    return this.http.get<any>(this.baseUrl + 'party_view.php?party_id='+party_id);
+  }
 
   put_party(data:any){
     return this.http.put<any>(this.baseUrl + 'party_update.php',data);

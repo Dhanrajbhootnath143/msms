@@ -6,6 +6,7 @@ import { Route, Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddWeightComponent } from '../add-weight/add-weight.component';
 import { MsmsService } from 'src/app/msms.service';
+import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 
 export interface UserData {
@@ -27,12 +28,16 @@ export class WeightComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   weight_data:any
+  deletevalue: any;
 
   constructor(
     private dailog: MatDialog,
     private Service:MsmsService,
-    private route:Router
+    private router:Router
   ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
   }
 
   ngOnInit(): void {
@@ -58,6 +63,25 @@ export class WeightComponent implements OnInit {
       disableClose: true
     });
   }
+  openDialog(row: any) {
+    const dialogRef = this.dailog.open(DeleteDataComponent, {
+      data: this.deletevalue,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (this.deletevalue == result) {
+        const deldata = new FormData();
+        deldata.append('weight_id', row.weight_id);
+        this.Service.weight_delete(deldata).subscribe(
+          (res: any) => {
+            console.log(res)
+            alert('Data Delete Successfylly...')
+            this.router.navigate(['/home/weight'])
+          }
+        )
+      }
+      else { }
+    });
+  }
   
 
   applyFilter(event: Event) {
@@ -74,7 +98,7 @@ export class WeightComponent implements OnInit {
       deleteweight.append('weight_id',row.weight_id),
       this.Service.weight_delete(deleteweight).subscribe(
         (res:any) => {
-          this.route.navigate(['/home/weight']);
+          this.router.navigate(['/home/weight']);
         }
       )
     }

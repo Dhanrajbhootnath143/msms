@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Route, Router } from '@angular/router';
 import { count } from 'rxjs';
 import { MsmsService } from 'src/app/msms.service';
 
@@ -16,16 +17,21 @@ export class AddUnitComponent implements OnInit {
   admin = 1;
   upload: any;
   actionBtn: string = 'Submit';
-  add_unit: any;
+
   unit_update: string = 'Add Topic'
 
   constructor(
     private fb: FormBuilder,
     private service: MsmsService,
+    private router:Router,
     private matref: MatDialogRef<AddUnitComponent>,
-    @Inject(MAT_DIALOG_DATA) public edit_unit: any
+    @Inject(MAT_DIALOG_DATA) public add_unit: any
 
-  ) { }
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+  }
 
   ngOnInit(): void {
     this.unit_form = this.fb.group({
@@ -35,14 +41,14 @@ export class AddUnitComponent implements OnInit {
       admin_id_fk: ['', Validators.required],
     })
 
-    if(this.edit_unit){
-      console.log(this.edit_unit)
-      this.actionBtn = "Update"
-      this.unit_update = "Update Unit";
-      this.unit_form.controls['unit_id'].setValue(Number(this.edit_unit.unit_id));
-      this.unit_form.controls['unit_name'].setValue(this.edit_unit.unit_name);
-      this.unit_form.controls['unit_desc'].setValue(this.edit_unit.unit_desc);
-      this.unit_form.controls['admin_id_fk'].setValue(this.edit_unit.admin_id_fk);
+    if(this.add_unit){
+      console.log(this.add_unit)
+      this.actionBtn='Update'
+      this.unit_update = "Update unit";
+      this.unit_form.controls['unit_id'].setValue(Number(this.add_unit.unit_id));
+      this.unit_form.controls['unit_name'].setValue(this.add_unit.unit_name);
+      this.unit_form.controls['unit_desc'].setValue(this.add_unit.unit_desc);
+      this.unit_form.controls['admin_id_fk'].setValue(this.add_unit.admin_id_fk);
     }
   }
 
@@ -63,20 +69,19 @@ export class AddUnitComponent implements OnInit {
       this.update_unit()
     }
   }
-  
   update_unit(){
-    console.log(this.unit_form.value)
-    this.service.put_unit(this.unit_form.value).subscribe(
-      (result:any) => {
-        console.log(result)
-        alert('Data Update Successfully...')
-        this.matref.close();
-      },
-      (error:any) => {
-        alert('Data not update')
-      }
-    )
-  }
+      console.log(this.unit_form.value)
+      this.service.put_unit(this.unit_form.value).subscribe(
+        (res:any)=>{
+          console.log(res);
+          alert('Data Update succssefully...')
+          this.matref.close();
+        },
+        (error:any)=>{
+          alert('Data not Update...')
+        }
+      )
+    }
   
 
   add_unit_reset() {

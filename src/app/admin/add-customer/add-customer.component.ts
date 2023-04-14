@@ -21,10 +21,14 @@ export class AddCustomerComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private Service: MsmsService,
-    private route:Router,
+    private router:Router,
     private matref: MatDialogRef<AddCustomerComponent>,
     @Inject(MAT_DIALOG_DATA) public add_customer:any
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+  }
 
   ngOnInit(): void {
     this.customer_form = this.fb.group({

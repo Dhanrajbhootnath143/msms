@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { Router } from '@angular/router';
+import { MsmsService } from 'src/app/msms.service';
 
 
 export interface PeriodicElement {
@@ -35,10 +37,15 @@ export class AddPurchaseComponent implements OnInit {
   party_form: any;
   item_form:any;
   final_form:any;
+  party_data:any
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router:Router,
+    private servies:MsmsService
   ){
-
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
   }
   ngOnInit(): void {
    this.party_form = this.fb.group({
@@ -81,8 +88,28 @@ export class AddPurchaseComponent implements OnInit {
     date:['',Validators.required],
     
    })
+
+   this.servies.get_Party().subscribe(
+    (res:any)=>{
+      this.party_data = res.data
+    }
+   )
+
   }
 
+
+  onGetParty(event:any){
+    this.servies.get_party_by_id(event).subscribe(
+      (res:any)=>{
+        console.log(res)
+        this.party_form.get('party_id')?.setValue(res.data.party_id)
+        this.party_form.get('mobile_number')?.setValue(res.data.mobile)
+        this.party_form.get('email_id')?.setValue(res.data.email_id)
+        this.party_form.get('address')?.setValue(res.data.address)
+      }
+    )
+    console.log(event)
+  }
   onsubmit(){
     console.log(this.party_form.value)  
   }

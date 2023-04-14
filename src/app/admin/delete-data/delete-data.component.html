@@ -1,4 +1,7 @@
-<div id="">
-<span>Do you really want to remove it? </span><br>
-<button mat-raised-button color="primary">No</button><button mat-raised-button color="warn" style="float: right;"  (click)="onsubmit()">Yes</button>
+<div id="wrapper">
+    <h3> Are you sure to delete?</h3>
+    <div mat-dialog-actions id="button_delete">
+        <button mat-raised-button color="warn" (click)="onNoClick()">No</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Yes</button>
+    </div>
 </div>

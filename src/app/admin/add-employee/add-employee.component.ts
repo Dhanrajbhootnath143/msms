@@ -23,11 +23,11 @@ export class AddEmployeeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private Service: MsmsService,
-    private route:Router,
+    private router:Router,
     private matref: MatDialogRef<AddEmployeeComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_party: any
   ) { 
-    this.route.routeReuseStrategy.shouldReuseRoute = function () {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
     }
   }
@@ -86,7 +86,7 @@ export class AddEmployeeComponent implements OnInit {
 
     this.Service.employee_post(employeedata).subscribe(
       (result: any) => {
-        this.route.navigate(['/home/employee']);
+        this.router.navigate(['/home/employee']);
         console.log(result);
         this.matref.close();
         alert('Data insert succssefully..')

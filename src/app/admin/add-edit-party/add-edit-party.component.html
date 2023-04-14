@@ -47,7 +47,8 @@
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Number</mat-label>
                 <input formControlName="account_number" matInput type="number"
-                    onkeypress=" return this.value.length < 20" placeholder="A/C Number">
+                    onkeypress=" return this.value.length< 14"
+                    oninput="if(this.value.length>=20) {this.value = this.value.sclice (0,20);}" placeholder="A/C Number">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -72,6 +73,6 @@
 </form>
 
 <div class="submit">
-    <button mat-raised-button color="warn" (click)="party_form_reset()">Reset</button>
+    <button mat-raised-button color="warn" (click)="party_form_reset()" *ngIf="!edit_party">Reset</button>
     <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
 </div>

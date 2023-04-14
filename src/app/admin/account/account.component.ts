@@ -4,6 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddAccountComponent } from '../add-account/add-account.component';
+import { MsmsService } from 'src/app/msms.service';
+import { Router } from '@angular/router';
+import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 export interface UserData {
   id: number;
@@ -35,12 +38,16 @@ export class AccountComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  deletevalue: any;
 
   constructor(
     private dailog: MatDialog,
+    private service:MsmsService,
+    private router:Router
   ) {
-    this.dataSource = new MatTableDataSource(UserData);
-  }
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }  }
 
   ngOnInit(): void {
   }
@@ -56,6 +63,26 @@ export class AccountComponent implements OnInit {
       disableClose: true
     });
   }
+  openDialog(row: any) {
+    const dialogRef = this.dailog.open(DeleteDataComponent, {
+      data: this.deletevalue,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (this.deletevalue == result) {
+        const deldata = new FormData();
+        deldata.append('gst_id', row.gst_id);
+        this.service.gst_delete(deldata).subscribe(
+          (res: any) => {
+            console.log(res)
+            alert('Data Delete Successfylly...')
+            this.router.navigate(['/home/duse'])
+          }
+        )
+      }
+      else { }
+    });
+  }
+
   
 
   applyFilter(event: Event) {

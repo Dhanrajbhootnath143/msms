@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MsmsService } from 'src/app/msms.service';
 
 
@@ -21,9 +22,14 @@ export class AddAccountComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private msms:MsmsService,
+    private router:Router,
     private matref: MatDialogRef<AddAccountComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_party: any
-  ) { }
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+   }
 
   ngOnInit(): void {
     this.account_form = this.fb.group({
