@@ -8,22 +8,22 @@
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>GST</mat-label>
-                <input matInput formControlName="gst" type="number" placeholder="GST">
+                <input matInput formControlName="gst" type="number" placeholder=" enter gst">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill" >
                 <mat-label>CGST</mat-label>
-                <input matInput formControlName="cgst" type="number" placeholder="CGST">
+                <input matInput formControlName="cgst" type="number" placeholder="enter cgst">
             </mat-form-field><br>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>SGST</mat-label>
-                <input matInput formControlName="sgst" type="number" placeholder="SGST">
+                <input matInput formControlName="sgst" type="number" placeholder="enter sgst">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Description</mat-label>
-                <input matInput formControlName="description" placeholder="Description">
+                <input matInput formControlName="description" placeholder="enter description">
             </mat-form-field>
             
         </div>
@@ -33,6 +33,6 @@
 </form>
 
 <div class="submit">
-    <button mat-raised-button color="warn" (click)="add_gst_reset()">Reset</button>
+    <button mat-raised-button color="warn" (click)="add_gst_reset()"  *ngIf="!add_gst">Reset</button>
     <button mat-raised-button color="primary" [disabled]="!gst_form.valid" (click)="onsubmit()">{{actionBtn}}</button>
 </div>

@@ -22,11 +22,11 @@ export class AddEditPartyComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: MsmsService,
-    private route: Router,
+    private router: Router,
     private matref: MatDialogRef<AddEditPartyComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_party: any
   ) {
-    this.route.routeReuseStrategy.shouldReuseRoute = function () {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
     }
   }
@@ -83,7 +83,7 @@ export class AddEditPartyComponent implements OnInit {
       formdata.append('admin_id_fk', this.party_form.get('admin_id_fk')?.value);
       this.service.party_post(formdata).subscribe(
         (result: any) => {
-          this.route.navigate(['/home/party']);
+          this.router.navigate(['/home/party']);
           console.log(result);
           this.matref.close();
           alert('Data insert succssefully..')

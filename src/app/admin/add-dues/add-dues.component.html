@@ -8,27 +8,27 @@
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Customer Name</mat-label>
-                <input matInput formControlName="customer_name" placeholder="Customer Name">
+                <input matInput formControlName="customer_name" placeholder="enter customer Name">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Pay</mat-label>
-                <input matInput formControlName="pey" type="number" placeholder="Pey">
+                <input matInput formControlName="pey" type="number" placeholder="enter pey">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Bill number</mat-label>
-                <input matInput formControlName="bill_number" type="number" placeholder="Bill number">
+                <input matInput formControlName="bill_number" type="number" placeholder="Enter Bill number">
             </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label> Current dues</mat-label>
-            <input matInput formControlName="current_dues" type="number" placeholder=" Current dues">
+            <input matInput formControlName="current_dues" type="number" placeholder="Enter Current dues">
         </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Back dues</mat-label>
-                <input formControlName="back_dues" type="number" matInput type="Account_Number"placeholder="Back dues" >
+                <input formControlName="back_dues" type="number" matInput type="Account_Number"placeholder="Enter Back dues" >
             </mat-form-field>
             
         
@@ -45,6 +45,6 @@
 </form>
 
 <div class="submit">
-    <button mat-raised-button color="warn" (click)="add_dues_reset()">Reset</button>
+    <button mat-raised-button color="warn" (click)="add_dues_reset() " *ngIf="!add_dues">Reset</button>
     <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
 </div>

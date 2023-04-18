@@ -8,12 +8,12 @@
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill" class="adr">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="unit_name" placeholder="Name">
+                <input matInput formControlName="unit_name" placeholder="enter unit name">
             </mat-form-field><br>
 
             <mat-form-field class="example-full-width" appearance="fill" class="adr">
                 <mat-label>Description</mat-label>
-                <input matInput formControlName="unit_desc" placeholder="Description">
+                <input matInput formControlName="unit_desc" placeholder="enter description">
             </mat-form-field>
         </div>
         </div>
@@ -24,6 +24,6 @@
 </form>
 
 <div class="submit">
-    <button mat-raised-button color="warn" (click)="add_unit_reset()">Reset</button>
+    <button mat-raised-button color="warn" (click)="add_unit_reset()" *ngIf="!add_unit">Reset</button>
     <button mat-raised-button color="primary" [disabled]="!unit_form.valid"(click)="onsubmit()">{{actionBtn}}</button>
 </div>

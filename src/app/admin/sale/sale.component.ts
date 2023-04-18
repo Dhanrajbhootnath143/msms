@@ -22,11 +22,7 @@ export interface UserData {
   
 }
 
-const UserData: UserData[] = [
-  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457, Dues:56, gst:3456,Discount:284,date:'30/09/2001',},
-  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457,Dues:56, gst:456,Discount:284,date:'30/09/2001', },
-  { id: 1,customer:78, Bill_Number: 273,Totel_amount:3456, Basic_amount:83457,Dues:56, gst:4567,Discount:284, date:'30/09/2001',},
-];
+
 
 @Component({
   selector: 'app-sale',
@@ -43,7 +39,6 @@ export class SaleComponent implements OnInit {
   constructor(
     private route:Router
     ) {
-    this.dataSource = new MatTableDataSource(UserData);
   }
 
   ngOnInit(): void {

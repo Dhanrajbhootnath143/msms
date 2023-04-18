@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MsmsService } from 'src/app/msms.service';
 
 @Component({
@@ -23,9 +24,14 @@ export class AddWeightComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private Service :MsmsService,
+    private router :Router,
     private matref: MatDialogRef<AddWeightComponent>,
     @Inject(MAT_DIALOG_DATA) public add_weight: any
-  ) { }
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+  }
 
   ngOnInit(): void {
     this.Weight_form = this.fb.group({

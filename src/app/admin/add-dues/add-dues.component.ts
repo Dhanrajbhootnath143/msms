@@ -23,9 +23,13 @@ export class AddDuesComponent implements OnInit {
     private fb: FormBuilder,
     private service : MsmsService,
     private matref: MatDialogRef<AddDuesComponent>,
-    private route:Router,
+    private router:Router,
     @Inject(MAT_DIALOG_DATA) public add_dues: any
-  ) { }
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+   }
 
   ngOnInit(): void {
     this.dues_form = this.fb.group({
@@ -81,7 +85,7 @@ export class AddDuesComponent implements OnInit {
     console.log(this.dues_form.value)
     this.service.put_dues(this.dues_form.value).subscribe(
       (res:any)=>{
-        this.route.navigate(['/home/dues']);
+        this.router.navigate(['/home/dues']);
         console.log(res);
         alert('Data Update succssefully...')
         this.matref.close();

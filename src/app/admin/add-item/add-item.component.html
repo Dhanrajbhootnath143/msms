@@ -8,29 +8,25 @@
         <div class="box">
 
             
-        <mat-form-field appearance="fill" class="example-full-width">
-            <mat-label>Category</mat-label>
-            <mat-select formControlName="category" placeholder="Category">
-                <mat-option value="Drup">drup</mat-option>
-                <mat-option value="Liquid">Liquid</mat-option>
-                <mat-option value="Tablet">Tablet</mat-option>
-                <mat-option value="ML">ML</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Category</mat-label>
+                <mat-select placeholder="Enter Category" formControlName="category" (valueChange)="onGetcat($event)">
+                    <mat-option value="Drup" *ngFor="let category of category_data" [value]="category.cat_id">{{category.cat_name}}</mat-option></mat-select>
+            </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="item_name" placeholder="Name">
+                <input matInput formControlName="item_name" placeholder="Enter Name">
             </mat-form-field>
            
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Company</mat-label>
-                <input matInput formControlName="company" placeholder="Company Name">
+                <input matInput formControlName="company" placeholder="Enter Company Name">
             </mat-form-field>
 
         <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>Unit</mat-label>
-            <mat-select formControlName="unit" placeholder="Unit">
+            <mat-select formControlName="unit" placeholder="Enter Unit">
                 <mat-option value="KG">KG</mat-option>
                 <mat-option value="Liquid">Li</mat-option>
                 <mat-option value="Tablet">Ta</mat-option>
@@ -40,7 +36,7 @@
 
             <mat-form-field appearance="fill" class="example-full-width">
                 <mat-label>Weight</mat-label>
-                <mat-select formControlName="weight" placeholder="Weight">
+                <mat-select formControlName="weight" placeholder="Enter Weight">
                     <mat-option value="1">1</mat-option>
                     <mat-option value="100">100</mat-option>
                     <mat-option value="24">24</mat-option>
@@ -50,41 +46,41 @@
     
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Pack</mat-label>
-            <input matInput formControlName="pack" placeholder="Pack">
+            <input matInput formControlName="pack" placeholder="Enter Pack">
         </mat-form-field>
                    
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>HSN No</mat-label>
-            <input matInput formControlName="hsn_no" placeholder="HSN No">
+            <input matInput formControlName="hsn_no" placeholder="Enter HSN No">
         </mat-form-field>
             
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>MRP</mat-label>
-            <input matInput type="number" formControlName="mrp" placeholder="MRP">
+            <input matInput type="number" formControlName="mrp" placeholder="Enter MRP">
         </mat-form-field>
         
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Purchase amount</mat-label>
-                <input matInput type="number" formControlName="purchase_amount" placeholder="Purchase amount">
+                <input matInput type="number" formControlName="purchase_amount" placeholder="Enter Purchase amount">
             </mat-form-field>
 
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Sale amount</mat-label>
-            <input matInput  type="number"  formControlName="sale_amount" placeholder="Sale_amount">
+            <input matInput  type="number"  formControlName="sale_amount" placeholder="Enter Sale_amount">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill" class="Description">
             <mat-label>Description</mat-label>
-            <input matInput formControlName="description" placeholder="Description">
+            <input matInput formControlName="description" placeholder="Enter Description">
         </mat-form-field>
 
  
 
         </div>
         <div class="submit">
-            <button mat-raised-button color="warn" (click)="add_item_reset()">Reset</button>
+            <button mat-raised-button color="warn" (click)="add_item_reset()" *ngIf="!add_item">Reset</button>
             <button mat-raised-button color="primary"(click)="onsubmit()">{{actionBtn}}</button>
         </div>
     </div>

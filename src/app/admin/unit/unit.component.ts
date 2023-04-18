@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddUnitComponent } from '../add-unit/add-unit.component';
 import { MsmsService } from 'src/app/msms.service';
+import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 @Component({
   selector: 'app-unit',
@@ -18,13 +19,17 @@ export class UnitComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   unit_data:any
+  deletevalue: any = 1;
 
   constructor(
+    public dialog: MatDialog,
     private dailog: MatDialog,
     private servies :MsmsService,
-    private route:Router
+    private router:Router
   ) {
-   
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
   }
 
   ngOnInit(): void {
@@ -50,6 +55,30 @@ export class UnitComponent implements OnInit {
       disableClose: true
     });
   }
+  onDelet(row: any) {
+    const dialogRef = this.dailog.open(DeleteDataComponent, {
+      data: this.deletevalue,
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (this.deletevalue == result) {
+        const deldata = new FormData();
+        deldata.append('unit_id', row.unit_id);
+        this.servies.unit_delete(deldata).subscribe(
+          (res: any) => {
+            console.log(res)
+            alert('Data Delete Successfylly...')
+            this.router.navigate(['/home/unit'])
+          }
+        )
+      }
+      else { 
+          return
+      }
+    });
+  }
+
   
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -60,15 +89,4 @@ export class UnitComponent implements OnInit {
     }
   }
 
-  delete_unit(row:any){
-    if(confirm('Do you really want to remove it?')){
-      const  deleteparty = new FormData();
-      deleteparty.append('unit_id',row.unit_id),
-      this.servies.unit_delete(deleteparty).subscribe(
-        (res:any) => {
-          this.route.navigate(['/home/unit']);
-        }
-      )
-    }
-  }
 }

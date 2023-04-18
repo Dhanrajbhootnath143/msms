@@ -22,32 +22,31 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Party ID</mat-label>
-                    <input formControlName="party_id" matInput placeholder="Party ID">
+                    <input formControlName="party_id" matInput placeholder="enter party id">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
                     <mat-label>Name</mat-label>
-                    <mat-select formControlName="party_name">
-                        <mat-option value="Rahul">Rahul</mat-option>
-                        <mat-option value="Krishana">Krishana</mat-option>
-                        <mat-option value="Badal">Badal</mat-option>
+                    <mat-select formControlName="party_name" (valueChange)="onGetParty($event)" placeholder="enter party name">
+                        <mat-option *ngFor="let party of party_data" [value]="party.party_id">{{party.party_name}}</mat-option>
+                       
                     </mat-select>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
                     <mat-label>Mobile Number</mat-label>
-                    <input matInput type="number" placeholder="Mobile Number" onkeypress="return this.value.length < 10;"
+                    <input matInput type="number" placeholder="enter mobile number" onkeypress="return this.value.length < 10;"
                         oninput="if(this.value.length>=10) { this.value = this.value.slice(0,10); }" formControlName="mobile_number">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
                     <mat-label>Email Id.</mat-label>
-                    <input matInput placeholder="Email Id" formControlName="email_id">  
+                    <input matInput placeholder="enter email id" formControlName="email_id">  
                 </mat-form-field><br>
                 
                 <mat-form-field appearance="fill" class="form">
                     <mat-label>Address</mat-label>
-                    <textarea matInput placeholder="Address" formControlName="address"></textarea>
+                    <textarea matInput placeholder="enter address" formControlName="address"></textarea>
                   </mat-form-field>
                 </form>
 
@@ -68,57 +67,54 @@
                     <form [formGroup]="item_form">
                     <mat-form-field appearance="fill">
                         <mat-label>Party</mat-label>
-                        <input formControlName="item_party" matInput placeholder="Party">
+                        <input formControlName="item_party" matInput placeholder="enter party">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" class="example-full-width">
                         <mat-label>Category</mat-label>
-                        <mat-select placeholder="Category" formControlName="category">
-                            <mat-option value="Drup">drup</mat-option>
-                            <mat-option value="Liquid">Liquid</mat-option>
-                            <mat-option value="Tablet">Tablet</mat-option>
-                            <mat-option value="ML">ML</mat-option>
-                        </mat-select>
+                        <mat-select placeholder="enter category" formControlName="category" (valueChange)="onGetcat($event)">
+                            <mat-option value="Drup" *ngFor="let category of category_data" [value]="category.cat_id">{{category.cat_name}}</mat-option></mat-select>
                     </mat-form-field>
         
-
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-form-field appearance="fill" class="example-full-width">
                         <mat-label>Iten</mat-label>
-                        <input matInput placeholder="Iten" formControlName="iten">
+                        <mat-select placeholder="enter iten" formControlName="iten" (valueChange)="onGetitem($event)">
+                            <mat-option value="Drup" *ngFor="let item of item_data" [value]="item.item_id">{{item.item_name}}</mat-option></mat-select>
                     </mat-form-field>
+
 
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Company</mat-label>
-                        <input matInput  placeholder="Company Name" formControlName="company_name">
+                        <input matInput  placeholder="enter company name" formControlName="company_name">
                     </mat-form-field>
         
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>HSN No</mat-label>
-                        <input matInput  placeholder="HSN No" formControlName="hsn_no">
+                        <input matInput  placeholder="enter hsn no" formControlName="hsn_no">
                     </mat-form-field>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Batch No</mat-label>
-                        <input matInput  placeholder="Batch No" formControlName="batch_no">
+                        <input matInput  placeholder="enter batch no" formControlName="batch_no">
                     </mat-form-field>
         
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Unit</mat-label>
-                        <input matInput placeholder="Unit" formControlName="unit">
+                        <input matInput placeholder="enter unit" formControlName="unit">
                     </mat-form-field>
 
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>MRP</mat-label>
-                        <input matInput  type="number" placeholder="MRP" formControlName="mrp">
+                        <input matInput  type="number" placeholder="enter mrp" formControlName="mrp">
                     </mat-form-field>
         
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Pack</mat-label>
-                        <input matInput  placeholder="Pack" formControlName="pack">
+                        <input matInput  placeholder="enter pack" formControlName="pack">
                     </mat-form-field>
         
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Rate</mat-label>
-                        <input matInput type="number" placeholder="Rate" formControlName="rate">
+                        <input matInput type="number" placeholder="enter rate" formControlName="rate">
                     </mat-form-field>
         
                 <mat-form-field class="example-full-width" appearance="fill">
@@ -128,42 +124,39 @@
         
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Quantity</mat-label>
-                    <input matInput placeholder="Quantity" formControlName="quantity">
+                    <input matInput placeholder="enter quantity" formControlName="quantity">
                 </mat-form-field>
         
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Total</mat-label>
-                    <input matInput type="number" placeholder="Total" formControlName="total">
+                    <input matInput type="number" placeholder="enter total" formControlName="total">
                 </mat-form-field>
         
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Fee</mat-label>
-                    <input matInput type="number" placeholder="Fee" formControlName="fee">
+                    <input matInput type="number" placeholder="enter fee" formControlName="fee">
                 </mat-form-field>
         
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Discount</mat-label>
-                    <input matInput type="number" placeholder="Discount" formControlName="discount">
+                    <input matInput type="number" placeholder="enter discount" formControlName="discount">
                 </mat-form-field>
         
                 <mat-form-field appearance="fill" class="example-full-width">
                     <mat-label>GST</mat-label>
-                    <mat-select  placeholder="GST" formControlName="gst">
-                        <mat-option value="2%" >2%</mat-option>
-                        <mat-option  value="3%">3%</mat-option>
-                        <mat-option value="4%">4%</mat-option>
-                        <mat-option  value="5%">5%</mat-option>
+                    <mat-select  placeholder="enter gst" formControlName="gst" (valueChange)="onGetgst($event)">
+                        <mat-option value="Drup" *ngFor="let gst of gst_data" [value]="gst.gst_id">{{gst.gst}}</mat-option>
                     </mat-select>
                 </mat-form-field>
         
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Net Rate</mat-label>
-                        <input matInput type="number"  placeholder="Net Rate" formControlName="net_rate">
+                        <input matInput type="number"  placeholder="enter net rate" formControlName="net_rate">
                     </mat-form-field>
         
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Amount</mat-label>
-                        <input matInput type="number" placeholder="Amount" formControlName="amount">
+                        <input matInput type="number" placeholder="enter amount" formControlName="amount">
                     </mat-form-field>
                 </form>
 

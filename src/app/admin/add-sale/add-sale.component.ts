@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   sn_no: number;
@@ -37,8 +38,12 @@ export class AddSaleComponent implements OnInit {
   item_form:any;
   final_form:any;
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router:Router,
   ){
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
 
   }
   ngOnInit(): void {

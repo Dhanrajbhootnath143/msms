@@ -20,11 +20,7 @@ export interface UserData {
   
 }
 
-const UserData: UserData[] = [
-  { id: 1, Party: 'Raja', Basic_amount:11500,Discount:1150,sgst:828, cgst:828, ro:84,Net_amount:12006,Bill_number:'kb43776496',},
-  { id: 1, Party: 'Roushan', Basic_amount:11500,Discount:1150,sgst:828,cgst:828,ro:84,Net_amount:12006,Bill_number:'kb43776496', },
-  { id: 1, Party: 'Dipu', Basic_amount:11500,Discount:1150,sgst:828,cgst:828,ro:84,Net_amount:12006,Bill_number:'kb43776496', },
-];
+
 
 @Component({
   selector: 'app-purchase',
@@ -41,7 +37,7 @@ export class PurchaseComponent implements OnInit {
   constructor(
     private route:Router
     ) {
-    this.dataSource = new MatTableDataSource(UserData);
+    this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {

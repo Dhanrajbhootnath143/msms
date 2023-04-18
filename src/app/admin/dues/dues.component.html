@@ -1,6 +1,6 @@
 <div class="head">
     <span>Dues Details</span>
-    <mat-icon id="add_dues" (click)="add_dues()">add_circle</mat-icon>
+    <!-- <mat-icon id="add_dues" (click)="add_dues()">add_circle</mat-icon> -->
   </div>
   <div class="count_area">
     <span class="notice_text">Total : {{duse_data}}</span>
@@ -50,8 +50,11 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
-          <mat-icon style="cursor: pointer;" (click)="dues_edit(row)">edit</mat-icon>
-          <mat-icon style="cursor: pointer;" (click)="delete_dues(row)">delete</mat-icon>
+          <!-- <mat-icon >edit</mat-icon> -->
+          <mat-icon style="cursor: pointer;" (click)="dues_edit(row)">credit_card</mat-icon>
+          <!-- <mat-icon style="cursor: pointer;" (click)="delete_dues(row)">delete</mat-icon> -->
+          <!-- <mat-icon style="cursor: pointer;" (click)="openDialog(row)">delete</mat-icon> -->
+
 
         </td>
       </ng-container>

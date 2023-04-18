@@ -17,9 +17,9 @@
       <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Customer">
+    <ng-container matColumnDef="customer">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer</th>
-      <td mat-cell *matCellDef="let row"> {{row.Customer}}</td>
+      <td mat-cell *matCellDef="let row"> {{row.customer}}</td>
     </ng-container>
 
     <ng-container matColumnDef="bill_number">
@@ -27,9 +27,9 @@
       <td mat-cell *matCellDef="let row"> {{row.bill_number}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="Back_dues">
+    <ng-container matColumnDef="back_dues">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Back dues</th>
-      <td mat-cell *matCellDef="let row"> {{row.Back_dues}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.back_dues}} </td>
     </ng-container>
 
     <ng-container matColumnDef="paid">
@@ -37,9 +37,9 @@
       <td mat-cell *matCellDef="let row"> {{row.paid}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Current_dues">
+    <ng-container matColumnDef="current_dues">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Current dues</th>
-      <td mat-cell *matCellDef="let row"> {{row.Current_dues}}</td>
+      <td mat-cell *matCellDef="let row"> {{row.current_dues}}</td>
     </ng-container>
 
 

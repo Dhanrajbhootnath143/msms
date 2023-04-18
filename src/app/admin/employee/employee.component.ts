@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 import { MsmsService } from 'src/app/msms.service';
 import { Router } from '@angular/router';
+import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 
 
@@ -21,11 +22,15 @@ export class EmployeeComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   employee_data:any
   upload_img_url = 'http://localhost/uploads/';
+  deletevalue: any = 1
   constructor(
     private dailog: MatDialog,
     private service:MsmsService,
-    private route:Router
+    private router:Router
   ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
   }
 
   ngOnInit(): void {
@@ -51,6 +56,25 @@ export class EmployeeComponent implements OnInit {
       disableClose: true
     });
   }
+  openDialog(row: any) {
+    const dialogRef = this.dailog.open(DeleteDataComponent, {
+      data: this.deletevalue,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (this.deletevalue == result) {
+        const deldata = new FormData();
+        deldata.append('emp_id', row.emp_id);
+        this.service.employee_delete(deldata).subscribe(
+          (res: any) => {
+            console.log(res)
+            alert('Data Delete Successfylly...')
+            this.router.navigate(['/home/employee'])
+          }
+        )
+      }
+      else { }
+    });
+  }
   
 
   applyFilter(event: Event) {
@@ -67,7 +91,7 @@ export class EmployeeComponent implements OnInit {
       deleteemployee.append('emp_id',row.emp_id),
       this.service.employee_delete(deleteemployee).subscribe(
         (res:any) => {
-          this.route.navigate(['/home/employee']);
+          this.router.navigate(['/home/employee']);
         }
       )
     }

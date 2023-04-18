@@ -1,6 +1,7 @@
 import { Component,Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MsmsService } from 'src/app/msms.service';
 
 
@@ -16,12 +17,18 @@ export class AddItemComponent implements OnInit {
   upload: any;
   actionBtn: string = 'Submit';
   item_update: string = 'Add Topic'
+  category_data: any;
   constructor(
     private fb: FormBuilder,
-    private Service: MsmsService,
+    private service: MsmsService,
+    private router:Router,
     private matref: MatDialogRef<AddItemComponent>,
     @Inject(MAT_DIALOG_DATA) public add_item: any
-  ) { }
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+  }
 
   ngOnInit(): void {
     this.item_form = this.fb.group({
@@ -38,7 +45,15 @@ export class AddItemComponent implements OnInit {
       mrp: ['', Validators.required],
       description:[''],
       admin_id_fk: ['', Validators.required],
+      
+     
     })
+
+    this.service.get_category().subscribe(
+      (res:any)=>{
+        this.category_data = res.data
+      }
+     )
     if(this.add_item){
       console.log(this.add_item)
       this.actionBtn='Update'
@@ -58,10 +73,21 @@ export class AddItemComponent implements OnInit {
       this.item_form.controls['admin_id_fk'].setValue(this.add_item.admin_id_fk)
     }
   }
+
+  onGetcat(event:any){
+    this.service.get_category_by_id(event).subscribe(
+      (res:any)=>{
+        console.log(res)
+        this.item_form.get('cat_id')?.setValue(res.data.cat_id)
+        this.item_form.get('cat_name')?.setValue(res.data.cat_name)
+      }
+    )
+    console.log(event)
+  }
   onsubmit(){
     console.log(this.item_form.value)
     if (!this.add_item) {
-      this.Service.item_post(this.item_form.value).subscribe(
+      this.service.item_post(this.item_form.value).subscribe(
         (res:any)=>{
           console.log(res);
           this.matref.close();
@@ -78,7 +104,7 @@ export class AddItemComponent implements OnInit {
   }
   update_item(){
     console.log(this.item_form.value)
-    this.Service.put_item(this.item_form.value).subscribe(
+    this.service.put_item(this.item_form.value).subscribe(
       (result:any) => {
         console.log(result)
         alert('Data Update Successfully...')

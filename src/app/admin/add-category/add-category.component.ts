@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MsmsService } from 'src/app/msms.service';
 
 @Component({
@@ -21,9 +22,14 @@ export class AddCategoryComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private Service:MsmsService,
+    private router:Router,
     private matref: MatDialogRef<AddCategoryComponent>,
     @Inject(MAT_DIALOG_DATA) public add_category: any
-  ) { }
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+   }
 
   ngOnInit(): void {
     this.category_form = this.fb.group({

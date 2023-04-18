@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddCategoryComponent } from '../add-category/add-category.component';
 import { MsmsService } from 'src/app/msms.service';
+import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 
 @Component({
@@ -20,12 +21,17 @@ export class CategoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   category_data:any
+  deletevalue: any = 1
 
   constructor(
     private dailog: MatDialog,
     private service :MsmsService,
-    private route:Router
-  ) { }
+    private router:Router
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+   }
 
   ngOnInit(): void {
     this.service.get_category().subscribe(
@@ -50,6 +56,26 @@ export class CategoryComponent implements OnInit {
       disableClose: true
     });
   }
+
+  openDialog(row: any) {
+    const dialogRef = this.dailog.open(DeleteDataComponent, {
+      data: this.deletevalue,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (this.deletevalue == result) {
+        const deldata = new FormData();
+        deldata.append('cat_id', row.cat_id);
+        this.service.category_delete(deldata).subscribe(
+          (res: any) => {
+            console.log(res)
+            alert('Data Delete Successfylly...')
+            this.router.navigate(['/home/category'])
+          }
+        )
+      }
+      else { }
+    });
+  }
   
 
   applyFilter(event: Event) {
@@ -66,7 +92,7 @@ export class CategoryComponent implements OnInit {
       deletecategory.append('cat_id',row.cat_id),
       this.service.category_delete(deletecategory).subscribe(
         (res:any) => {
-          this.route.navigate(['/home/category']);
+          this.router.navigate(['/home/category']);
         }
       )
     }

@@ -40,8 +40,10 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td mat-cell *matCellDef="let row">
-        <mat-icon style="cursor: pointer;" (click)="party_edit(row)">edit</mat-icon>
-        <mat-icon style="cursor: pointer;" (click)="delete_party(row)">delete</mat-icon>
+        <mat-icon style="cursor: pointer;" (click)="party_edit(row)" title="update">edit</mat-icon>&nbsp;
+        <!-- <mat-icon style="cursor: pointer;" (click)="delete_party(row)">delete</mat-icon> -->
+        <mat-icon style="cursor: pointer;" (click)="openDialog(row)" title="delete">delete</mat-icon>
+
       </td>
     </ng-container>
 

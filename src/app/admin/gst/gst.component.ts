@@ -30,21 +30,25 @@ export class GstComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   gst_data:any
   inputField: any;
+  deletevalue:any = 1
 
   constructor(
     public dialog: MatDialog,
     private dailog: MatDialog,
     private sarvies : MsmsService,
-    private route :Router,
+    private router :Router,
   ) {
-  }
-    greetingFunc(newUser : string) {
-      if(newUser) {
-      this.gst_data.push(newUser);
-      console.log(this.gst_data);
-      this.inputField.nativeElement.value='';
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
     }
   }
+  //   greetingFunc(newUser : string) {
+  //     if(newUser) {
+  //     this.gst_data.push(newUser);
+  //     console.log(this.gst_data);
+  //     this.inputField.nativeElement.value='';
+  //   }
+  // }
 
   
 
@@ -70,12 +74,27 @@ export class GstComponent implements OnInit {
       disableClose: true
     });
   }
-  openDialog(){
-    this.dailog.open(DeleteDataComponent, {
-      disableClose: true
-      
-    });
-  }
+  
+    openDialog(row: any) {
+      const dialogRef = this.dailog.open(DeleteDataComponent, {
+        data: this.deletevalue,
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (this.deletevalue == result) {
+          const deldata = new FormData();
+          deldata.append('gst_id', row.gst_id);
+          this.sarvies.gst_delete(deldata).subscribe(
+            (res: any) => {
+              console.log(res)
+              alert('Data Delete Successfylly...')
+              this.router.navigate(['/home/gst'])
+            }
+          )
+        }
+        else { }
+      });
+    }
+  
 
 
   applyFilter(event: Event) {
@@ -92,7 +111,7 @@ export class GstComponent implements OnInit {
       deletegst.append('gst_id',row.gst_id),
       this.sarvies.gst_delete(deletegst).subscribe(
         (res:any) => {
-          this.route.navigate(['/home/gst']);
+          this.router.navigate(['/home/gst']);
         }
       )
     }
