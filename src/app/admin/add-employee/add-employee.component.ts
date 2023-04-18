@@ -16,16 +16,17 @@ export class AddEmployeeComponent implements OnInit {
   upload: any;
   actionBtn: string = 'Add';
   course_data:any;
-  add_employee_party: any;
   employee_update: string = 'Add Topic'
   image_url:any= "assets/logo.png";
-  image_select:any
+  image_select:any;
+
+
   constructor(
     private fb: FormBuilder,
-    private Service: MsmsService,
+    private service: MsmsService,
     private router:Router,
     private matref: MatDialogRef<AddEmployeeComponent>,
-    @Inject(MAT_DIALOG_DATA) public edit_party: any
+    @Inject(MAT_DIALOG_DATA) public  add_employee_party: any
   ) { 
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
@@ -52,19 +53,19 @@ export class AddEmployeeComponent implements OnInit {
       console.log(this.add_employee_party)
       this.actionBtn='Update'
       this.employee_update = "Update employee"
-      this.employee_form.controls[ 'emp_id'].setValue(this.add_employee_party.emp_id)
-      this.employee_form.controls[ 'emp_name'].setValue(this.add_employee_party.emp_name)
-      this.employee_form.controls[ 'email_id'].setValue(this.add_employee_party.email_id)
-      this.employee_form.controls[ 'mobile'].setValue(this.add_employee_party.Mobile)
-      this.employee_form.controls[ 'whatsapp_number'].setValue(this.add_employee_party.whatsapp_number)
-      this.employee_form.controls[ 'aadhar_number'].setValue(this.add_employee_party.aadhar_number)
-      this.employee_form.controls[ 'account_name'].setValue(this.add_employee_party.account_name)
-      this.employee_form.controls[ 'account_number'].setValue(this.add_employee_party.account_number)
-      this.employee_form.controls[ 'ifsc'].setValue(this.add_employee_party.ifsc)
-      this.employee_form.controls[ 'photo'].setValue(this.add_employee_party.photo)
-      this.employee_form.controls[ 'address'].setValue(this.add_employee_party.enq_address)
+      this.employee_form.controls['emp_id'].setValue(this.add_employee_party.emp_id)
+      this.employee_form.controls['emp_name'].setValue(this.add_employee_party.emp_name)
+      this.employee_form.controls['email_id'].setValue(this.add_employee_party.email_id)
+      this.employee_form.controls['mobile'].setValue(this.add_employee_party.mobile)
+      this.employee_form.controls['whatsapp_number'].setValue(this.add_employee_party.whatsapp_number)
+      this.employee_form.controls['aadhar_number'].setValue(this.add_employee_party.aadhar_number)
+      this.employee_form.controls['account_name'].setValue(this.add_employee_party.account_name)
+      this.employee_form.controls['account_number'].setValue(this.add_employee_party.account_number)
+      this.employee_form.controls['ifsc'].setValue(this.add_employee_party.ifsc)
+      this.employee_form.controls['photo'].setValue(this.add_employee_party.photo)
+      this.employee_form.controls['address'].setValue(this.add_employee_party.address)
       this.employee_form.controls['description'].setValue(this.add_employee_party.description)
-      this.employee_form.controls[ 'admin_id_fk'].setValue(this.add_employee_party.admin_id_fk)
+      this.employee_form.controls['admin_id_fk'].setValue(this.add_employee_party.admin_id_fk)
     }
   }
   onsubmit(){
@@ -78,13 +79,13 @@ export class AddEmployeeComponent implements OnInit {
     employeedata.append('aadhar_number',this.employee_form.get('aadhar_number')?.value)
     employeedata.append('account_number',this.employee_form.get('account_number')?.value)
     employeedata.append('ifsc',this.employee_form.get('ifsc')?.value)
-    employeedata.append('account_name',this.employee_form.get('account_Name')?.value)
+    employeedata.append('account_name',this.employee_form.get('account_name')?.value)
     employeedata.append('address',this.employee_form.get('address')?.value)
     employeedata.append('description',this.employee_form.get('description')?.value)
     employeedata.append('photo',this.image_select)
     employeedata.append('admin_id_fk',this.employee_form.get('admin_id_fk')?.value)
 
-    this.Service.employee_post(employeedata).subscribe(
+    this.service.employee_post(employeedata).subscribe(
       (result: any) => {
         this.router.navigate(['/home/employee']);
         console.log(result);
@@ -96,6 +97,9 @@ export class AddEmployeeComponent implements OnInit {
         console.log(error)
       }
     )
+  }
+  else{
+    this.update_employee()
   }
 }
 
@@ -115,7 +119,38 @@ export class AddEmployeeComponent implements OnInit {
       this.image_url = reader.result
     };
     reader.readAsDataURL(this.image_select);
+    
   }
+
+
+  update_employee(){
+    const employeedataupdate = new FormData()
+    employeedataupdate.append('emp_id',this.employee_form.get('emp_id')?.value)
+    employeedataupdate.append('emp_name',this.employee_form.get('emp_name')?.value)
+    employeedataupdate.append('email_id',this.employee_form.get('email_id')?.value)
+    employeedataupdate.append('mobile',this.employee_form.get('mobile')?.value)
+    employeedataupdate.append('whatsapp_number',this.employee_form.get('whatsapp_number')?.value)
+    employeedataupdate.append('aadhar_number',this.employee_form.get('aadhar_number')?.value)
+    employeedataupdate.append('account_number',this.employee_form.get('account_number')?.value)
+    employeedataupdate.append('ifsc',this.employee_form.get('ifsc')?.value)
+    employeedataupdate.append('account_name',this.employee_form.get('account_name')?.value)
+    employeedataupdate.append('address',this.employee_form.get('address')?.value)
+    employeedataupdate.append('description',this.employee_form.get('description')?.value)
+    employeedataupdate.append('photo',this.image_select)
+    employeedataupdate.append('admin_id_fk',this.employee_form.get('admin_id_fk')?.value)
+      this.service.put_employee(employeedataupdate).subscribe(
+        (res:any)=>{
+          this.router.navigate(['/home/employee'])
+          console.log(res);
+          alert('Data Update succssefully...')
+          this.matref.close();
+        },
+        (error:any)=>{
+          console.log(error)                                              
+          alert('Data not Update...')
+        }
+      )
+    }
   employee_form_reset(){
     this.employee_form.reset()
     // this.employee_form.controls['name'].reset()

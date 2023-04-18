@@ -3,7 +3,7 @@
     <mat-icon id="add_Account" (click)="add_Account()">add_circle</mat-icon>
   </div>
   <div class="count_area">
-    <span class="notice_text">Total : 10</span>
+    <span class="notice_text">Total : {{account_data}} </span>
     <div class="search">
       <input type="text" placeholder="Search" class="search_box" matInput (keyup)="applyFilter($event)" #input>
     </div>
@@ -12,19 +12,19 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="account_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> S.N. </th>
         <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
       </ng-container>
   
-      <ng-container matColumnDef="Today_Sale">
+      <ng-container matColumnDef="today_sale">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Today Sale</th>
-        <td mat-cell *matCellDef="let row"> {{row.Today_Sale}}</td>
+        <td mat-cell *matCellDef="let row"> {{row.today_sale}}</td>
       </ng-container>
   
-      <ng-container matColumnDef="Today_Expense">
+      <ng-container matColumnDef="expense">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Today Expense</th>
-        <td mat-cell *matCellDef="let row"> {{row.Today_Expense}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.expense}} </td>
       </ng-container>
   
       <ng-container matColumnDef="cash">
@@ -32,30 +32,30 @@
         <td mat-cell *matCellDef="let row"> {{row.cash}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="Deposit">
+      <ng-container matColumnDef="deposit">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Deposit into Bank</th>
-        <td mat-cell *matCellDef="let row"> {{row.Deposit}}</td>
+        <td mat-cell *matCellDef="let row"> {{row.deposit}}</td>
       </ng-container>
   
-      <ng-container matColumnDef="Closing_Amount">
+      <ng-container matColumnDef="closeing_amount">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Closing Amount</th>
-        <td mat-cell *matCellDef="let row"> {{row.Closing_Amount}}</td>
+        <td mat-cell *matCellDef="let row"> {{row.closeing_amount}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="Date">
+      <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
-        <td mat-cell *matCellDef="let row"> {{row.Date}}</td>
+        <td mat-cell *matCellDef="let row"> {{row.date}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="Remaraks">
+      <ng-container matColumnDef="remarks">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Remaraks</th>
-        <td mat-cell *matCellDef="let row"> {{row.Remaraks}}</td>
+        <td mat-cell *matCellDef="let row"> {{row.remarks}}</td>
       </ng-container>
   
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
-          <mat-icon style="cursor: pointer;" (click)="course_edit(row)">edit</mat-icon>
+          <mat-icon style="cursor: pointer;" (click)="course_edit(row)">edit</mat-icon>&nbsp;
           <mat-icon style="cursor: pointer;" (click)="openDialog(row)">delete</mat-icon>
 
         </td>

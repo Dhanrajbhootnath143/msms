@@ -28,9 +28,10 @@ export class WeightComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   weight_data:any
-  deletevalue: any;
+  deletevalue: any = 1
 
   constructor(
+    public dialog: MatDialog,  
     private dailog: MatDialog,
     private Service:MsmsService,
     private router:Router

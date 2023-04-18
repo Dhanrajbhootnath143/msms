@@ -21,7 +21,7 @@ export class CategoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   category_data:any
-  deletevalue: any;
+  deletevalue: any = 1
 
   constructor(
     private dailog: MatDialog,

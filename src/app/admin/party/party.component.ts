@@ -20,7 +20,7 @@ export class PartyComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   party_data:any
-  deletevalue: any;
+  deletevalue: any = 1
 
   constructor(
     public daolog: MatDialog,

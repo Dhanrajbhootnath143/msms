@@ -22,7 +22,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Customer Id</mat-label>
-                    <mat-select>
+                    <mat-select placeholder="customer id">
                         <mat-option value="one">Mukesh Singh</mat-option>
                         <mat-option value="two">Akash Raz</mat-option>
                         <mat-option value="two">Rana Singh</mat-option>
@@ -31,7 +31,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Name</mat-label>
-                    <input matInput>
+                    <input matInput placeholder="enter name">
                 </mat-form-field>
 
                
@@ -39,17 +39,17 @@
                 <mat-form-field appearance="fill">
                     <mat-label>Mobile Number</mat-label>
                     <input matInput type="number" onkeypress="return this.value.length < 10;"
-                        oninput="if(this.value.length>=10) { this.value = this.value.slice(0,10); }">
+                        oninput="if(this.value.length>=10) { this.value = this.value.slice(0,10); }" placeholder="enter mobile numbe">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
                     <mat-label>Email Id.</mat-label>
-                    <input matInput placeholder="Email Id">  
+                    <input matInput placeholder="enter email id">  
                 </mat-form-field><br>
 
                   <mat-form-field appearance="fill" class="form">
                     <mat-label>Address</mat-label>
-                    <textarea matInput></textarea>
+                    <textarea matInput placeholder="enter address"></textarea>
                   </mat-form-field>
 
                   <span class="btn_box">

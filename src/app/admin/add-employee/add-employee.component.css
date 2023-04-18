@@ -29,17 +29,8 @@ mat-toolbar {
 button {
   margin-left: 10px;
 }
-/* .upload {
-  font-size: 9.5px;
-  margin-left: 10px;
-} */
-/* .photo {
-  margin-left: 10px;
-  margin-top: 1px;
-} */
-.photo>input{
-  background-color: green;
-}
+
+
 .Description{
   margin-left: 10px;
   width: 202.6px;
@@ -52,11 +43,7 @@ button {
   border-bottom: 1px solid #757272;
   background-color: whitesmoke;
 }
-/* .photo mat-label{
-  width: 95%;
-  line-height: 50px;
 
-} */
 .photo{
   width: 201px;
   height: 138px;

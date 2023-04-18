@@ -35,7 +35,7 @@ export class ItemComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   item_data:any
-  deletevalue: any;
+  deletevalue: any = 1
 
   constructor(
     private dailog: MatDialog,

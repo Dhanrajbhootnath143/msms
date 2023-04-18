@@ -18,8 +18,8 @@
     color: whitesmoke;
   }
   
-  .submit {
-    margin-left: 1.5em;
+  .submit { display: flex;
+   justify-content: center;
   }
   
   button {

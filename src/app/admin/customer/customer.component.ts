@@ -32,7 +32,7 @@ export class CustomerComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   customer_data:any
-  deletevalue: any;
+  deletevalue: any = 1
 
   constructor(
     private dailog: MatDialog,

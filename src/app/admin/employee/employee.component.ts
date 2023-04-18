@@ -22,7 +22,7 @@ export class EmployeeComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   employee_data:any
   upload_img_url = 'http://localhost/uploads/';
-  deletevalue: any;
+  deletevalue: any = 1
   constructor(
     private dailog: MatDialog,
     private service:MsmsService,
@@ -63,7 +63,7 @@ export class EmployeeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (this.deletevalue == result) {
         const deldata = new FormData();
-        deldata.append('employee_id', row.employee_id);
+        deldata.append('emp_id', row.emp_id);
         this.service.employee_delete(deldata).subscribe(
           (res: any) => {
             console.log(res)

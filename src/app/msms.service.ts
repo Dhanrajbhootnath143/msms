@@ -51,6 +51,9 @@ export class MsmsService {
   get_gst(){
     return this.http.get<any>(this.baseUrl + 'gst_view.php');
   }
+  get_gst_by_id(gst_id:any){
+    return this.http.get<any>(this.baseUrl + 'gst_view.php?gst_id='+gst_id);
+  }
   put_gst(data:any){
     return this.http.put<any>(this.baseUrl + 'gst_update.php',data);
   }
@@ -66,6 +69,7 @@ export class MsmsService {
   get_party_by_id(party_id:any){
     return this.http.get<any>(this.baseUrl + 'party_view.php?party_id='+party_id);
   }
+ 
 
   put_party(data:any){
     return this.http.put<any>(this.baseUrl + 'party_update.php',data);
@@ -101,6 +105,9 @@ export class MsmsService {
   get_category(){
     return this.http.get<any>(this.baseUrl + 'category_view.php');
   }
+  get_category_by_id(cat_id:any){
+    return this.http.get<any>(this.baseUrl + 'category_view.php?cat_id='+cat_id);
+  }
   put_category(data:any){
     return this.http.put<any>(this.baseUrl + 'category_update.php',data);
   }
@@ -116,6 +123,9 @@ export class MsmsService {
   }
   get_item(){
     return this.http.get<any>(this.baseUrl + 'item_view.php');
+  }
+  get_item_by_id(item_id:any){
+    return this.http.get<any>(this.baseUrl + 'item_view.php?item_id='+item_id);
   }
   put_item(data:any){
     return this.http.put<any>(this.baseUrl + 'item_update.php',data);
@@ -156,8 +166,20 @@ export class MsmsService {
     return this.http.get<any>(this.baseUrl + 'employee_view.php');
 
   }
+  put_employee(data:any){
+    return this.http.put<any>(this.baseUrl + 'employee_update.php',data);
+  }
 
 
- 
+  account_post(data:any){
+    return this.http.post<any>(this.baseUrl + 'account_insert.php',data);
+  }
+  get_account(){
+    return this.http.get<any>(this.baseUrl + 'account_view.php');
+  }
+  account_delete(data:any){
+    return this.http.post<any>(this.baseUrl + 'delete_account.php',data);
+  }
+  
 
 }

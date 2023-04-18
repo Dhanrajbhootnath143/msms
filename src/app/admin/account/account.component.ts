@@ -9,23 +9,18 @@ import { Router } from '@angular/router';
 import { DeleteDataComponent } from '../delete-data/delete-data.component';
 
 export interface UserData {
-  id: number;
-  Today_Sale: number;
-  Today_Expense: number;
+  account_id: number;
+  today_sale: number;
+  expense: number;
   cash: number;
-  Deposit:number;
-  Closing_Amount:number;
-  Remaraks:string;
-  Date:string;
+  deposit:number;
+  closeing_amount:number;
+  remarks:string;
+  date:string;
   
   
 }
 
-const UserData: UserData[] = [
-  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:34567,Deposit:4881,Closing_Amount:56758,Date:'30/09/2009',Remaraks:'today' },
-  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:23456,Deposit:738,Closing_Amount:43322,Date:'30/09/2009',Remaraks:'hjp' },
-  { id: 1, Today_Sale: 3456, Today_Expense:9153634848,cash:34567,Deposit:8793207,Closing_Amount:2476,Date:'30/09/2009',Remaraks:'24-06-22' },
-];
 
 @Component({
   selector: 'app-account',
@@ -33,14 +28,17 @@ const UserData: UserData[] = [
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  displayedColumns: string[] = ['id','Today_Sale','Today_Expense','cash','Deposit','Closing_Amount','Date','Remaraks','action',];
+  displayedColumns: string[] = ['account_id','today_sale','expense','cash','deposit','closeing_amount','date','remarks','action',];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   deletevalue: any;
+  account_data: any = 1
+ 
 
   constructor(
+    public dialog: MatDialog,  
     private dailog: MatDialog,
     private service:MsmsService,
     private router:Router
@@ -50,7 +48,18 @@ export class AccountComponent implements OnInit {
     }  }
 
   ngOnInit(): void {
-  }
+  
+      this.service.get_account().subscribe(
+        (account_data:any)=>{
+         this.dataSource = new MatTableDataSource(account_data.data);
+         this.account_data = account_data.data.length
+         this.dataSource.sort = this.sort;
+         this.dataSource.paginator = this.paginator
+  
+        }
+      )
+    }
+  
 
   course_edit(row: any) {
     this.dailog.open(AddAccountComponent, {
@@ -70,12 +79,12 @@ export class AccountComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (this.deletevalue == result) {
         const deldata = new FormData();
-        deldata.append('gst_id', row.gst_id);
-        this.service.gst_delete(deldata).subscribe(
+        deldata.append('account_id', row.account_id);
+        this.service.account_delete(deldata).subscribe(
           (res: any) => {
             console.log(res)
             alert('Data Delete Successfylly...')
-            this.router.navigate(['/home/duse'])
+            this.router.navigate(['/home/account'])
           }
         )
       }

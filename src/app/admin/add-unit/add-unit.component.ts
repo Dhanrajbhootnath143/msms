@@ -17,7 +17,6 @@ export class AddUnitComponent implements OnInit {
   admin = 1;
   upload: any;
   actionBtn: string = 'Submit';
-
   unit_update: string = 'Add Topic'
 
   constructor(
@@ -37,7 +36,7 @@ export class AddUnitComponent implements OnInit {
     this.unit_form = this.fb.group({
       unit_id: [''],
       unit_name: ['', Validators.required],
-      unit_desc: ['', Validators.required],
+      unit_desc: [''],
       admin_id_fk: ['', Validators.required],
     })
 

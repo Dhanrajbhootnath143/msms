@@ -30,7 +30,7 @@ export class GstComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   gst_data:any
   inputField: any;
-  deletevalue:any =1
+  deletevalue:any = 1
 
   constructor(
     public dialog: MatDialog,

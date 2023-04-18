@@ -8,26 +8,22 @@ import { AddEditPartyComponent } from '../add-edit-party/add-edit-party.componen
 
 export interface UserData {
   id: number;
-  Customer: string;
+  customer: string;
   bill_number: number;
-  Back_dues: number;
+  back_dues: number;
   paid:number;
-  Current_dues:number;
+  current_dues:number;
   
 }
 
-const UserData: UserData[] = [
-  { id: 1, Customer: 'Raja', bill_number:9153634848,Back_dues:5678,paid:3456,Current_dues:243,},
-  { id: 1, Customer: 'Roushan', bill_number:9153634848,Back_dues:5678,paid:456,Current_dues:243, },
-  { id: 1, Customer: 'Dipu', bill_number:9153634848,Back_dues:5678,paid:4567,Current_dues:243, },
-];
+
 @Component({
   selector: 'app-reciept',
   templateUrl: './reciept.component.html',
   styleUrls: ['./reciept.component.css']
 })
 export class RecieptComponent implements OnInit {
-  displayedColumns: string[] = ['id','Customer','bill_number','Back_dues','paid','Current_dues',];
+  displayedColumns: string[] = ['id','customer','bill_number','back_dues','paid','current_dues',];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -36,8 +32,7 @@ export class RecieptComponent implements OnInit {
   constructor(
     private dailog: MatDialog,
   ) {
-    this.dataSource = new MatTableDataSource(UserData);
-  }
+    }
 
   ngOnInit(): void {
   }

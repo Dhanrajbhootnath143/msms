@@ -8,39 +8,39 @@
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Shop Name</mat-label>
-                <input matInput formControlName="shop_name" placeholder="Shop Name">
+                <input matInput formControlName="shop_name" placeholder="enter shop name">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Owner Name</mat-label>
-                <input matInput formControlName="owner_name" placeholder="Owner Name">
+                <input matInput formControlName="owner_name" placeholder="enter owner name">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Contact Number</mat-label>
                 <input formControlName="contact_number" matInput type="number" onkeypress=" return this.value.length < 10"
-                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="Contact Number">
+                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="enter contact Number">
             </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Contact Person</mat-label>
-            <input matInput  formControlName="contact_person" placeholder="Contact Person">
+            <input matInput  formControlName="contact_person" placeholder="enter contact person">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>WhatsApp No</mat-label>
             <input formControlName="whatsapp_number" matInput type="number" onkeypress=" return this.value.length < 10"
-                oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="WhatsApp No">
+                oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="enter whatsApp No">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Email Id</mat-label>
-            <input matInput formControlName="email_id" placeholder="Email Id">
+            <input matInput formControlName="email_id" placeholder="enter email id">
         </mat-form-field>
 
     </div>
     <mat-form-field appearance="fill" class="adr" >
         <mat-label>Address</mat-label>
-        <textarea matInput formControlName="address" placeholder="Address"></textarea>
+        <textarea matInput formControlName="address" placeholder=" enter address"></textarea>
     </mat-form-field>
 </div>
 

@@ -8,18 +8,18 @@
         <div class="box">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="emp_name" placeholder="Name">
+                <input matInput formControlName="emp_name" placeholder="enter name">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email Id</mat-label>
-                <input matInput formControlName="email_id" placeholder="Email Id">
+                <input matInput formControlName="email_id" placeholder="enter email id">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Mobile Number</mat-label>
                 <input formControlName="mobile" matInput type="number" onkeypress=" return this.value.length < 10"
-                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="Mobile">
+                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="enter mobile">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -27,7 +27,7 @@
                 <input formControlName="whatsapp_number" matInput type="number"
                     onkeypress=" return this.value.length < 10"
                     oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}"
-                    placeholder="WhatsApp No">
+                    placeholder="enter whatsApp No">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -35,7 +35,7 @@
                 <input matInput type="number" formControlName="aadhar_number"
                     onkeypress=" return this.value.length < 16"
                     oninput="if(this.value.length>=16) {this.value = this.value.sclice (0,16);}"
-                    placeholder="Aadhar number">
+                    placeholder="enter aadhar number">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -43,19 +43,19 @@
                 <input formControlName="account_number" matInput type="number"
                     onkeypress=" return this.value.length < 14"
                     oninput="if(this.value.length>=14) {this.value = this.value.sclice (0,14);}"
-                    placeholder="A/C Numbe">
+                    placeholder="enter a/c numbe">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>IFSC</mat-label>
                 <input matInput formControlName="ifsc" matInput type="IFSC" onkeypress=" return this.value.length < 7"
-                    oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}" placeholder="IFSC">
+                    oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}" placeholder="enter ifsc">
             </mat-form-field>
 
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Holder Name</mat-label>
-                <input matInput formControlName="account_name" placeholder="A/C Holder Name">
+                <input matInput formControlName="account_name" placeholder="enter a/c holder name">
             </mat-form-field>
 
             <div class="photo">
@@ -75,14 +75,16 @@
 
             </div>
 
-            <mat-form-field class="example-full-width" appearance="fill" class="Description">
-                <mat-label>Description</mat-label>
-                <textarea matInput formControlName="description" placeholder="Description"></textarea>
-            </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill" class="adr">
                 <mat-label>Address</mat-label>
-                <textarea matInput formControlName="address" placeholder="Address"></textarea>
+                <textarea matInput formControlName="address" placeholder="enter address"></textarea>
             </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill" class="Description">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="enter description"></textarea>
+            </mat-form-field>
+          
 
 
 
@@ -93,7 +95,7 @@
             </table> -->
 
             <div class="submit">
-                <button mat-raised-button color="warn" (click)="employee_form_reset()">Reset</button>
+                <button mat-raised-button color="warn" (click)="employee_form_reset()"  *ngIf="!add_employee_party">Reset</button>
                 <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
             </div>
 
