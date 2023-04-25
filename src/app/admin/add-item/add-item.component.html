@@ -10,7 +10,7 @@
             
             <mat-form-field appearance="fill" class="example-full-width">
                 <mat-label>Category</mat-label>
-                <mat-select placeholder="Enter Category" formControlName="category" (valueChange)="onGetcat($event)">
+                <mat-select placeholder="Enter Category" formControlName="category_id_fk">
                     <mat-option value="Drup" *ngFor="let category of category_data" [value]="category.cat_id">{{category.cat_name}}</mat-option></mat-select>
             </mat-form-field>
 
@@ -26,21 +26,14 @@
 
         <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>Unit</mat-label>
-            <mat-select formControlName="unit" placeholder="Enter Unit">
-                <mat-option value="KG">KG</mat-option>
-                <mat-option value="Liquid">Li</mat-option>
-                <mat-option value="Tablet">Ta</mat-option>
-                <mat-option value="ML">ML</mat-option>
-            </mat-select>
+            <mat-select formControlName="unit_id_fk" placeholder="Enter Unit">
+                <mat-option value="rate" *ngFor="let unit of unit_data" [value]="unit.unit_id">{{unit.unit_name}}</mat-option></mat-select>
         </mat-form-field>
 
             <mat-form-field appearance="fill" class="example-full-width">
                 <mat-label>Weight</mat-label>
-                <mat-select formControlName="weight" placeholder="Enter Weight">
-                    <mat-option value="1">1</mat-option>
-                    <mat-option value="100">100</mat-option>
-                    <mat-option value="24">24</mat-option>
-                    <mat-option value="35">35</mat-option>
+                <mat-select formControlName="weight_id_fk" placeholder="Enter Weight">
+                    <mat-option value="1" *ngFor="let weight of weight_data" [value]="weight.weight_id">{{weight.weight}}</mat-option>
                 </mat-select>
             </mat-form-field>
     

@@ -60,6 +60,7 @@ export class AddDuesComponent implements OnInit {
     if (!this.add_dues) {
       this.service.dues_post(this.dues_form.value).subscribe(
         (res:any)=>{
+          this.router.navigate(['/home/duse'])
           console.log(res);
           this.matref.close();
           alert('Data insert succssefully')

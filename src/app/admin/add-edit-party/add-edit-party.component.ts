@@ -103,6 +103,7 @@ export class AddEditPartyComponent implements OnInit {
     this.service.put_party(this.party_form.value).subscribe(
       (result:any) => {
         console.log(result)
+        this.router.navigate(['/home/party'])
         alert('Data Update Successfully...')
         this.matref.close();
       },

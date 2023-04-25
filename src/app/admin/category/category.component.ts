@@ -68,6 +68,7 @@ export class CategoryComponent implements OnInit {
         this.service.category_delete(deldata).subscribe(
           (res: any) => {
             console.log(res)
+            this.router.navigate(['/home/category'])
             alert('Data Delete Successfylly...')
             this.router.navigate(['/home/category'])
           }

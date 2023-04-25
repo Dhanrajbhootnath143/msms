@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MsmsService } from 'src/app/msms.service';
 
@@ -21,14 +21,15 @@ export class AddCategoryComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    public dialog: MatDialog,  
     private Service:MsmsService,
     private router:Router,
     private matref: MatDialogRef<AddCategoryComponent>,
     @Inject(MAT_DIALOG_DATA) public add_category: any
   ) {
-    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
-    }
+  }
    }
 
   ngOnInit(): void {
@@ -39,7 +40,6 @@ export class AddCategoryComponent implements OnInit {
       admin_id_fk: ['', Validators.required],
     })
     if(this.add_category){
-      console.log(this.add_category)
       this.actionBtn='Update'
       this.category_update = "Update category";
       this.category_form.controls[ 'cat_id'].setValue(this.add_category.cat_id)
@@ -52,13 +52,15 @@ export class AddCategoryComponent implements OnInit {
     if (!this.add_category) {
       this.Service.category_post(this.category_form.value).subscribe(
         (res:any)=>{
-          console.log(res);
+          this.router.navigate(['/home/category']);
           this.matref.close();
           alert('Data insert succssefully')
+
         },
         (error:any)=>{
           alert('Data not insert...')
         }
+        
       )
     }
     else{
@@ -69,9 +71,10 @@ export class AddCategoryComponent implements OnInit {
       console.log(this.category_form.value)
       this.Service.put_category(this.category_form.value).subscribe(
         (res:any)=>{
-          console.log(res);
+          this.router.navigate(['/home/category'])
           alert('Data Update succssefully...')
           this.matref.close();
+
         },
         (error:any)=>{
           alert('Data not Update...')

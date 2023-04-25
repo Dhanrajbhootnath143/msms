@@ -21,6 +21,10 @@ export class MsmsService {
   get_unit(){
     return this.http.get<any>(this.baseUrl + 'unit_view.php');
   }
+  get_unit_by_id(unit_id:any){
+    return this.http.get<any>(this.baseUrl + 'unit_view.php?unit_id='+unit_id);
+  }
+  
   
   put_unit(data:any){
     return this.http.put<any>(this.baseUrl + 'unit_update.php',data);
@@ -167,7 +171,7 @@ export class MsmsService {
 
   }
   put_employee(data:any){
-    return this.http.put<any>(this.baseUrl + 'employee_update.php',data);
+    return this.http.post<any>(this.baseUrl + 'employee_update.php',data);
   }
 
 
