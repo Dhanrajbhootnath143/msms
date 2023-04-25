@@ -19,7 +19,8 @@
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Mobile Number</mat-label>
                 <input formControlName="mobile" matInput type="number" onkeypress=" return this.value.length < 10"
-                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" placeholder="enter mobile">
+                    oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}"
+                    placeholder="enter mobile">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -52,27 +53,23 @@
                     oninput="if(this.value.length>=7) {this.value = this.value.sclice (0,7);}" placeholder="enter ifsc">
             </mat-form-field>
 
-
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>A/C Holder Name</mat-label>
                 <input matInput formControlName="account_name" placeholder="enter a/c holder name">
             </mat-form-field>
 
             <div class="photo">
-
                 <div style=" width:100%; height:75%; text-align: center;">
 
                     <img [src]="image_url" class="select_file" width="60%" height="100%">
 
                 </div>
 
-                <div
-                    style=" overflow: hidden; width: calc(100%); height:25%; padding-top: 5px;">
+                <div style=" overflow: hidden; width: calc(100%); height:25%;  padding-top: 5px;">
                     <input type="file" accept=".jpg, .jpeg, .png" name="photo" class="d-none" #image
                         (change)="OnUpload(image.files)">
                     <button class="img_btn" (click)="image.click()">Upload Image</button>
                 </div>
-
             </div>
 
             <mat-form-field class="example-full-width" appearance="fill" class="adr">
@@ -84,25 +81,14 @@
                 <mat-label>Description</mat-label>
                 <textarea matInput formControlName="description" placeholder="enter description"></textarea>
             </mat-form-field>
-          
-
-
-
-            <!-- <table class="pic" cellspacing="0">
-                <mat-label class="photo">Employee photo</mat-label><br>
-                <input type="file" name="photo" class="upload" (change)="OnUpload($event)"
-                    formControlName="photo">
-            </table> -->
 
             <div class="submit">
-                <button mat-raised-button color="warn" (click)="employee_form_reset()"  *ngIf="!add_employee_party">Reset</button>
+                <button mat-raised-button color="warn" (click)="employee_form_reset()"
+                    *ngIf="!add_employee_party">Reset</button>
                 <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
             </div>
-
         </div>
-
     </div>
-
     <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
-    <input type="number" formControlName="id" readonly hidden>
+    <input type="number" formControlName="emp_id" readonly hidden>
 </form>

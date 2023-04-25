@@ -32,9 +32,9 @@
         <td mat-cell *matCellDef="let row"> {{row.aadhar_number}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="photo">
+      <ng-container matColumnDef="photo" >
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Photo</th>
-        <td mat-cell *matCellDef="let row"> <img src="{{upload_img_url}}{{row.photo}}" width="80px" height="80px"></td>
+        <td mat-cell *matCellDef="let row"> <img src="{{upload_img_url}}{{row.photo}}" class="uplode_photo" width="80px" height="80px"></td>
       </ng-container>
   
       <ng-container matColumnDef="address">

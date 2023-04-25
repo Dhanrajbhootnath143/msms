@@ -18,6 +18,8 @@ export class AddItemComponent implements OnInit {
   actionBtn: string = 'Submit';
   item_update: string = 'Add Topic'
   category_data: any;
+  unit_data:any;
+  weight_data:any;
   constructor(
     private fb: FormBuilder,
     private service: MsmsService,
@@ -34,14 +36,14 @@ export class AddItemComponent implements OnInit {
     this.item_form = this.fb.group({
       item_id: [''],
       item_name: ['', Validators.required],
-      weight: ['', Validators.required],
+      weight_id_fk: ['', Validators.required],
       purchase_amount: ['', Validators.required],
       company:['', Validators.required],
       pack: ['', Validators.required],
       sale_amount: ['', Validators.required],
-      category:['', Validators.required],
+      category_id_fk:['', Validators.required],
       hsn_no: ['',Validators.required],
-      unit:['',Validators.required],
+      unit_id_fk:['',Validators.required],
       mrp: ['', Validators.required],
       description:[''],
       admin_id_fk: ['', Validators.required],
@@ -54,39 +56,42 @@ export class AddItemComponent implements OnInit {
         this.category_data = res.data
       }
      )
+    this.service.get_unit().subscribe(
+      (res:any)=>{
+        this.unit_data = res.data
+      }
+     )
+     this.service.get_weight().subscribe(
+      (res:any)=>{
+        this.weight_data = res.data
+      }
+     )
     if(this.add_item){
       console.log(this.add_item)
       this.actionBtn='Update'
       this.item_update = "Update item"
       this.item_form.controls['item_id'].setValue(this.add_item.item_id)
       this.item_form.controls['item_name'].setValue(this.add_item.item_name)
-      this.item_form.controls['weight'].setValue(this.add_item.weight)
+      this.item_form.controls['weight_id_fk'].setValue(this.add_item.weight_id_fk)
       this.item_form.controls['purchase_amount'].setValue(this.add_item.purchase_amount)
       this.item_form.controls['company'].setValue(this.add_item.company)
       this.item_form.controls['pack'].setValue(this.add_item.pack)
       this.item_form.controls['sale_amount'].setValue(this.add_item.sale_amount)
-      this.item_form.controls['category'].setValue(this.add_item.category)
+      this.item_form.controls['category_id_fk'].setValue(this.add_item.category_id_fk)
       this.item_form.controls['hsn_no'].setValue(this.add_item.hsn_no)
-      this.item_form.controls['unit'].setValue(this.add_item.unit)
+      this.item_form.controls['unit_id_fk'].setValue(this.add_item.unit_id_fk)
       this.item_form.controls['mrp'].setValue(this.add_item.mrp)
       this.item_form.controls['description'].setValue(this.add_item.description)
       this.item_form.controls['admin_id_fk'].setValue(this.add_item.admin_id_fk)
     }
   }
 
-  onGetcat(event:any){
-    this.service.get_category_by_id(event).subscribe(
-      (res:any)=>{
-        console.log(res)
-        this.item_form.get('cat_id')?.setValue(res.data.cat_id)
-        this.item_form.get('cat_name')?.setValue(res.data.cat_name)
-      }
-    )
-    console.log(event)
-  }
+ 
   onsubmit(){
     console.log(this.item_form.value)
     if (!this.add_item) {
+      this.router.navigate(['/home/item'])
+      alert('okk')
       this.service.item_post(this.item_form.value).subscribe(
         (res:any)=>{
           console.log(res);
@@ -102,10 +107,13 @@ export class AddItemComponent implements OnInit {
       this.update_item()
     }
   }
+
+
   update_item(){
     console.log(this.item_form.value)
     this.service.put_item(this.item_form.value).subscribe(
       (result:any) => {
+        this.router.navigate(['/home/item'])
         console.log(result)
         alert('Data Update Successfully...')
         this.matref.close();

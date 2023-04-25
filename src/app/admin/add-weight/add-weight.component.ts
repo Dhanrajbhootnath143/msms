@@ -55,6 +55,7 @@ export class AddWeightComponent implements OnInit {
   if (!this.add_weight) {
       this.Service.weight_post(this.Weight_form.value).subscribe(
         (res:any)=>{
+          this.router.navigate(['/home/weight'])
           console.log(res);
           this.matref.close();
           alert('Data insert succssefully')
@@ -72,6 +73,7 @@ export class AddWeightComponent implements OnInit {
       console.log(this.Weight_form.value)
       this.Service.put_weight(this.Weight_form.value).subscribe(
         (res:any)=>{
+          this.router.navigate(['/home/weight'])
           console.log(res);
           alert('Data Update succssefully...')
           this.matref.close();

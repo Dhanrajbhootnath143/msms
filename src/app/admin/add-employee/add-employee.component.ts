@@ -16,9 +16,10 @@ export class AddEmployeeComponent implements OnInit {
   upload: any;
   actionBtn: string = 'Add';
   course_data:any;
+  image_url: any;
   employee_update: string = 'Add Topic'
-  image_url:any= "assets/logo.png";
-  image_select:any;
+  url:string= 'http://localhost/uploads/';
+  image_select:any = null;
 
 
   constructor(
@@ -66,12 +67,16 @@ export class AddEmployeeComponent implements OnInit {
       this.employee_form.controls['address'].setValue(this.add_employee_party.address)
       this.employee_form.controls['description'].setValue(this.add_employee_party.description)
       this.employee_form.controls['admin_id_fk'].setValue(this.add_employee_party.admin_id_fk)
+      this.image_url = this.url + this.add_employee_party.photo
+      this.image_select = this.add_employee_party.photo
+      console.log("img"+ this.add_employee_party.photo)
     }
   }
   onsubmit(){
     console.log(this.employee_form.value)
     if (!this.add_employee_party) {
     const employeedata = new FormData()
+    employeedata.append('emp_id',this.employee_form.get('emp_id')?.value)
     employeedata.append('emp_name',this.employee_form.get('emp_name')?.value)
     employeedata.append('email_id',this.employee_form.get('email_id')?.value)
     employeedata.append('mobile',this.employee_form.get('mobile')?.value)

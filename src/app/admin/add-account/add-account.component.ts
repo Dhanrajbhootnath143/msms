@@ -61,6 +61,7 @@ export class AddAccountComponent implements OnInit {
     if (!this.add_account) {
       this.service .account_post(this.account_form.value).subscribe(
         (res:any)=>{
+          this.router.navigate(['/home/account']);
           console.log(res);
           this.matref.close();
           alert('Data insert succssefully')

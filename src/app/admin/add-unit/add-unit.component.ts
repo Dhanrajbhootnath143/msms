@@ -55,6 +55,7 @@ export class AddUnitComponent implements OnInit {
     if (!this.add_unit) {
       this.service.unit_post(this.unit_form.value).subscribe(
         (res:any)=>{
+          this.router.navigate(['/home/unit'])
           console.log(res);
           this.matref.close();
           alert('Data insert succssefully')
@@ -72,6 +73,7 @@ export class AddUnitComponent implements OnInit {
       console.log(this.unit_form.value)
       this.service.put_unit(this.unit_form.value).subscribe(
         (res:any)=>{
+          this.router.navigate(['/home/unit'])
           console.log(res);
           alert('Data Update succssefully...')
           this.matref.close();

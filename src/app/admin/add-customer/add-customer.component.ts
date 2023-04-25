@@ -62,6 +62,7 @@ export class AddCustomerComponent implements OnInit {
     if(!this.add_customer){
     this.Service.customer_post(this.customer_form.value).subscribe(
       (res:any)=>{
+        this.router.navigate(['/home/customer'])
         console.log(res)
         this.matref.close();
         alert('Data insert succssefully')
@@ -79,6 +80,7 @@ export class AddCustomerComponent implements OnInit {
     console.log(this.customer_form.value)
     this.Service.put_customer(this.customer_form.value).subscribe(
       (res:any)=>{
+        this.router.navigate(['/home/customer'])
         console.log(res);
         alert('Data Update succssefully....')
         this.matref.close();

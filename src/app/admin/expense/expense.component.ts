@@ -17,9 +17,7 @@ export interface UserData {
 }
 
 const UserData: UserData[] = [
-  { id: 1, Expense_Type: 'Others', Amount:9153,name:'Kajal',contact:5562882098,Description:'Soppping',},
-  { id: 1, Expense_Type: 'Others', Amount:9189,name:'Karishma',contact:5562882098,Description:'Soppping', },
-  { id: 1, Expense_Type: 'Shlary', Amount:9638,name:'Kishan',contact:5563442098,Description:'Soppping', },
+ 
 ];
 
 @Component({
