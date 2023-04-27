@@ -77,7 +77,7 @@
                     </mat-form-field>
         
                     <mat-form-field appearance="fill" class="example-full-width">
-                        <mat-label>Iten</mat-label>
+                        <mat-label>Item</mat-label>
                         <mat-select placeholder="enter iten" formControlName="iten" (valueChange)="onGetitem($event)">
                             <mat-option value="Drup" *ngFor="let item of item_data" [value]="item.item_id">{{item.item_name}}</mat-option></mat-select>
                     </mat-form-field>

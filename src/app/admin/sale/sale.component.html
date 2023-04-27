@@ -3,7 +3,7 @@
   <mat-icon id="add_sale" (click)="add_sale()">add_circle</mat-icon>
 </div>
 <div class="count_area">
-  <span class="notice_text">Total : 10</span>
+  <span class="notice_text">{{sale_data}}</span>
   <div class="search">
     <input type="text" placeholder="Search" class="search_box" matInput (keyup)="applyFilter($event)" #input>
   </div>
@@ -12,57 +12,61 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
 
-    <ng-container matColumnDef="id">
+    <ng-container matColumnDef="sale_id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> S.N. </th>
       <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="customer">
+    <ng-container matColumnDef="cust_id_fk">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer</th>
-      <td mat-cell *matCellDef="let row"> {{row.customer}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.cust_id_fk}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="Bill_Number">
+    <ng-container matColumnDef="bill_no">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Bill Number</th>
-      <td mat-cell *matCellDef="let row"> {{row.Bill_Number}}</td>
+      <td mat-cell *matCellDef="let row"> {{row.bill_no}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Totel_amount">
+    <ng-container matColumnDef="total_amount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Totel amount</th>
-      <td mat-cell *matCellDef="let row"> {{row.Totel_amount}}</td>
+      <td mat-cell *matCellDef="let row"> {{row.total_amount}} <b *ngIf="!row.total_amount">0</b></td>
     </ng-container>
 
-    <ng-container matColumnDef="Basic_amount">
+    <ng-container matColumnDef="basic_amount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Basic amount</th>
-      <td mat-cell *matCellDef="let row"> {{row.Basic_amount}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.basic_amount}} <b *ngIf="!row.basic_amount">0</b> </td>
     </ng-container>
 
-    <ng-container matColumnDef="Dues">
+    <ng-container matColumnDef="duse">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Dues</th>
-      <td mat-cell *matCellDef="let row"> {{row.Dues}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.duse}} <b *ngIf="!row.duse">0</b> </td>
     </ng-container>
 
     <ng-container matColumnDef="gst">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>GST</th>
-      <td mat-cell *matCellDef="let row"> {{row.gst}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.gst}} <b *ngIf="!row.gst">0</b> </td>
     </ng-container>
 
 
-    <ng-container matColumnDef="Discount">
+    <ng-container matColumnDef="discount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Discount</th>
-      <td mat-cell *matCellDef="let row"> {{row.Discount}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.discount}} <b *ngIf="!row.discount">0</b> </td>
     </ng-container>
 
-    <ng-container matColumnDef="date">
+    <ng-container matColumnDef="sale_date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
-      <td mat-cell *matCellDef="let row"> {{row.date}}</td>
+      <td mat-cell *matCellDef="let row"> {{row.sale_date}}</td>
     </ng-container>
 
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>&nbsp;
       <td mat-cell *matCellDef="let row">
-        <mat-icon style="cursor: pointer;" (click)="edit_sale(row)">edit</mat-icon>
+        <!-- <mat-icon style="cursor: pointer;" (click)="edit_sale(row)" title="edit">edit</mat-icon> -->
+        <mat-icon style="cursor: pointer;" title="p"> insert_drive_file</mat-icon>
+        <mat-icon style="cursor: pointer;" title="print">print</mat-icon>
+        <mat-icon style="cursor: pointer;" title="exposure">exposure</mat-icon>
+
       </td>
     </ng-container>
 

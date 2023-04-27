@@ -66,13 +66,13 @@
                 <mat-label>Address</mat-label>
                 <textarea matInput formControlName="address" placeholder="enter address"></textarea>
             </mat-form-field>
+            <div class="submit">
+                <button mat-raised-button color="warn" (click)="party_form_reset()" *ngIf="!edit_party">Reset</button>
+                <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
+            </div>
             <input type="number" readonly [ngModel]="admin" formControlName="admin_id_fk" hidden>
             <input type="number" formControlName="party_id" readonly hidden>
         </div>
     </div>
 </form>
 
-<div class="submit">
-    <button mat-raised-button color="warn" (click)="party_form_reset()" *ngIf="!edit_party">Reset</button>
-    <button mat-raised-button color="primary" (click)="onsubmit()">{{actionBtn}}</button>
-</div>

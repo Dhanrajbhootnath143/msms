@@ -155,9 +155,6 @@ export class MsmsService {
   }
 
 
-
-
-
   employee_post(data:any){
     return this.http.post<any>(this.baseUrl + 'employee_insert.php',data);
 
@@ -186,4 +183,17 @@ export class MsmsService {
   }
   
 
+  sale_party_post(data:any){
+    return this.http.post<any>(this.baseUrl + 'sale_insert.php',data);
+
+  }
+  get_sale(){
+    return this.http.get<any>(this.baseUrl + 'sale_view.php');
+
+  }
+  get_cust_by_id(cust_id:any){
+    return this.http.get<any>(this.baseUrl + 'customer_view.php?cust_id='+cust_id);
+  }
+
 }
+

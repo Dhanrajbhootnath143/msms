@@ -1,28 +1,11 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { MsmsService } from 'src/app/msms.service';
 
-export interface PeriodicElement {
-  sn_no: number;
-  Item_Name: string;
-  Pack: string;
-  Company: string;
-  Quantity: number;
-  Rate: number;
-  Discount:number;
-  Action: string;
-  gst:number;
-  Net_Rete:number;
-  Amount:number;
-}
-const ELEMENT_DATA:PeriodicElement [] = [
-  {sn_no: 1,  Item_Name: 'Droup', Pack: '4', Company: 'Raj', Quantity: 457, Rate:55  ,Discount:67, gst:896, Net_Rete:578,Amount:222,Action:''},
-];
 @Component({
   selector: 'app-add-sale',
   templateUrl: './add-sale.component.html',
@@ -30,16 +13,22 @@ const ELEMENT_DATA:PeriodicElement [] = [
 })
 export class AddSaleComponent implements OnInit {
   customer_form: any
+  bill_no:string ='0'
   displayedColumns: string[] = ['sn_no', 'item_name', 'pack', 'company', 'quantity', 'rate', 'discount', 'gst', 'net_rete', 'amount', 'action' ];
-  dataSource = ELEMENT_DATA;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  party_form: any;
+  cust_form: any;
   item_form:any;
   final_form:any;
+  party_data:any;
+  category_data:any;
+  item_data:any
+  add_sale: any;
+  cust_data:any
   constructor(
     private fb: FormBuilder,
     private router:Router,
+    private servies:MsmsService
   ){
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
@@ -47,12 +36,16 @@ export class AddSaleComponent implements OnInit {
 
   }
   ngOnInit(): void {
-   this.party_form = this.fb.group({
-    party_id:['', Validators.required],
-    party_name:['', Validators.required],
-    mobile_number:['', Validators.required],
+   this.cust_form = this.fb.group({
+    cust_id:['', Validators.required],
+    customer:['', Validators.required],
+    shop_name:['', Validators.required],
+    contact_number:['', Validators.required],
     email_id:['',Validators.required],
     address:['',Validators.required],
+    admin_id_fk:['1',],
+    bill_no:[''],
+    sale_date:[new Date().toISOString().slice(0, 10),],
    })
 
    this.item_form = this.fb.group({
@@ -90,11 +83,50 @@ export class AddSaleComponent implements OnInit {
     dues:['',Validators.required],
     date:['',Validators.required],
    })
+
+   this.servies.get_Party().subscribe(
+    (res:any)=>{
+      this.party_data = res.data
+    }
+   )
+   this.servies.get_category().subscribe(
+    (res:any)=>{
+      this.category_data = res.data
+    }
+   )
+   this.servies.get_item().subscribe(
+    (res:any)=>{
+      this.item_data = res.data
+    }
+   )
+   this.servies.get_customer().subscribe(
+    (res:any)=>{
+      this.cust_data = res.data
+    }
+   )
   }
 
-  onsubmit(){
-    console.log(this.party_form.value)  
+  onInsert(){
+    this.servies.get_sale().subscribe(
+      (dk:any)=>{
+        const bill = dk.data.length + 1
+          this.cust_form.get('bill_no')?.setValue("SK"+formatDate(new Date(),'yyyyMMdd','en')+bill)
+          this.bill_no = ("SK"+formatDate(new Date(),'yyyyMMdd','en'))+bill 
+          if(dk.sucess =1){
+            if (!this.add_sale) {
+              this.servies.sale_party_post(this.cust_form.value).subscribe(
+                (res:any)=>{
+                  console.log(res);
+                  alert('Data insert succssefully')
+                }
+              )
+            }
+          }        
+         }
+    )
+   
   }
+
   onsubm(){
     console.log(this.item_form.value)
  
@@ -104,6 +136,37 @@ export class AddSaleComponent implements OnInit {
     console.log(this.final_form.value)
   
   }
-  
+
+  onGetcust(event:any){
+    this.servies.get_cust_by_id(event).subscribe(
+      (res:any)=>{
+        this.cust_form.get('cust_id')?.setValue(res.data.cust_id)
+        this.cust_form.get('shop_name')?.setValue(res.data.shop_name)
+        this.cust_form.get('contact_number')?.setValue(res.data.contact_number)
+        this.cust_form.get('email_id')?.setValue(res.data.email_id)
+        this.cust_form.get('address')?.setValue(res.data.address)
+      }
+    )
+  }
+
+  onGetitem(event:any){
+    this.servies.get_item_by_id(event).subscribe(
+      (res:any)=>{
+        console.log(res)
+        this.item_form.get('item_id')?.setValue(res.data.item_id)
+        this.item_form.get('item')?.setValue(res.data.item_name)
+        this.item_form.get('company_name')?.setValue(res.data.company)
+        this.item_form.get('hsn_no')?.setValue(res.data.hsn_no)
+        this.item_form.get('unit')?.setValue(res.data.unit)
+        this.item_form.get('mrp')?.setValue(res.data.mrp)
+        this.item_form.get('pack')?.setValue(res.data.pack)
+        this.item_form.get('rate')?.setValue(res.data.item_name)
+        this.item_form.get('item')?.setValue(res.data.item_name)
+
+
+      }
+    )
+
+  }
   
 }

@@ -33,8 +33,8 @@ export class AccountComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  deletevalue: any;
-  account_data: any = 1
+  deletevalue: any = 1
+  account_data: any ;
  
 
   constructor(
