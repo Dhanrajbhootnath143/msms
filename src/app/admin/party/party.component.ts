@@ -21,7 +21,7 @@ export class PartyComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   party_data:any
   deletevalue: any = 1
-
+  
   constructor(
     public daolog: MatDialog,
     private dailog: MatDialog,
@@ -79,6 +79,7 @@ export class PartyComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.party_data = this.dataSource.filteredData.length
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();

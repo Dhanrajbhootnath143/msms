@@ -88,6 +88,7 @@ export class WeightComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.weight_data = this.dataSource.filteredData.length
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();

@@ -28,10 +28,10 @@
   button {
     margin-left: 10px;
   }
-  .Description{
+  /* .Description{
     width: 412px;
     margin-left: 10px;
-  }
+  } */
  
    @media(min-width:720px)and (max-width:850px) {
   
@@ -61,10 +61,10 @@
       width: 340px;
       margin-left: -12px;
     }
-    .Description{
+    /* .Description{
       width: 331px;
       margin-left: 10px;
-    }
+    } */
     mat-form-field {
       width: 160px;
     }
@@ -85,10 +85,10 @@
       width: 230px;
       
     }
-    .Description{
+    /* .Description{
       width: 291px;
       margin-left: 10px;
-    }
+    } */
  
     .example-full-width{
       width: 290px;
@@ -117,9 +117,9 @@
       width: 230px;
       
     }
-    .Description{
+    /* .Description{
       width: 231px;
       margin-left: 10px;
-    }
+    } */
     
   } 

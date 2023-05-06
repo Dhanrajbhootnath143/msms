@@ -194,6 +194,26 @@ export class MsmsService {
   get_cust_by_id(cust_id:any){
     return this.http.get<any>(this.baseUrl + 'customer_view.php?cust_id='+cust_id);
   }
+  sale_item_post(data:any){
+    return this.http.post<any>(this.baseUrl + 'sale_item_insert.php',data);
+
+  }
+  purchase_party_post(data:any){
+    return this.http.post<any>(this.baseUrl + 'purch_party_insert.php',data);
+
+  }
+  get_purch(){
+    return this.http.get<any>(this.baseUrl + 'purch_party_view.php');
+
+  }
+  purch_item_post(data:any){
+    return this.http.post<any>(this.baseUrl + 'purch_desc_insert.php',data);
+
+  }
+  get_putch_item(){
+    return this.http.get<any>(this.baseUrl + 'purch_desc_view.php');
+
+  }
 
 }
 

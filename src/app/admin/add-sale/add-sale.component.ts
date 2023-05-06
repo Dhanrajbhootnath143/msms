@@ -24,7 +24,8 @@ export class AddSaleComponent implements OnInit {
   category_data:any;
   item_data:any
   add_sale: any;
-  cust_data:any
+  cust_data:any;
+  gst_data:any
   constructor(
     private fb: FormBuilder,
     private router:Router,
@@ -49,7 +50,7 @@ export class AddSaleComponent implements OnInit {
    })
 
    this.item_form = this.fb.group({
-    item_party:['',Validators.required],
+    customer:['',Validators.required],
     category:['',Validators.required],
     iten:['',Validators.required],
     company_name:['',Validators.required],
@@ -60,13 +61,13 @@ export class AddSaleComponent implements OnInit {
     pack:['',Validators.required],
     rate:['',Validators.required],
     date:['',Validators.required],
-    quantity:['',Validators.required],
+    sale_dec_qunatity:['',Validators.required],
     total:['',Validators.required],
     fee:['',Validators.required],
     discount:['',Validators.required],
     gst:['',Validators.required],
     net_rate:['',Validators.required],
-    amount:['',Validators.required],
+    sale_dec_total_amount:['',Validators.required],
 
    })
    this.final_form =  this.fb.group({
@@ -104,6 +105,11 @@ export class AddSaleComponent implements OnInit {
       this.cust_data = res.data
     }
    )
+   this.servies.get_gst().subscribe(
+    (res:any)=>{
+      this.gst_data = res.data
+    }
+   )
   }
 
   onInsert(){
@@ -127,10 +133,20 @@ export class AddSaleComponent implements OnInit {
    
   }
 
-  onsubm(){
-    console.log(this.item_form.value)
- 
-  }
+  onadd(){
+    if (!this.add_sale) {
+      console.log(this.item_form.value)
+      this.servies.sale_item_post(this.item_form.value).subscribe(
+        (res:any)=>{
+          console.log(res);
+          alert('Data insert succssefully')
+        },
+    
+      )
+    }
+         }      
+         
+        
 
   onsubmi(){
     console.log(this.final_form.value)

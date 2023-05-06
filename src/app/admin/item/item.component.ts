@@ -17,6 +17,7 @@ category:string,
 pack:string,
 mrp:number,
 purchase_amount:number,
+batch_no:string,
 sale_amount:number
 
 
@@ -29,7 +30,7 @@ sale_amount:number
 
 export class ItemComponent implements OnInit {
 
-  displayedColumns: string[] = ['item_id','item_name','company','category','pack','mrp','purchase_amount','sale_amount','action'];
+  displayedColumns: string[] = ['item_id','item_name','company','category','pack','mrp','purchase_amount','sale_amount','batch_no','action'];
   dataSource = new MatTableDataSource<any>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -95,6 +96,8 @@ export class ItemComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.item_data = this.dataSource.filteredData.length
+
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
