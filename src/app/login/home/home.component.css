@@ -43,6 +43,7 @@ mat-menu-panel {
 .Logout_btn{
     color: white;
     text-align: center;
+    width: 100%;
 }
 
 .login {
@@ -58,6 +59,7 @@ mat-menu-panel {
     position: fixed;
     right: 16px;
     top: 20px;
+    
 }
 
 table {

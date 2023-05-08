@@ -170,6 +170,9 @@ textarea {
   margin-left: 40%;
   margin-top: 28px;
 }
+.date{
+  height: 17px;
+}
 
 /* -----------------------Media query----------------------- */
 @media(min-width: 350px) and (max-width: 520px){

@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -60,6 +61,7 @@ import { PurchaseCancelComponent } from './admin/purchase-cancel/purchase-cancel
 import { SaleCancelComponent } from './admin/sale-cancel/sale-cancel.component';
 import { AddSaleCancelComponent } from './admin/add-sale-cancel/add-sale-cancel.component';
 import { DeleteDataComponent } from './admin/delete-data/delete-data.component';
+
 
 
 
@@ -133,6 +135,7 @@ import { DeleteDataComponent } from './admin/delete-data/delete-data.component';
     MatSelectModule,
     HttpClientModule,
     NgbModule, 
+    MatSortModule,
     
   ],
   providers: [],

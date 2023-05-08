@@ -45,6 +45,7 @@ export class AddItemComponent implements OnInit {
       hsn_no: ['',Validators.required],
       unit_id_fk:['',Validators.required],
       mrp: ['', Validators.required],
+      batch_no:['',Validators.required],
       description:[''],
       admin_id_fk: ['', Validators.required],
       
@@ -81,6 +82,7 @@ export class AddItemComponent implements OnInit {
       this.item_form.controls['hsn_no'].setValue(this.add_item.hsn_no)
       this.item_form.controls['unit_id_fk'].setValue(this.add_item.unit_id_fk)
       this.item_form.controls['mrp'].setValue(this.add_item.mrp)
+      this.item_form.controls['batch_no'].setValue(this.add_item.batch_no)
       this.item_form.controls['description'].setValue(this.add_item.description)
       this.item_form.controls['admin_id_fk'].setValue(this.add_item.admin_id_fk)
     }
@@ -91,7 +93,6 @@ export class AddItemComponent implements OnInit {
     console.log(this.item_form.value)
     if (!this.add_item) {
       this.router.navigate(['/home/item'])
-      alert('okk')
       this.service.item_post(this.item_form.value).subscribe(
         (res:any)=>{
           console.log(res);

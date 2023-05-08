@@ -11,33 +11,38 @@
 
                 <div id="Bill_ref_no">
                     <ng-container ngbNavItem>
-                        <a id="Bill_ref">Bill Ref No &nbsp;:&nbsp;DK2023/03/03</a>
+                        <a id="Bill_ref">Bill Ref No &nbsp;:&nbsp;{{bill_no}} </a>
                         <ng-template ngbNavContent>
                             </ng-template>
                             </ng-container>
                         </div> 
             <ng-template ngbNavContent>
              <div class="customer_box">
-              <form [formGroup]="party_form">
+              <form [formGroup]="cust_form">
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Party ID</mat-label>
-                    <input formControlName="party_id" matInput placeholder=" enter party id">
+                    <mat-label>Customer ID</mat-label>
+                    <input formControlName="cust_id" matInput placeholder=" Cust id">
                 </mat-form-field>
+                
 
                 <mat-form-field appearance="fill">
                     <mat-label>Name</mat-label>
-                    <mat-select formControlName="party_name" placeholder="enter party name">
-                        <mat-option value="Rahul">Rahul</mat-option>
-                        <mat-option value="Krishana">Krishana</mat-option>
-                        <mat-option value="Badal">Badal</mat-option>
+                    <mat-select formControlName="customer" (valueChange)="onGetcust($event)">
+                        <mat-option *ngFor="let customer of cust_data" [value]="customer.cust_id">{{customer.owner_name}}</mat-option>
+                       
                     </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Shop Name</mat-label>
+                    <input matInput  placeholder="enter shop name" formControlName="shop_name">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
                     <mat-label>Mobile Number</mat-label>
                     <input matInput type="number" placeholder="Mobile Number" onkeypress="return this.value.length < 10;"
-                        oninput="if(this.value.length>=10) { this.value = this.value.slice(0,10); }" formControlName="mobile_number" placeholder="enter mobile numbe">
+                        oninput="if(this.value.length>=10) { this.value = this.value.slice(0,10); }" formControlName="contact_number" placeholder="enter mobile numbe">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
@@ -49,10 +54,11 @@
                     <mat-label>Address</mat-label>
                     <textarea matInput placeholder="Address" formControlName="address" placeholder="enter address"></textarea>
                   </mat-form-field>
+                  <input type="text" formControlName="bill_no" readonly  style="display: none;">
                 </form>
 
                   <span class="btn_box">
-                    <button class="reset_btn" mat-raised-button color="warn" type="reset" (click)="onsubmit()">Save</button>
+                    <button class="reset_btn" mat-raised-button color="warn" type="reset" (click)="onInsert()">Save</button>
                   </span>
              </div>
             </ng-template>
@@ -67,24 +73,22 @@
                 <div class="product_box">
                     <form [formGroup]="item_form">
                     <mat-form-field appearance="fill">
-                        <mat-label>Party</mat-label>
-                        <input formControlName="item_party" matInput placeholder="Party">
+                        <mat-label>Customer Name</mat-label>
+                        <input formControlName="customer" matInput placeholder="enter customer">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" class="example-full-width">
                         <mat-label>Category</mat-label>
                         <mat-select placeholder="Category" formControlName="category" placeholder="enter category">
-                            <mat-option value="Drup">drup</mat-option>
-                            <mat-option value="Liquid">Liquid</mat-option>
-                            <mat-option value="Tablet">Tablet</mat-option>
-                            <mat-option value="ML">ML</mat-option>
+                            <mat-option value="Drup" *ngFor="let category of category_data"[value]="category .cat_id">{{category.cat_name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
         
 
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Iten</mat-label>
-                        <input matInput placeholder="enter iten" formControlName="iten">
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Item</mat-label>
+                        <mat-select placeholder="enter iten" formControlName="iten" (valueChange)="onGetitem($event)">
+                            <mat-option value="Drup" *ngFor="let item of item_data" [value]="item.item_id">{{item.item_name}}</mat-option></mat-select>
                     </mat-form-field>
 
                     <mat-form-field class="example-full-width" appearance="fill">
@@ -123,12 +127,12 @@
         
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Expiry Date</mat-label>
-                    <input matInput  type="date" formControlName="date">
+                    <input matInput  type="date" formControlName="date" class="date">
                 </mat-form-field>
         
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Quantity</mat-label>
-                    <input matInput placeholder="enter quantity" formControlName="quantity">
+                    <input matInput placeholder="enter quantity" formControlName="sale_dec_qunatity">
                 </mat-form-field>
         
                 <mat-form-field class="example-full-width" appearance="fill">
@@ -149,10 +153,7 @@
                 <mat-form-field appearance="fill" class="example-full-width">
                     <mat-label>GST</mat-label>
                     <mat-select  placeholder="enter gst" formControlName="gst">
-                        <mat-option value="2%" >2%</mat-option>
-                        <mat-option  value="3%">3%</mat-option>
-                        <mat-option value="4%">4%</mat-option>
-                        <mat-option  value="5%">5%</mat-option>
+                        <mat-option value="2%"  *ngFor="let gst of gst_data"[value]="gst .gst_id">{{gst.gst}}</mat-option>
                     </mat-select>
                 </mat-form-field>
         
@@ -163,13 +164,14 @@
         
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Amount</mat-label>
-                        <input matInput type="number" placeholder="enter amount" formControlName="amount">
+                        <input matInput type="number" placeholder="enter amount" formControlName="sale_dec_total_amount">
                     </mat-form-field>
-                </form>
-
-                    <div class="add_btn" (click)="onsubm()">
+                    <div class="add_btn" (click)="onadd()">
                         <mat-icon>add</mat-icon>
                     </div>
+                </form>
+
+                    
                 </div>
                 
 
@@ -180,7 +182,7 @@
                     </div>
                 </div>
                 <div class="mat-elevation-z8">
-                    <table mat-table [dataSource]="dataSource" matSort>
+                    <table mat-table matSort>
 
                         <ng-container matColumnDef="sn_no">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header>S.N</th>

@@ -102,8 +102,8 @@ export class CustomerComponent implements OnInit {
       deletecustomer.append('cust_id',row.cust_id),
       this.service.customer_delete(deletecustomer).subscribe(
         (res:any) => {
-          this.router.navigate(['/home/customer']);
-        }
+     this.router.navigate(['/home/customer']);
+}
       )
     }
   }
