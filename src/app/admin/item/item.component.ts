@@ -13,7 +13,7 @@ export interface UserData {
 item_id:number,
 item_name:string,
 company:string,
-category:string,
+cat_name:string,
 pack:string,
 mrp:number,
 purchase_amount:number,
@@ -30,7 +30,7 @@ sale_amount:number
 
 export class ItemComponent implements OnInit {
 
-  displayedColumns: string[] = ['item_id','item_name','company','category','pack','mrp','purchase_amount','sale_amount','batch_no','action'];
+  displayedColumns: string[] = ['item_id','item_name','company','cat_name','pack','mrp','purchase_amount','sale_amount','batch_no','action'];
   dataSource = new MatTableDataSource<any>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -74,11 +74,23 @@ export class DashboardComponent implements OnInit {
       this.account_count = res.data.length
     }
    )
-   this.services.get_account().subscribe(
+   
+   this.services.get_employee().subscribe(
     (res:any)=>{
-      this.account_count = res.data.length
+      this.employee_count = res.data.length
     }
    )
+   this.services.get_sale().subscribe(
+    (res:any)=>{
+      this.sale_count = res.data.length
+    }
+   )
+   this.services.get_purch().subscribe(
+    (res:any)=>{
+      this.purchase_count = res.data.length
+    }
+   )
+   
   
   }
 

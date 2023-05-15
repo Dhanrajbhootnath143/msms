@@ -12,14 +12,14 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
-      <ng-container matColumnDef="party_id">
+      <ng-container matColumnDef="purch_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> S.N. </th>
         <td mat-cell *matCellDef="let row; let i = index">{{(paginatorRef.pageIndex * paginatorRef.pageSize)+(i+1)}}</td>
       </ng-container>
   
-      <ng-container matColumnDef="purch_party_id_fk">
+      <ng-container matColumnDef="party_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Party</th>
-        <td mat-cell *matCellDef="let row"> {{row.party_id}}</td>
+        <td mat-cell *matCellDef="let row"> {{row.party_name}}</td>
       </ng-container>
   
       <ng-container matColumnDef="basic_amount">
@@ -65,8 +65,11 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row">
-          <mat-icon style="cursor: pointer;" (click)="edit_purch(row)">edit</mat-icon>
+          <mat-icon class="icon"style="cursor: pointer;"*ngIf="row.status == 1" (click)="edit_purch(row)" title="edit">visibility</mat-icon>
+          <mat-icon class="icon" *ngIf="row.status == 0" (click)="onDrafBill(row)">description</mat-icon>
         </td>
+        
+        
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns" id="tbl_hight"></tr>

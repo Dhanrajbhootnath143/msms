@@ -61,6 +61,12 @@ mat-menu-panel {
     top: 20px;
     
 }
+.mat-menu-content{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-left: -1px;
+}
+
 
 table {
     width: 100%;

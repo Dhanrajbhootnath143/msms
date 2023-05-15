@@ -9,8 +9,8 @@ import { MsmsService } from 'src/app/msms.service';
 
 
 export interface UserData {
-  party_id: number;
-  Party: string;
+  purch_id: number;
+  party_name: string;
   basic_amount: number;
   discount:number;
   sgst:number;
@@ -30,7 +30,7 @@ export interface UserData {
   styleUrls: ['./purchase.component.css']
 })
 export class PurchaseComponent implements OnInit {
-  displayedColumns: string[] = ['party_id','purch_party_id_fk','purch_party_bill_no','basic_amount','discount','sgst','cgst','ro','net_amount','purch_date','action'];
+  displayedColumns: string[] = ['purch_id','party_name','purch_party_bill_no','basic_amount','discount','sgst','cgst','ro','net_amount','purch_date','action'];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -46,7 +46,7 @@ export class PurchaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.get_purch().subscribe(
+    this.service.get_purch_view().subscribe(
       (purch_data: any) => {
         this.dataSource = new MatTableDataSource(purch_data.data);
         this.purch_data = purch_data.data.length
@@ -55,14 +55,22 @@ export class PurchaseComponent implements OnInit {
       }
     )
   }
-
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
   edit_purch(row: any) {
-    this.route.navigate(['home/purchase/addpurch'])
+    this.route.navigate(['home/purchase/addpurch'],row)
   }
 
   add_purchase() {
    this.route.navigate(['home/purchase/addpurch'])
   }
+  onDrafBill(row: any) {
+    this.route.navigate(['home/purchase/addpurch'], row)
+
+  }
+ 
   
 
   applyFilter(event: Event) {

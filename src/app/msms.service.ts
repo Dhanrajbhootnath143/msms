@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MsmsService {
+  purch_desc_insert(productfrom: FormData) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
     private http: HttpClient
@@ -206,6 +209,7 @@ export class MsmsService {
     return this.http.get<any>(this.baseUrl + 'purch_party_view.php');
 
   }
+
   purch_item_post(data:any){
     return this.http.post<any>(this.baseUrl + 'purch_desc_insert.php',data);
 
@@ -214,6 +218,16 @@ export class MsmsService {
     return this.http.get<any>(this.baseUrl + 'purch_desc_view.php');
 
   }
+  purch_party_update(data:any){
+    return this.http.post<any>(this.baseUrl + 'purch_party_update.php',data);
+
+}
+  get_purch_view(){ 
+    return this.http.get<any>(this.baseUrl  + 'purch_desc_party_view.php')
+
+  }
+
+
 
 }
 
